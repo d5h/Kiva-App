@@ -7,10 +7,19 @@
 //
 
 #import "LoanCell.h"
+#import "UIImageView+AFNetworking.h"
 @interface LoanCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *useLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *loanImageView;
+@property (weak, nonatomic) IBOutlet UILabel *countryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sectorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *daysLeftLabel;
+@property (weak, nonatomic) IBOutlet UIProgressView *loanProgressView;
+@property (weak, nonatomic) IBOutlet UILabel *percentFundedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *loanAmountLabel;
 
 
 @end
@@ -34,6 +43,16 @@
     
     self.nameLabel.text = loan.name;
     self.useLabel.text = loan.use;
+    self.countryLabel.text = loan.country;
+    self.sectorLabel.text = loan.sector;
+    self.activityLabel.text = loan.activity;
+    
+    [self.loanImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", loan.imageId]]];
+
+    self.loanAmountLabel.text = [NSString stringWithFormat:@"$%d/%d", [loan.fundedAmount intValue], [loan.loanAmount intValue]];
+    self.percentFundedLabel.text = [NSString stringWithFormat:@"%0.0f%% funded", [loan.fundedAmount floatValue]/[loan.loanAmount floatValue] * 100];
+    
+    
 }
 
 @end

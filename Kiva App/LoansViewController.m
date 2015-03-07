@@ -41,7 +41,7 @@
     [[KivaClient sharedClient] fetchLoansWithParameters:nil].then(^(LoanInfo *loanInfo) {
         self.loans = loanInfo.loans;
         [self.tableView reloadData];
-//        NSLog(@"loans: %@", self.loans);
+        NSLog(@"loans: %@", self.loans);
      }).catch(^(NSError *errror) {
         NSLog(@"error loading loans");
     });

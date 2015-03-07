@@ -17,7 +17,16 @@
   @{
     @"name" : @"name",
     @"identifier" : @"id",
-    @"use" : @"use"
+    @"use" : @"use",
+    @"loanAmount" : @"loan_amount",
+    @"fundedAmount" :@"funded_amount",
+    @"imageId" : @"image.id",
+    @"country" : @"location.country",
+    @"sector" : @"sector",
+    @"activity": @"activity",
+    @"postedDate": @"posted_date",
+    @"plannedExpirationDate": @"planned_expiration_date",
+    @"partnerId" : @"partner_id",
     };
 }
 
