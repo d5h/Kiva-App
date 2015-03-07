@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoansViewController.h"
+#import "TeamSearchViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,8 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[LoansViewController new]];
+    //self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[LoansViewController new]];
+    self.window.rootViewController = [[TeamSearchViewController alloc] init];
     
     [self.window makeKeyAndVisible];
     return YES;

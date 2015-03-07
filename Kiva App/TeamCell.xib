@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="140" id="KGk-i7-Jjw" customClass="TeamCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scientists for Change" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kT1-FQ-ajl">
+                        <rect key="frame" x="8" y="8" width="165" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4m-Wu-oHX">
+                        <rect key="frame" x="8" y="36" width="35" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group of scientists dedicated to lower poverty rates and enacting social change world wide." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8o-2k-hua">
+                        <rect key="frame" x="8" y="65" width="705.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="x8o-2k-hua" firstAttribute="top" secondItem="Z4m-Wu-oHX" secondAttribute="bottom" constant="8" id="7w8-w1-wmA"/>
+                    <constraint firstItem="kT1-FQ-ajl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="BNX-ep-fuy"/>
+                    <constraint firstItem="x8o-2k-hua" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="EKk-Px-KQg"/>
+                    <constraint firstItem="Z4m-Wu-oHX" firstAttribute="top" secondItem="kT1-FQ-ajl" secondAttribute="bottom" constant="8" id="OPm-rd-Sxy"/>
+                    <constraint firstItem="kT1-FQ-ajl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Wre-fM-gzk"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="x8o-2k-hua" secondAttribute="bottom" constant="8.5" id="c8E-vy-wEj"/>
+                    <constraint firstItem="Z4m-Wu-oHX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="nAl-za-5WS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="x8o-2k-hua" id="f1l-ym-y4Q"/>
+                <outlet property="nameLabel" destination="kT1-FQ-ajl" id="bpS-L0-mbx"/>
+                <outlet property="whereaboutsLabel" destination="Z4m-Wu-oHX" id="tSm-d9-b6b"/>
+            </connections>
+            <point key="canvasLocation" x="432" y="453"/>
+        </tableViewCell>
+    </objects>
+</document>

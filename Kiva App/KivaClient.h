@@ -13,6 +13,7 @@
 @interface KivaClient : OVCHTTPSessionManager
 
 - (PMKPromise *)fetchLoansWithParameters:(NSDictionary *)parameters;
+- (PMKPromise *)fetchTeamsWithParameters:(NSDictionary *)parameters;
 
 + (instancetype)sharedClient;
 

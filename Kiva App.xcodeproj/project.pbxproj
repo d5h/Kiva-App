@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89281AAB8D1400DDEE3D /* Team.m */; };
+		5D1E892C1AAB902B00DDEE3D /* TeamList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E892B1AAB902B00DDEE3D /* TeamList.m */; };
+		5D1E892F1AAB92BE00DDEE3D /* TeamSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E892E1AAB92BE00DDEE3D /* TeamSearchViewController.m */; };
+		5D1E89331AAB92E500DDEE3D /* TeamsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89311AAB92E500DDEE3D /* TeamsListViewController.m */; };
+		5D1E89341AAB92E500DDEE3D /* TeamsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E89321AAB92E500DDEE3D /* TeamsListViewController.xib */; };
+		5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89361AAB932500DDEE3D /* TeamCell.m */; };
+		5D1E89391AAB932500DDEE3D /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E89371AAB932500DDEE3D /* TeamCell.xib */; };
 		5D680A8A1AA5846E000F365D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D680A891AA5846E000F365D /* main.m */; };
 		5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D680A8C1AA5846E000F365D /* AppDelegate.m */; };
 		5D680A951AA5846E000F365D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D680A941AA5846E000F365D /* Images.xcassets */; };
@@ -34,6 +41,18 @@
 
 /* Begin PBXFileReference section */
 		2EA917B2940A1400F9037894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D1E89271AAB8D1400DDEE3D /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		5D1E89281AAB8D1400DDEE3D /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		5D1E892A1AAB902B00DDEE3D /* TeamList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamList.h; sourceTree = "<group>"; };
+		5D1E892B1AAB902B00DDEE3D /* TeamList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamList.m; sourceTree = "<group>"; };
+		5D1E892D1AAB92BE00DDEE3D /* TeamSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamSearchViewController.h; sourceTree = "<group>"; };
+		5D1E892E1AAB92BE00DDEE3D /* TeamSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamSearchViewController.m; sourceTree = "<group>"; };
+		5D1E89301AAB92E500DDEE3D /* TeamsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamsListViewController.h; sourceTree = "<group>"; };
+		5D1E89311AAB92E500DDEE3D /* TeamsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamsListViewController.m; sourceTree = "<group>"; };
+		5D1E89321AAB92E500DDEE3D /* TeamsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamsListViewController.xib; sourceTree = "<group>"; };
+		5D1E89351AAB932500DDEE3D /* TeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCell.h; sourceTree = "<group>"; };
+		5D1E89361AAB932500DDEE3D /* TeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCell.m; sourceTree = "<group>"; };
+		5D1E89371AAB932500DDEE3D /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
 		5D680A841AA5846E000F365D /* Kiva App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kiva App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D680A881AA5846E000F365D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D680A891AA5846E000F365D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,6 +166,11 @@
 				63183DA21AAA9D8D00F63194 /* LoansViewController.h */,
 				63183DA31AAA9D8D00F63194 /* LoansViewController.m */,
 				63183DA41AAA9D8D00F63194 /* LoansViewController.xib */,
+				5D1E892D1AAB92BE00DDEE3D /* TeamSearchViewController.h */,
+				5D1E892E1AAB92BE00DDEE3D /* TeamSearchViewController.m */,
+				5D1E89301AAB92E500DDEE3D /* TeamsListViewController.h */,
+				5D1E89311AAB92E500DDEE3D /* TeamsListViewController.m */,
+				5D1E89321AAB92E500DDEE3D /* TeamsListViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -157,6 +181,9 @@
 				63183DAB1AAAF26400F63194 /* LoanCell.h */,
 				63183DAC1AAAF26400F63194 /* LoanCell.m */,
 				63183DAD1AAAF26400F63194 /* LoanCell.xib */,
+				5D1E89351AAB932500DDEE3D /* TeamCell.h */,
+				5D1E89361AAB932500DDEE3D /* TeamCell.m */,
+				5D1E89371AAB932500DDEE3D /* TeamCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -168,6 +195,10 @@
 				63B199CA1AA8433000ED685D /* Loan.m */,
 				63183DA71AAAE91800F63194 /* LoanInfo.h */,
 				63183DA81AAAE91800F63194 /* LoanInfo.m */,
+				5D1E89271AAB8D1400DDEE3D /* Team.h */,
+				5D1E89281AAB8D1400DDEE3D /* Team.m */,
+				5D1E892A1AAB902B00DDEE3D /* TeamList.h */,
+				5D1E892B1AAB902B00DDEE3D /* TeamList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -280,9 +311,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D1E89341AAB92E500DDEE3D /* TeamsListViewController.xib in Resources */,
 				5D680A981AA5846E000F365D /* LaunchScreen.xib in Resources */,
 				5D680A951AA5846E000F365D /* Images.xcassets in Resources */,
 				63183DA61AAA9D8D00F63194 /* LoansViewController.xib in Resources */,
+				5D1E89391AAB932500DDEE3D /* TeamCell.xib in Resources */,
 				63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,11 +367,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */,
+				5D1E89331AAB92E500DDEE3D /* TeamsListViewController.m in Sources */,
+				5D1E892F1AAB92BE00DDEE3D /* TeamSearchViewController.m in Sources */,
 				63B199CB1AA8433000ED685D /* Loan.m in Sources */,
 				63B199CE1AA8439300ED685D /* KivaClient.m in Sources */,
 				63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */,
 				63183DA51AAA9D8D00F63194 /* LoansViewController.m in Sources */,
 				63183DA91AAAE91800F63194 /* LoanInfo.m in Sources */,
+				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,
+				5D1E892C1AAB902B00DDEE3D /* TeamList.m in Sources */,
 				5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */,
 				5D680A8A1AA5846E000F365D /* main.m in Sources */,
 			);
