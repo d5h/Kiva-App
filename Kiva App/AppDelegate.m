@@ -22,8 +22,13 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[LoansViewController new]];
-    self.window.rootViewController = [[TeamSearchViewController alloc] init];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    UIViewController *loansViewControoler = [[UINavigationController alloc] initWithRootViewController:[LoansViewController new]];
+    TeamSearchViewController *teamSearchViewController = [[TeamSearchViewController alloc] init];
+    tabBarController.viewControllers = @[loansViewControoler, teamSearchViewController];
+    loansViewControoler.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:nil tag:0];
+    teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:nil tag:0];
+    self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
     return YES;
