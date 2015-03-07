@@ -47,7 +47,7 @@ static KivaClient *_sharedClient = nil;
     NSString *path = @"loans/newest.json";
     
     return [self GET:path parameters:parameters].then(^(OVCResponse *response) {
-//        NSLog(@"response %@", response.result);
+       // NSLog(@"response %@", response.result);
         return response.result;
     });
 }
