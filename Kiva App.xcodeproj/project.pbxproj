@@ -14,6 +14,7 @@
 		5D1E89341AAB92E500DDEE3D /* TeamsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E89321AAB92E500DDEE3D /* TeamsListViewController.xib */; };
 		5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89361AAB932500DDEE3D /* TeamCell.m */; };
 		5D1E89391AAB932500DDEE3D /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E89371AAB932500DDEE3D /* TeamCell.xib */; };
+		5D1E893C1AABB31200DDEE3D /* TeamsSearchFilterForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E893B1AABB31200DDEE3D /* TeamsSearchFilterForm.m */; };
 		5D680A8A1AA5846E000F365D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D680A891AA5846E000F365D /* main.m */; };
 		5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D680A8C1AA5846E000F365D /* AppDelegate.m */; };
 		5D680A951AA5846E000F365D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D680A941AA5846E000F365D /* Images.xcassets */; };
@@ -53,6 +54,8 @@
 		5D1E89351AAB932500DDEE3D /* TeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCell.h; sourceTree = "<group>"; };
 		5D1E89361AAB932500DDEE3D /* TeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCell.m; sourceTree = "<group>"; };
 		5D1E89371AAB932500DDEE3D /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
+		5D1E893A1AABB31200DDEE3D /* TeamsSearchFilterForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamsSearchFilterForm.h; sourceTree = "<group>"; };
+		5D1E893B1AABB31200DDEE3D /* TeamsSearchFilterForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamsSearchFilterForm.m; sourceTree = "<group>"; };
 		5D680A841AA5846E000F365D /* Kiva App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kiva App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D680A881AA5846E000F365D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D680A891AA5846E000F365D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				5D1E89301AAB92E500DDEE3D /* TeamsListViewController.h */,
 				5D1E89311AAB92E500DDEE3D /* TeamsListViewController.m */,
 				5D1E89321AAB92E500DDEE3D /* TeamsListViewController.xib */,
+				5D1E893A1AABB31200DDEE3D /* TeamsSearchFilterForm.h */,
+				5D1E893B1AABB31200DDEE3D /* TeamsSearchFilterForm.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				63183DA91AAAE91800F63194 /* LoanInfo.m in Sources */,
 				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,
 				5D1E892C1AAB902B00DDEE3D /* TeamList.m in Sources */,
+				5D1E893C1AABB31200DDEE3D /* TeamsSearchFilterForm.m in Sources */,
 				5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */,
 				5D680A8A1AA5846E000F365D /* main.m in Sources */,
 			);

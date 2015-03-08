@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FXForms (1.2.12)
   - Mantle (1.5.4):
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
@@ -75,10 +76,13 @@ PODS:
     - PromiseKit/Promise
 
 DEPENDENCIES:
+  - AFNetworking
+  - FXForms
   - Overcoat/PromiseKit
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
+  FXForms: ae90610432a0a9cbb71e0180f202d0fff375881f
   Mantle: d5fbaf30fbc58031223af13812c060e15934a1fe
   OMGHTTPURLRQ: f8c515dfd2f57a5d74c710978f600231f52afec5
   Overcoat: a4105827c4b4a358e769482b63328ab8be5f41c9
