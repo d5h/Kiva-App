@@ -11,8 +11,13 @@
 @implementation Team
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{@"identifier" : @"id",
-             @"desc": @"description"};
+    return @{@"desc": @"description",
+             @"identifier": @"id",
+             @"imageId": @"image.id",
+             @"loanBecause": @"loan_because",
+             @"loanCount": @"loan_count",
+             @"loanedAmount": @"loaned_amount",
+             @"memberCount": @"member_count"};
 }
 
 + (NSDateFormatter *)dateFormatter {

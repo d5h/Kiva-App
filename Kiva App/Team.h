@@ -24,5 +24,6 @@
 @property (copy, nonatomic, readonly) NSNumber *memberCount;
 @property (copy, nonatomic, readonly) NSNumber *loanCount;
 @property (copy, nonatomic, readonly) NSNumber *loanedAmount;
+@property (nonatomic, readonly) int imageId;
 
 @end
