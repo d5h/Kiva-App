@@ -9,10 +9,8 @@
 #import "TeamSearchViewController.h"
 #import "TeamsListViewController.h"
 #import "TeamList.h"
-#import "KivaClient.h"
+#import "KivaClientO.h"
 #import "TeamsSearchFilterForm.h"
-
-#import <PromiseKit/PromiseKit.h>
 
 @interface TeamSearchViewController ()
 
@@ -39,9 +37,13 @@
 }
 
 - (void)loadTeamsWithFilters:(NSDictionary *)filters {
-    [[KivaClient sharedClient] fetchTeamsWithParameters:filters].then(^(TeamList *teams) {
-        self.teamsListViewController.teams = teams.teams;
-    });
+    [[KivaClientO sharedInstance] fetchTeamsWithParams:nil completion:^(NSArray *teams, NSError *error) {
+        if (error) {
+            NSLog(@"TeamSearchViewController error loading teams: %@", error);
+        } else {
+            self.teamsListViewController.teams = teams;
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
