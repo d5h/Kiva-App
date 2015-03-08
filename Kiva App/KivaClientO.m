@@ -40,10 +40,10 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     self.loginCompletion = completion;
     
     [self.requestSerializer removeAccessToken];
-    [self fetchRequestTokenWithPath:@"/oauth/request_token" method:@"GET" callbackURL:[NSURL URLWithString:@"cpkiva://oauth"] scope:nil success:^(BDBOAuth1Credential *requestToken) {
+    [self fetchRequestTokenWithPath:@"https://api.kivaws.org/v1/oauth/request_token" method:@"GET" callbackURL:[NSURL URLWithString:@"cpkiva://oauth"] scope:nil success:^(BDBOAuth1Credential *requestToken) {
         NSLog(@"got the request token!");
         
-        NSString *urlString = [NSString stringWithFormat:@"/oauth/authorize?oauth_token=%@", requestToken.token];
+        NSString *urlString = [NSString stringWithFormat:@"https://www.kiva.org/oauth/authorize?oauth_token=%@", requestToken.token];
         
         NSURL *authURL = [NSURL URLWithString:urlString];
         [[UIApplication sharedApplication] openURL:authURL];
