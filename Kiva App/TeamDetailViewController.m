@@ -11,6 +11,7 @@
 
 @interface TeamDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *teamImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
@@ -25,6 +26,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLayoutConstraint *leftConstraint =
+    [NSLayoutConstraint constraintWithItem:self.contentView
+                                 attribute:NSLayoutAttributeLeading
+                                 relatedBy:0
+                                    toItem:self.view
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1.0
+                                  constant:0];
+    [self.view addConstraint:leftConstraint];
+    
+    NSLayoutConstraint *rightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.contentView
+                                 attribute:NSLayoutAttributeTrailing
+                                 relatedBy:0
+                                    toItem:self.view
+                                 attribute:NSLayoutAttributeRight
+                                multiplier:1.0
+                                  constant:0];
+    [self.view addConstraint:rightConstraint];
     
     self.nameLabel.preferredMaxLayoutWidth = self.nameLabel.frame.size.width;
     self.categoryLabel.preferredMaxLayoutWidth = self.categoryLabel.frame.size.width;
