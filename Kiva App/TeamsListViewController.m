@@ -8,6 +8,7 @@
 
 #import "TeamsListViewController.h"
 #import "TeamCell.h"
+#import "TeamDetailViewController.h"
 
 @interface TeamsListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -47,6 +48,12 @@
     TeamCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeamCell"];
     cell.team = self.teams[indexPath.row];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TeamDetailViewController *vc = [[TeamDetailViewController alloc] init];
+    vc.team = self.teams[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

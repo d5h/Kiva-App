@@ -15,6 +15,8 @@
 		5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89361AAB932500DDEE3D /* TeamCell.m */; };
 		5D1E89391AAB932500DDEE3D /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E89371AAB932500DDEE3D /* TeamCell.xib */; };
 		5D1E893C1AABB31200DDEE3D /* TeamsSearchFilterForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E893B1AABB31200DDEE3D /* TeamsSearchFilterForm.m */; };
+		5D1E89401AACD96200DDEE3D /* TeamDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E893E1AACD96200DDEE3D /* TeamDetailViewController.m */; };
+		5D1E89411AACD96200DDEE3D /* TeamDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E893F1AACD96200DDEE3D /* TeamDetailViewController.xib */; };
 		5D680A8A1AA5846E000F365D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D680A891AA5846E000F365D /* main.m */; };
 		5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D680A8C1AA5846E000F365D /* AppDelegate.m */; };
 		5D680A951AA5846E000F365D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D680A941AA5846E000F365D /* Images.xcassets */; };
@@ -56,6 +58,9 @@
 		5D1E89371AAB932500DDEE3D /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
 		5D1E893A1AABB31200DDEE3D /* TeamsSearchFilterForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamsSearchFilterForm.h; sourceTree = "<group>"; };
 		5D1E893B1AABB31200DDEE3D /* TeamsSearchFilterForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamsSearchFilterForm.m; sourceTree = "<group>"; };
+		5D1E893D1AACD96200DDEE3D /* TeamDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamDetailViewController.h; sourceTree = "<group>"; };
+		5D1E893E1AACD96200DDEE3D /* TeamDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamDetailViewController.m; sourceTree = "<group>"; };
+		5D1E893F1AACD96200DDEE3D /* TeamDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamDetailViewController.xib; sourceTree = "<group>"; };
 		5D680A841AA5846E000F365D /* Kiva App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kiva App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D680A881AA5846E000F365D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D680A891AA5846E000F365D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -176,6 +181,9 @@
 				5D1E89321AAB92E500DDEE3D /* TeamsListViewController.xib */,
 				5D1E893A1AABB31200DDEE3D /* TeamsSearchFilterForm.h */,
 				5D1E893B1AABB31200DDEE3D /* TeamsSearchFilterForm.m */,
+				5D1E893D1AACD96200DDEE3D /* TeamDetailViewController.h */,
+				5D1E893E1AACD96200DDEE3D /* TeamDetailViewController.m */,
+				5D1E893F1AACD96200DDEE3D /* TeamDetailViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -322,6 +330,7 @@
 				63183DA61AAA9D8D00F63194 /* LoansViewController.xib in Resources */,
 				5D1E89391AAB932500DDEE3D /* TeamCell.xib in Resources */,
 				63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */,
+				5D1E89411AACD96200DDEE3D /* TeamDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D1E89401AACD96200DDEE3D /* TeamDetailViewController.m in Sources */,
 				5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */,
 				5D1E89331AAB92E500DDEE3D /* TeamsListViewController.m in Sources */,
 				5D1E892F1AAB92BE00DDEE3D /* TeamSearchViewController.m in Sources */,
