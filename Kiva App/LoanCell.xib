@@ -212,6 +212,7 @@
                 <outlet property="loanProgressView" destination="KXe-FO-9hd" id="8X3-rH-Myr"/>
                 <outlet property="nameLabel" destination="APa-VL-tnM" id="jch-kT-teM"/>
                 <outlet property="percentFundedLabel" destination="pJf-3F-UTq" id="G6l-39-EYA"/>
+                <outlet property="progressBar" destination="KXe-FO-9hd" id="MTD-a2-5IH"/>
                 <outlet property="sectorLabel" destination="vW6-Yr-Lwn" id="ML2-BQ-9dx"/>
                 <outlet property="useLabel" destination="ocf-yJ-gHW" id="Omh-G0-tyZ"/>
             </connections>

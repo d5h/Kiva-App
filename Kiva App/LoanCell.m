@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *percentFundedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *loanAmountLabel;
 
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @end
 
@@ -51,6 +52,7 @@
 
     self.loanAmountLabel.text = [NSString stringWithFormat:@"$%d/%d", [loan.fundedAmount intValue], [loan.loanAmount intValue]];
     self.percentFundedLabel.text = [NSString stringWithFormat:@"%0.0f%% funded", [loan.fundedAmount floatValue]/[loan.loanAmount floatValue] * 100];
+    self.progressBar.progress = [loan.fundedAmount floatValue]/[loan.loanAmount floatValue];
     
     
 }
