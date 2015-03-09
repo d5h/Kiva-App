@@ -11,6 +11,7 @@
 #import "LoanInfo.h"
 #import "Loan.h"
 #import "LoanCell.h"
+#import "LoanDetailViewController.h"
 
 #import <PromiseKit/PromiseKit.h>
 
@@ -41,7 +42,7 @@
     [[KivaClient sharedClient] fetchLoansWithParameters:nil].then(^(LoanInfo *loanInfo) {
         self.loans = loanInfo.loans;
         [self.tableView reloadData];
-        NSLog(@"loans: %@", self.loans);
+        //NSLog(@"loans: %@", self.loans);
      }).catch(^(NSError *errror) {
         NSLog(@"error loading loans");
     });
@@ -65,5 +66,28 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    LoanDetailViewController *ldvc = [[LoanDetailViewController alloc] init];
+    Loan *loan = self.loans[indexPath.row];
+    ldvc.loanId = loan.identifier;
+
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:ldvc];
+    nvc.navigationBar.translucent = NO;
+    
+    
+    
+    CATransition *ldvctransition = [CATransition animation];
+    ldvctransition.type = kCATransitionPush;
+    ldvctransition.subtype = kCATransitionFromRight;
+    [self.view.window.layer addAnimation:ldvctransition forKey:kCATransition];
+    
+    [self.navigationController presentViewController:nvc animated:NO completion:nil];
+}
+
 
 @end

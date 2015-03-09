@@ -9,6 +9,7 @@
 #import "KivaClient.h"
 #import "LoanInfo.h"
 #import "TeamList.h"
+#import "LoanDetailInfo.h"
 
 #import <Overcoat/PromiseKit+Overcoat.h>
 
@@ -60,13 +61,26 @@ static KivaClient *_sharedClient = nil;
     });
 }
 
+- (PMKPromise *)fetchLoanDetailsWithParameters:(NSDictionary *)parameters withLoanId : (NSNumber*) loanId {
+    //    NSString *path = @"loans/newest.json";
+    NSString *path = [NSString stringWithFormat:@"loans/%d.json", [loanId intValue]];
+    NSLog(@"Going to fetch path %@", path);
+    
+    return [self GET:path parameters:parameters].then(^(OVCResponse *response) {
+         NSLog(@"response %@", response.result);
+        return response.result;
+    });
+    
+}
+
 
 #pragma mark - OVCHTTPSessionManager
 
 + (NSDictionary *)modelClassesByResourcePath {
     return @{
              @"loans/*": [LoanInfo class],
-             @"teams/*": [TeamList class]
+             @"teams/*": [TeamList class],
+             @"loans/*": [LoanDetailInfo class]
              };
 }
 
