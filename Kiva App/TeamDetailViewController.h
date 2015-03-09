@@ -13,6 +13,4 @@
 
 @property (nonatomic, strong) Team *team;
 
-- (void)setTeam:(Team *)team;
-
 @end
