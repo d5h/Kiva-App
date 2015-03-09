@@ -86,7 +86,7 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
 }
 
 - (void)fetchLoansWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion {
-    [self GET:@"loans/newest.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self GET:@"loans/search.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;
         NSArray *loans = [MTLJSONAdapter modelsOfClass:[Loan class] fromJSONArray:responseObject[@"loans"] error:&error];
         if (error) {

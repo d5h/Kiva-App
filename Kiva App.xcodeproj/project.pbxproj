@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		224E0E391AAD25510077A85C /* LoanDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E0E381AAD25510077A85C /* LoanDetailInfo.m */; };
+		224E0E3C1AAD6EFC0077A85C /* LoansSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */; };
+		224E0E3E1AAD72A20077A85C /* LoansSearchFilterForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */; };
 		22C83CA81AACC703009E155E /* LoanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C83CA61AACC703009E155E /* LoanDetailViewController.m */; };
 		22C83CA91AACC703009E155E /* LoanDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C83CA71AACC703009E155E /* LoanDetailViewController.xib */; };
 		22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C83CAB1AACF44D009E155E /* LoanDetail.m */; };
@@ -53,6 +55,10 @@
 /* Begin PBXFileReference section */
 		224E0E371AAD25510077A85C /* LoanDetailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanDetailInfo.h; sourceTree = "<group>"; };
 		224E0E381AAD25510077A85C /* LoanDetailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanDetailInfo.m; sourceTree = "<group>"; };
+		224E0E3A1AAD6EFC0077A85C /* LoansSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoansSearchViewController.h; sourceTree = "<group>"; };
+		224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoansSearchViewController.m; sourceTree = "<group>"; };
+		224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoansSearchFilterForm.m; sourceTree = "<group>"; };
+		224E0E3F1AAD72B50077A85C /* LoansSearchFilterForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoansSearchFilterForm.h; sourceTree = "<group>"; };
 		22C83CA51AACC703009E155E /* LoanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanDetailViewController.h; sourceTree = "<group>"; };
 		22C83CA61AACC703009E155E /* LoanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanDetailViewController.m; sourceTree = "<group>"; };
 		22C83CA71AACC703009E155E /* LoanDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanDetailViewController.xib; sourceTree = "<group>"; };
@@ -212,6 +218,10 @@
 				63E72F6C1AACF59E00BD1F9F /* LoginViewController.h */,
 				63E72F6D1AACF59E00BD1F9F /* LoginViewController.m */,
 				63E72F6E1AACF59E00BD1F9F /* LoginViewController.xib */,
+				224E0E3A1AAD6EFC0077A85C /* LoansSearchViewController.h */,
+				224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */,
+				224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */,
+				224E0E3F1AAD72B50077A85C /* LoansSearchFilterForm.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -419,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224E0E3C1AAD6EFC0077A85C /* LoansSearchViewController.m in Sources */,
 				5D1E89401AACD96200DDEE3D /* TeamDetailViewController.m in Sources */,
 				5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */,
 				22C83CA81AACC703009E155E /* LoanDetailViewController.m in Sources */,
@@ -431,6 +442,7 @@
 				63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */,
 				63183DA51AAA9D8D00F63194 /* LoansViewController.m in Sources */,
 				63E72F6F1AACF59E00BD1F9F /* LoginViewController.m in Sources */,
+				224E0E3E1AAD72A20077A85C /* LoansSearchFilterForm.m in Sources */,
 				63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */,
 				63183DA91AAAE91800F63194 /* LoanInfo.m in Sources */,
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,

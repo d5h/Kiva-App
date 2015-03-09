@@ -1,50 +1,55 @@
 //
-//  TeamSearchViewController.m
+//  LoansSearchViewController.m
 //  Kiva App
 //
-//  Created by Dan Hipschman on 3/7/15.
+//  Created by Syed, Afzal on 3/8/15.
 //  Copyright (c) 2015 Codepath. All rights reserved.
 //
 
-#import "TeamSearchViewController.h"
-#import "TeamsListViewController.h"
-#import "TeamList.h"
+#import "LoansSearchViewController.h"
+#import "LoansViewController.h"
+#import "LoanInfo.h"
 #import "KivaClientO.h"
-#import "TeamsSearchFilterForm.h"
+#import "LoansSearchFilterForm.h"
 
-@interface TeamSearchViewController ()
 
-@property (strong, nonatomic) TeamsListViewController *teamsListViewController;
-@property (nonatomic, strong) TeamsSearchFilterForm *filterForm;
+@interface LoansSearchViewController ()
+@property (strong, nonatomic) LoansViewController *loansViewController;
+@property (nonatomic, strong) LoansSearchFilterForm *filterForm;
 @property (nonatomic, strong) UINavigationController *filterNavigationController;
 @property (nonatomic, strong) NSDictionary *filters;
 
 @end
 
-@implementation TeamSearchViewController
+@implementation LoansSearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.loansViewController = [[LoansViewController alloc]init];
 
-    self.teamsListViewController = [[TeamsListViewController alloc] init];
-    [self setViewControllers:@[self.teamsListViewController]];
-    [self loadTeamsWithFilters:nil];
+    [self setViewControllers:@[self.loansViewController]];
+    [self loadLoansWithFilters:nil];
     
-    self.teamsListViewController.navigationItem.titleView = [[UISearchBar alloc] init];
-    self.teamsListViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
+    
+    self.loansViewController.navigationItem.titleView = [[UISearchBar alloc] init];
+    self.loansViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
     
     self.filters = @{};
 }
 
-- (void)loadTeamsWithFilters:(NSDictionary *)filters {
-    [[KivaClientO sharedInstance] fetchTeamsWithParams:filters completion:^(NSArray *teams, NSError *error) {
+- (void)loadLoansWithFilters:(NSDictionary *)filters {
+    [[KivaClientO sharedInstance] fetchLoansWithParams:filters completion:^(NSArray *loans, NSError *error) {
         if (error) {
             NSLog(@"TeamSearchViewController error loading teams: %@", error);
         } else {
-            self.teamsListViewController.teams = teams;
+            self.loansViewController.loans = loans;
+            //NSLog(@"%@", loans);
         }
     }];
 }
+    
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -54,7 +59,7 @@
 #pragma mark - Filtering
 
 - (void)onFilter {
-    self.filterForm = [[TeamsSearchFilterForm alloc] initWithDictionary:self.filters];
+    self.filterForm = [[LoansSearchFilterForm alloc] initWithDictionary:self.filters];
     FXFormViewController *formViewController = [[FXFormViewController alloc] init];
     formViewController.formController.form = self.filterForm;
     self.filterNavigationController = [[UINavigationController alloc] initWithRootViewController:formViewController];
@@ -70,7 +75,9 @@
 - (void)onFilterDone {
     [self.filterNavigationController dismissViewControllerAnimated:YES completion:nil];
     self.filters = [self.filterForm dictionary];
-    [self loadTeamsWithFilters:self.filters];
+    [self loadLoansWithFilters:self.filters];
+
 }
+
 
 @end

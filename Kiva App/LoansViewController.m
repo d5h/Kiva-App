@@ -17,7 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSArray *loans;
+//@property (nonatomic, strong) NSArray *loans;
 
 @end
 
@@ -35,6 +35,10 @@
     [self refresh];
 }
 
+- (void)setLoans:(NSArray *)loans{
+    _loans = loans;
+    [self.tableView reloadData];
+}
 
 - (void) refresh {
     [[KivaClientO sharedInstance] fetchLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {

@@ -10,4 +10,8 @@
 
 @interface LoansViewController : UIViewController
 
+@property (nonatomic, strong) NSArray *loans;
+
+- (void)setLoans:(NSArray *)loans;
+
 @end

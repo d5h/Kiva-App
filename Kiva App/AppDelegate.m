@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "LoansViewController.h"
 #import "TeamSearchViewController.h"
+#import "LoansSearchViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,11 +26,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    UIViewController *loansViewControoler = [[UINavigationController alloc] initWithRootViewController:[LoansViewController new]];
+//    UIViewController *loansViewControoler = [[UINavigationController alloc] initWithRootViewController:[LoansViewController new]];
     TeamSearchViewController *teamSearchViewController = [[TeamSearchViewController alloc] init];
+    LoansSearchViewController *loansSearchViewController = [[LoansSearchViewController alloc]init];
     LoginViewController *loginViewController = [LoginViewController new];
-    tabBarController.viewControllers = @[loansViewControoler, teamSearchViewController, loginViewController];
-    loansViewControoler.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:nil tag:0];
+    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, loginViewController];
+    loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:nil tag:0];
     teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:nil tag:0];
     loginViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My" image:nil tag:0];
     self.window.rootViewController = tabBarController;
