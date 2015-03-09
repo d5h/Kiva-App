@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "KivaClientO.h"
+#import "LoginViewController.h"
 #import "LoansViewController.h"
 #import "TeamSearchViewController.h"
 
@@ -25,9 +27,11 @@
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     UIViewController *loansViewControoler = [[UINavigationController alloc] initWithRootViewController:[LoansViewController new]];
     TeamSearchViewController *teamSearchViewController = [[TeamSearchViewController alloc] init];
-    tabBarController.viewControllers = @[loansViewControoler, teamSearchViewController];
+    LoginViewController *loginViewController = [LoginViewController new];
+    tabBarController.viewControllers = @[loansViewControoler, teamSearchViewController, loginViewController];
     loansViewControoler.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:nil tag:0];
     teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:nil tag:0];
+    loginViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My" image:nil tag:0];
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
@@ -54,6 +58,12 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [[KivaClientO sharedInstance] openURL:url];
+    
+    return YES;
 }
 
 @end

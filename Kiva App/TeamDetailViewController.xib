@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TeamDetailViewController">
+            <connections>
+                <outlet property="categoryLabel" destination="nf0-3o-dBv" id="9aV-GR-BpN"/>
+                <outlet property="contentView" destination="5Qz-xf-VUu" id="ouy-jQ-InF"/>
+                <outlet property="descriptionLabel" destination="wZy-7J-Rrp" id="ZxU-25-ZLN"/>
+                <outlet property="loanBecauseLabel" destination="LDd-35-VRT" id="XS3-H6-yxr"/>
+                <outlet property="memberLoansLabel" destination="Gd6-xB-T2s" id="GI9-La-GhN"/>
+                <outlet property="nameLabel" destination="f33-bN-4Ck" id="rE4-Cd-ILJ"/>
+                <outlet property="teamImageView" destination="Esb-U1-Lsu" id="wnG-YN-1gN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="whereaboutsLabel" destination="U7d-Yl-6CB" id="RCI-2p-jzl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Udd-vB-0x1">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qz-xf-VUu" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="547"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guys Holding Fish" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f33-bN-4Ck">
+                                    <rect key="frame" x="112" y="20" width="240" height="27"/>
+                                    <fontDescription key="fontDescription" name="Superclarendon-Bold" family="Superclarendon" pointSize="22"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Esb-U1-Lsu">
+                                    <rect key="frame" x="8" y="8" width="96" height="96"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="96" id="PX5-wP-S2U"/>
+                                        <constraint firstAttribute="width" constant="96" id="gSM-hs-s9M"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Common Interest team since May 27, 2011" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nf0-3o-dBv">
+                                    <rect key="frame" x="112" y="80" width="290.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7OJ-aC-8gG">
+                                    <rect key="frame" x="8" y="112" width="74" height="30"/>
+                                    <state key="normal" title="Join Team!">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="444 members with $6,342,543 in 10,455 loans" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gd6-xB-T2s">
+                                    <rect key="frame" x="112" y="55" width="297.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We loan because..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm0-qT-aa7">
+                                    <rect key="frame" x="112" y="130" width="149.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDd-35-VRT">
+                                    <rect key="frame" x="112" y="158" width="463.5" height="81.5"/>
+                                    <string key="text">We feel an affinity for entrepreneurs that make their living by fishing, selling fish, or attempting to make their lives better because of their proximity to the ocean, or freshwater locales...</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About us" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3I7-p2-Ujf">
+                                    <rect key="frame" x="112" y="247" width="71" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZy-7J-Rrp">
+                                    <rect key="frame" x="112" y="275" width="480" height="264"/>
+                                    <string key="text">We love fish and/or fishing so much that many of us have chosen to present ourselves on KIVA with a photo of ourselves, holding a fish! We welcome "gals" to join, as well, the name of the team notwithstanding... 
+
+We certainly support "sustainable" fishing, but also recognize that sometimes, our "Western" views of resource management may not match the needs of the very desperate folks, in other countries, struggling to make a living, or even providing food for their families ... Our intent is to help the struggling, without regard to their profession or trade. We believe that our lending record well represents that goal, as we are a pretty diverse group, with very diverse lending interests....</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United States" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7d-Yl-6CB">
+                                    <rect key="frame" x="112" y="105" width="88" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="600" placeholder="YES" id="0nE-CL-P9f"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gd6-xB-T2s" secondAttribute="trailing" constant="8" id="2W7-Yb-2HC"/>
+                                <constraint firstItem="Esb-U1-Lsu" firstAttribute="top" secondItem="5Qz-xf-VUu" secondAttribute="top" constant="8" id="2uV-zT-tlz"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LDd-35-VRT" secondAttribute="trailing" constant="8" id="48v-pU-KtV"/>
+                                <constraint firstItem="7OJ-aC-8gG" firstAttribute="top" secondItem="Esb-U1-Lsu" secondAttribute="bottom" constant="8" id="6bp-cJ-ENd"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nf0-3o-dBv" secondAttribute="trailing" constant="8" id="9s9-gT-JtL"/>
+                                <constraint firstItem="Gd6-xB-T2s" firstAttribute="top" secondItem="f33-bN-4Ck" secondAttribute="bottom" constant="8" id="CnM-WQ-hSp"/>
+                                <constraint firstItem="sm0-qT-aa7" firstAttribute="top" secondItem="U7d-Yl-6CB" secondAttribute="bottom" constant="8" id="IA2-4d-yxp"/>
+                                <constraint firstItem="Esb-U1-Lsu" firstAttribute="leading" secondItem="5Qz-xf-VUu" secondAttribute="leading" constant="8" id="K9V-TM-Xay"/>
+                                <constraint firstItem="3I7-p2-Ujf" firstAttribute="leading" secondItem="Gd6-xB-T2s" secondAttribute="leading" id="Mhs-uT-f50"/>
+                                <constraint firstItem="3I7-p2-Ujf" firstAttribute="leading" secondItem="U7d-Yl-6CB" secondAttribute="leading" id="Pg5-q1-C5d"/>
+                                <constraint firstAttribute="bottom" secondItem="wZy-7J-Rrp" secondAttribute="bottom" constant="8" id="Txc-Oa-Xsf"/>
+                                <constraint firstItem="3I7-p2-Ujf" firstAttribute="leading" secondItem="sm0-qT-aa7" secondAttribute="leading" id="UM0-K5-gKL"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U7d-Yl-6CB" secondAttribute="trailing" constant="8" id="UWA-e5-LxT"/>
+                                <constraint firstItem="3I7-p2-Ujf" firstAttribute="leading" secondItem="wZy-7J-Rrp" secondAttribute="leading" id="Vj5-Z6-wgm"/>
+                                <constraint firstItem="U7d-Yl-6CB" firstAttribute="top" secondItem="nf0-3o-dBv" secondAttribute="bottom" constant="8" id="Y2K-KZ-cvK"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f33-bN-4Ck" secondAttribute="trailing" constant="8" id="Yxl-B8-UeV"/>
+                                <constraint firstItem="Esb-U1-Lsu" firstAttribute="leading" secondItem="7OJ-aC-8gG" secondAttribute="leading" id="ac0-y4-byj"/>
+                                <constraint firstItem="3I7-p2-Ujf" firstAttribute="top" secondItem="LDd-35-VRT" secondAttribute="bottom" constant="7.5" id="bve-gJ-Tvj"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wZy-7J-Rrp" secondAttribute="trailing" constant="8" id="cJE-GJ-p3h"/>
+                                <constraint firstItem="f33-bN-4Ck" firstAttribute="top" secondItem="5Qz-xf-VUu" secondAttribute="top" constant="20" id="cr5-9D-fEa"/>
+                                <constraint firstItem="3I7-p2-Ujf" firstAttribute="leading" secondItem="nf0-3o-dBv" secondAttribute="leading" id="hiM-JB-OkD"/>
+                                <constraint firstItem="nf0-3o-dBv" firstAttribute="top" secondItem="Gd6-xB-T2s" secondAttribute="bottom" constant="8" id="p24-pY-TH2"/>
+                                <constraint firstItem="LDd-35-VRT" firstAttribute="top" secondItem="sm0-qT-aa7" secondAttribute="bottom" constant="7.5" id="pMb-Jd-ATv"/>
+                                <constraint firstItem="3I7-p2-Ujf" firstAttribute="leading" secondItem="f33-bN-4Ck" secondAttribute="leading" id="tzi-Yp-KFH"/>
+                                <constraint firstItem="wZy-7J-Rrp" firstAttribute="top" secondItem="3I7-p2-Ujf" secondAttribute="bottom" constant="7.5" id="ux8-QD-2Su"/>
+                                <constraint firstItem="3I7-p2-Ujf" firstAttribute="leading" secondItem="LDd-35-VRT" secondAttribute="leading" id="wqU-2g-fxb"/>
+                                <constraint firstItem="f33-bN-4Ck" firstAttribute="leading" secondItem="Esb-U1-Lsu" secondAttribute="trailing" constant="8" id="zJS-Bl-KQz"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="5Qz-xf-VUu" secondAttribute="bottom" id="Naz-sW-c3d"/>
+                        <constraint firstItem="5Qz-xf-VUu" firstAttribute="leading" secondItem="Udd-vB-0x1" secondAttribute="leading" id="Zbw-p6-jhg"/>
+                        <constraint firstAttribute="trailing" secondItem="5Qz-xf-VUu" secondAttribute="trailing" id="dLL-yr-yWZ"/>
+                        <constraint firstItem="5Qz-xf-VUu" firstAttribute="top" secondItem="Udd-vB-0x1" secondAttribute="top" id="dbF-jd-gyp"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Udd-vB-0x1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0b6-6s-ee0"/>
+                <constraint firstAttribute="bottom" secondItem="Udd-vB-0x1" secondAttribute="bottom" id="Vqh-jj-IPM"/>
+                <constraint firstAttribute="trailing" secondItem="Udd-vB-0x1" secondAttribute="trailing" id="sRH-Rt-Yxr"/>
+                <constraint firstItem="Udd-vB-0x1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zxj-Hn-R12"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

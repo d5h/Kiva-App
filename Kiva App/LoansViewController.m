@@ -7,13 +7,11 @@
 //
 
 #import "LoansViewController.h"
-#import "KivaClient.h"
+#import "KivaClientO.h"
 #import "LoanInfo.h"
 #import "Loan.h"
 #import "LoanCell.h"
 #import "LoanDetailViewController.h"
-
-#import <PromiseKit/PromiseKit.h>
 
 @interface LoansViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -39,13 +37,14 @@
 
 
 - (void) refresh {
-    [[KivaClient sharedClient] fetchLoansWithParameters:nil].then(^(LoanInfo *loanInfo) {
-        self.loans = loanInfo.loans;
-        [self.tableView reloadData];
-        //NSLog(@"loans: %@", self.loans);
-     }).catch(^(NSError *errror) {
-        NSLog(@"error loading loans");
-    });
+    [[KivaClientO sharedInstance] fetchLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
+        if (error) {
+            NSLog(@"LoansViewController error loading loans: %@", error);
+        } else {
+            self.loans = loans;
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
