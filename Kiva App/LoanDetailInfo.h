@@ -11,6 +11,6 @@
 #import "LoanDetail.h"
 
 @interface LoanDetailInfo : MTLModel <MTLJSONSerializing>
-@property (nonatomic, copy, readonly) LoanDetail *loanDetail;
+@property (nonatomic, copy, readonly) NSArray *loansDetails;
 
 @end

@@ -10,6 +10,7 @@
 #import "KivaClientO.h"
 #import "Loan.h"
 #import "Team.h"
+#import "LoanDetail.h"
 
 static NSString * const kConsumerKey = @"com.drrajan.codepath-kiva";
 static NSString * const kConsumerSecret = @"mnFrymBhmEkAAdnCrymzwyuBnuvnHABy";
@@ -115,5 +116,31 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     }];
     
 }
+
+- (void)fetchLoanDetailsWithParams:(NSDictionary *)params  withLoanId :(NSNumber*) loanId completion:(void (^)(NSArray *, NSError *))completion {
+    
+    NSString *path = [NSString stringWithFormat:@"loans/%d.json", [loanId intValue]];
+    [self GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        NSArray *loans = [MTLJSONAdapter modelsOfClass:[LoanDetail class] fromJSONArray:responseObject[@"loans"] error:&error];
+        if (error) {
+            NSLog(@"Error deserializing loan details: %@", error);
+            completion(nil, error);
+        } else {
+            completion(loans, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+
+//NSString *path = [NSString stringWithFormat:@"loans/%d.json", [loanId intValue]];
+//NSLog(@"Going to fetch path %@", path);
+//
+//return [self GET:path parameters:parameters].then(^(OVCResponse *response) {
+//    NSLog(@"response %@", response.result);
+//    return response.result;
+//});
 
 @end

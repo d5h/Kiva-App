@@ -8,14 +8,17 @@
 
 #import "LoanDetailViewController.h"
 #import "KivaClient.h"
+#import "KivaClientO.h"
 #import "LoanDetailInfo.h"
 #import "LoanDetail.h"
 #import <PromiseKit/PromiseKit.h>
+#import "UIImageView+AFNetworking.h"
 
 
 @interface LoanDetailViewController ()
 
-@property(nonatomic, strong)LoanDetail *loanDetail;
+//@property(nonatomic, strong)LoanDetail *loanDetail;
+@property (nonatomic, strong) NSArray *loansDetails;
 
 @property (weak, nonatomic) IBOutlet UIImageView *loanImage;
 @property (weak, nonatomic) IBOutlet UILabel *loanAmountLabel;
@@ -60,14 +63,38 @@
 //    }
 
     
-    [[KivaClient sharedClient] fetchLoanDetailsWithParameters:nil withLoanId:self.loanId].then(^(LoanDetailInfo *loanDetailInfo){
-        self.loanDetail = loanDetailInfo.loanDetail;
+//    [[KivaClient sharedClient] fetchLoanDetailsWithParameters:nil withLoanId:self.loanId].then(^(LoanDetailInfo *loanDetailInfo){
+//        self.loanDetail = loanDetailInfo.loanDetail;
+//        
+//    }).catch(^(NSError *error){
+//        NSLog(@"error loading loan details");
+//        
+//    });
+//    self.borrowersStoryLabel.text = self.loanDetail.texts;
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Browse" style:UIBarButtonItemStylePlain target:self action:@selector(onBackButton)];
+
+    
+
+//    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];
+    
+    [[KivaClientO sharedInstance] fetchLoanDetailsWithParams:nil withLoanId:self.loanId completion:^(NSArray *loansDetails, NSError *error){
         
-    }).catch(^(NSError *error){
-        NSLog(@"error loading loan details");
+        if (error) {
+            NSLog(@"LoansDetailViewController error loading loans: %@", error);
+        } else {
+//            self.loansDetails = loansDetails;
+            LoanDetail *loandetail = loansDetails[0];
+            
+            self.title = loandetail.name;
+
+            [self.loanImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", loandetail.imageId]]];
+            self.borrowersStoryLabel.text = loandetail.texts;
+            self.loanUseLabel.text = [NSString stringWithFormat:@"A loan of $%ld helps %@ %@", (long)[loandetail.loanAmount integerValue], loandetail.name, loandetail.use];
+ 
+        }
         
-    });
-    self.borrowersStoryLabel.text = self.loanDetail.texts;
+ }];
 
 }
 
@@ -76,6 +103,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void) onBackButton {
+    CATransition *tdvctransition = [CATransition animation];
+    tdvctransition.type = kCATransitionPush;
+    tdvctransition.subtype = kCATransitionFromLeft;
+    [self.view.window.layer addAnimation:tdvctransition forKey:kCATransition];
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 
 @end

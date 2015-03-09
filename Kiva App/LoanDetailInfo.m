@@ -12,7 +12,10 @@
 @implementation LoanDetailInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{};
+    return
+    @{
+      @"loans" : @"loans"
+      };
 }
 
 + (NSValueTransformer *)loansJSONTransformer
