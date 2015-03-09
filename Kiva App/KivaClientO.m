@@ -12,8 +12,8 @@
 #import "Team.h"
 #import "LoanDetail.h"
 
-static NSString * const kConsumerKey = @"com.drrajan.codepath-kiva";
-static NSString * const kConsumerSecret = @"mnFrymBhmEkAAdnCrymzwyuBnuvnHABy";
+static NSString * const kConsumerKey = @"com.drrajan.cp-kiva-app";
+static NSString * const kConsumerSecret = @"tptzHtsswtGmqsltikFDwxAxGjnmkxCm";
 static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
 
 @interface KivaClientO ()
@@ -44,7 +44,7 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     [self fetchRequestTokenWithPath:@"https://api.kivaws.org/oauth/request_token" method:@"POST" callbackURL:[NSURL URLWithString:@"cpkiva://oauth"] scope:nil success:^(BDBOAuth1Credential *requestToken) {
         NSLog(@"got the request token!");
         
-        NSString *urlString = [NSString stringWithFormat:@"https://www.kiva.org/oauth/authorize?oauth_token=%@", requestToken.token];
+        NSString *urlString = [NSString stringWithFormat:@"https://www.kiva.org/oauth/authorize?client_id=%@&response_type=code&scope=access,user_balance,user_email,user_expected_repayments,user_anon_lender_data,user_anon_lender_loans,user_loan_balances,user_stats,user_anon_lender_teams&oauth_callback=cpkiva%%3A%%2F%%2Foauth&oauth_token=%@", kConsumerKey, requestToken.token];
         
         NSURL *authURL = [NSURL URLWithString:urlString];
         [[UIApplication sharedApplication] openURL:authURL];
@@ -58,18 +58,17 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
 
 - (void)openURL:(NSURL *)url {
     [self fetchAccessTokenWithPath:@"https://api.kivaws.org/oauth/access_token" method:@"POST" requestToken:[BDBOAuth1Credential credentialWithQueryString:url.query] success:^(BDBOAuth1Credential *accessToken) {
-        NSLog(@"got access token!");
+        NSLog(@"got access token: %@ secret: %@!", accessToken.token, accessToken.secret);
         [self.requestSerializer saveAccessToken:accessToken];
         
-        [self GET:@"my/account" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            User *user = [[User alloc] initWithDictionary:responseObject];
+        [self GET:@"my/account.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"response: %@", responseObject);
             NSError *error;
-            NSArray *users = [MTLJSONAdapter modelsOfClass:[User class] fromJSONArray:responseObject error:&error];
+            User *user = [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:responseObject[@"user_account"] error:&error];
             if (error) {
                 NSLog(@"Couldn't get User model: %@", error);
                 self.loginCompletion(nil, error);
             } else {
-                User *user = users[0];
                 [User setCurrentUser:user];
                 NSLog(@"current user %@", user.name);
                 self.loginCompletion(user, nil);
