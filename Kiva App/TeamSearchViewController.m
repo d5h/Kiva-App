@@ -12,6 +12,8 @@
 #import "TeamsSearchFilterForm.h"
 #import "User.h"
 
+static NSString *kMyTeams = @"My Teams";
+
 @interface TeamSearchViewController () <UISearchBarDelegate>
 
 @property (strong, nonatomic) TeamsListViewController *teamsListViewController;
@@ -32,14 +34,14 @@
     [self setViewControllers:@[self.teamsListViewController]];
     
     self.filters = @{@"sort_by": @"loaned_amount"};
-    [self loadTeamsWithFilters:self.filters];
+    [self loadTeams];
 
 
     UISearchBar *searchBar = [[UISearchBar alloc] init];
     searchBar.delegate = self;
     self.teamsListViewController.navigationItem.titleView = searchBar;
 
-    self.teamsListViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"My Teams" style:UIBarButtonItemStylePlain target:self action:@selector(onMyTeams)];
+    self.teamsListViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kMyTeams style:UIBarButtonItemStylePlain target:self action:@selector(onMyTeams)];
     self.teamsListViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
 }
 
@@ -51,6 +53,14 @@
             self.teamsListViewController.teams = teams;
         }
     }];
+}
+
+- (void)loadTeams {
+    NSMutableDictionary *filters = [self.filters mutableCopy];
+    if (self.searchText) {
+        [filters setObject:self.searchText forKey:@"q"];
+    }
+    [self loadTeamsWithFilters:filters];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,21 +87,30 @@
 - (void)onFilterDone {
     [self.filterNavigationController dismissViewControllerAnimated:YES completion:nil];
     self.filters = [self.filterForm dictionary];
-    [self loadTeamsWithFilters:self.filters];
+    [self loadTeams];
 }
 
 #pragma mark My Teams
 
 - (void)onMyTeams {
-    User *user = [User currentUser];
-    if (user) {
-        [[KivaClientO sharedInstance] fetchMyTeamsWithCompletion:^(NSArray *teams, NSError *error) {
-            if (error) {
-                NSLog(@"TeamSearchViewController error loading teams: %@", error);
-            } else {
-                self.teamsListViewController.teams = teams;
-            }
-        }];
+    if ([self.teamsListViewController.navigationItem.leftBarButtonItem.title isEqualToString:kMyTeams]) {
+        User *user = [User currentUser];
+        if (user) {
+            [[KivaClientO sharedInstance] fetchMyTeamsWithCompletion:^(NSArray *teams, NSError *error) {
+                if (error) {
+                    NSLog(@"TeamSearchViewController error loading teams: %@", error);
+                } else {
+                    self.teamsListViewController.teams = teams;
+                }
+            }];
+            self.teamsListViewController.navigationItem.leftBarButtonItem.title = @"All Teams";
+        } else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Requires log in" message:@"Please use the My tab to log in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+    } else {
+        self.teamsListViewController.navigationItem.leftBarButtonItem.title = kMyTeams;
+        [self loadTeams];
     }
 }
 
@@ -99,9 +118,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     self.searchText = searchBar.text;
-    NSMutableDictionary *filters = [self.filters mutableCopy];
-    [filters setObject:self.searchText forKey:@"q"];
-    [self loadTeamsWithFilters:filters];
+    [self loadTeams];
     [searchBar resignFirstResponder];
 }
 
