@@ -10,6 +10,8 @@
 		224E0E391AAD25510077A85C /* LoanDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E0E381AAD25510077A85C /* LoanDetailInfo.m */; };
 		224E0E3C1AAD6EFC0077A85C /* LoansSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */; };
 		224E0E3E1AAD72A20077A85C /* LoansSearchFilterForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */; };
+		2281B3241AAEC3F900834666 /* Partner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2281B3231AAEC3F900834666 /* Partner.m */; };
+		2281B3271AAEC41000834666 /* PartnerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2281B3261AAEC41000834666 /* PartnerInfo.m */; };
 		22C83CA81AACC703009E155E /* LoanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C83CA61AACC703009E155E /* LoanDetailViewController.m */; };
 		22C83CA91AACC703009E155E /* LoanDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C83CA71AACC703009E155E /* LoanDetailViewController.xib */; };
 		22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C83CAB1AACF44D009E155E /* LoanDetail.m */; };
@@ -64,6 +66,10 @@
 		224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoansSearchViewController.m; sourceTree = "<group>"; };
 		224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoansSearchFilterForm.m; sourceTree = "<group>"; };
 		224E0E3F1AAD72B50077A85C /* LoansSearchFilterForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoansSearchFilterForm.h; sourceTree = "<group>"; };
+		2281B3221AAEC3F900834666 /* Partner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partner.h; sourceTree = "<group>"; };
+		2281B3231AAEC3F900834666 /* Partner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Partner.m; sourceTree = "<group>"; };
+		2281B3251AAEC41000834666 /* PartnerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerInfo.h; sourceTree = "<group>"; };
+		2281B3261AAEC41000834666 /* PartnerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerInfo.m; sourceTree = "<group>"; };
 		22C83CA51AACC703009E155E /* LoanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanDetailViewController.h; sourceTree = "<group>"; };
 		22C83CA61AACC703009E155E /* LoanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanDetailViewController.m; sourceTree = "<group>"; };
 		22C83CA71AACC703009E155E /* LoanDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanDetailViewController.xib; sourceTree = "<group>"; };
@@ -277,6 +283,10 @@
 				63E72F6A1AACDE5300BD1F9F /* User.m */,
 				6398506B1AAE53B1008269CE /* UserStats.h */,
 				6398506C1AAE53B1008269CE /* UserStats.m */,
+				2281B3221AAEC3F900834666 /* Partner.h */,
+				2281B3231AAEC3F900834666 /* Partner.m */,
+				2281B3251AAEC41000834666 /* PartnerInfo.h */,
+				2281B3261AAEC41000834666 /* PartnerInfo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -463,11 +473,13 @@
 				63B199CE1AA8439300ED685D /* KivaClient.m in Sources */,
 				63E72F6B1AACDE5300BD1F9F /* User.m in Sources */,
 				63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */,
+				2281B3271AAEC41000834666 /* PartnerInfo.m in Sources */,
 				63183DA51AAA9D8D00F63194 /* LoansViewController.m in Sources */,
 				63E72F6F1AACF59E00BD1F9F /* LoginViewController.m in Sources */,
 				224E0E3E1AAD72A20077A85C /* LoansSearchFilterForm.m in Sources */,
 				63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */,
 				63183DA91AAAE91800F63194 /* LoanInfo.m in Sources */,
+				2281B3241AAEC3F900834666 /* Partner.m in Sources */,
 				639850691AAE450A008269CE /* MySummaryViewController.m in Sources */,
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,
 				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,

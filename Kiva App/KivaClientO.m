@@ -11,6 +11,8 @@
 #import "Loan.h"
 #import "Team.h"
 #import "LoanDetail.h"
+#import "PartnerInfo.h"
+#import "Partner.h"
 
 static NSString * const kConsumerKey = @"com.drrajan.cp-kiva-app";
 static NSString * const kConsumerSecret = @"tptzHtsswtGmqsltikFDwxAxGjnmkxCm";
@@ -143,6 +145,23 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
             completion(nil, error);
         } else {
             completion(loans, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+
+- (void)fetchPartnerDetailsWithParams:(NSDictionary *)params  withPartnerId :(NSNumber*) partnerId completion:(void (^)(NSArray *, NSError *))completion {
+    NSString *path = [NSString stringWithFormat:@"partners/%d.json", [partnerId intValue]];
+    [self GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        NSArray *partners = [MTLJSONAdapter modelsOfClass:[PartnerInfo class] fromJSONArray:responseObject[@"partners"] error:&error];
+        if (error) {
+            NSLog(@"Error deserializing loan details: %@", error);
+            completion(nil, error);
+        } else {
+            completion(partners, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(nil, error);

@@ -44,47 +44,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-//    [[KivaClient sharedClient] fetchLoansWithParameters:nil].then(^(LoanInfo *loanInfo) {
-//        self.loans = loanInfo.loans;
-//        [self.tableView reloadData];
-//        //NSLog(@"loans: %@", self.loans);
-//    }).catch(^(NSError *errror) {
-//        NSLog(@"error loading loans");
-//    });
 
-//    - (PMKPromise *)fetchLoanDetailsWithParameters:(NSDictionary *)parameters : (NSNumber*) loanId {
-//        //    NSString *path = @"loans/newest.json";
-//        NSString *path = [NSString stringWithFormat:@"loans/%d.json", [loanId intValue]];
-//        
-//        return [self GET:path parameters:parameters].then(^(OVCResponse *response) {
-//            // NSLog(@"response %@", response.result);
-//            return response.result;
-//        });
-//        
-//    }
-
-    
-//    [[KivaClient sharedClient] fetchLoanDetailsWithParameters:nil withLoanId:self.loanId].then(^(LoanDetailInfo *loanDetailInfo){
-//        self.loanDetail = loanDetailInfo.loanDetail;
-//        
-//    }).catch(^(NSError *error){
-//        NSLog(@"error loading loan details");
-//        
-//    });
-//    self.borrowersStoryLabel.text = self.loanDetail.texts;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Browse" style:UIBarButtonItemStylePlain target:self action:@selector(onBackButton)];
-
-    
-
-//    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];
     
     [[KivaClientO sharedInstance] fetchLoanDetailsWithParams:nil withLoanId:self.loanId completion:^(NSArray *loansDetails, NSError *error){
         
         if (error) {
             NSLog(@"LoansDetailViewController error loading loans: %@", error);
         } else {
-//            self.loansDetails = loansDetails;
             LoanDetail *loandetail = loansDetails[0];
             
             self.title = loandetail.name;
@@ -99,7 +67,7 @@
             self.sectorLabel.text = loandetail.sector;
             self.activityLabel.text = loandetail.activity;
 
-//
+
             self.loanAmountLabel.text = [NSString stringWithFormat:@"$%d/%d", [loandetail.fundedAmount intValue], [loandetail.loanAmount intValue]];
             self.percentFundedLabel.text = [NSString stringWithFormat:@"%0.0f%% funded", [loandetail.fundedAmount floatValue]/[loandetail.loanAmount floatValue] * 100];
             self.progressBar.progress = [loandetail.fundedAmount floatValue]/[loandetail.loanAmount floatValue];
@@ -109,6 +77,8 @@
         }
         
  }];
+    
+    
 
 }
 

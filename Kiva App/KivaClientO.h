@@ -23,5 +23,7 @@
 - (void)fetchTeamsWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
 
 - (void)fetchLoanDetailsWithParams:(NSDictionary *)params  withLoanId :(NSNumber*) loanId completion:(void (^)(NSArray *, NSError *))completion;
+- (void)fetchPartnerDetailsWithParams:(NSDictionary *)params  withPartnerId :(NSNumber*) partnerId completion:(void (^)(NSArray *, NSError *))completion;
+
 
 @end

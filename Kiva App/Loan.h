@@ -17,7 +17,7 @@
 @property (copy, nonatomic, readonly) NSNumber *loanAmount;
 @property (copy, nonatomic, readonly) NSNumber *fundedAmount;
 @property (nonatomic, readonly) int imageId;
-@property (nonatomic, readonly) int partnerId;
+@property (nonatomic, readonly) NSNumber *partnerId;
 @property (copy, nonatomic, readonly) NSString *country;
 @property (copy, nonatomic, readonly) NSString *sector;
 @property (copy, nonatomic, readonly) NSString *activity;
