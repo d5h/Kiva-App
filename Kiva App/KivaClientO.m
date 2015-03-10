@@ -121,17 +121,31 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
 - (void)fetchTeamsWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion {
     [self GET:@"teams/search.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;
-        NSArray *loans = [MTLJSONAdapter modelsOfClass:[Team class] fromJSONArray:responseObject[@"teams"] error:&error];
+        NSArray *teams = [MTLJSONAdapter modelsOfClass:[Team class] fromJSONArray:responseObject[@"teams"] error:&error];
         if (error) {
             NSLog(@"Error deserializing teams: %@", error);
             completion(nil, error);
         } else {
-            completion(loans, nil);
+            completion(teams, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(nil, error);
     }];
-    
+}
+
+- (void)fetchMyTeamsWithCompletion:(void (^)(NSArray *, NSError *))completion {
+    [self GET:@"my/teams.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        NSArray *teams = [MTLJSONAdapter modelsOfClass:[Team class] fromJSONArray:responseObject[@"teams"] error:&error];
+        if (error) {
+            NSLog(@"Error deserializing teams: %@", error);
+            completion(nil, error);
+        } else {
+            completion(teams, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
 }
 
 - (void)fetchLoanDetailsWithParams:(NSDictionary *)params  withLoanId :(NSNumber*) loanId completion:(void (^)(NSArray *, NSError *))completion {

@@ -8,7 +8,6 @@
 
 #import "LoansSearchViewController.h"
 #import "LoansViewController.h"
-#import "LoanInfo.h"
 #import "KivaClientO.h"
 #import "LoansSearchFilterForm.h"
 

@@ -7,7 +7,6 @@
 //
 
 #import "LoanDetailViewController.h"
-#import "KivaClient.h"
 #import "KivaClientO.h"
 #import "LoanDetailInfo.h"
 #import "LoanDetail.h"

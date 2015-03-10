@@ -16,7 +16,6 @@
 		22C83CA91AACC703009E155E /* LoanDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C83CA71AACC703009E155E /* LoanDetailViewController.xib */; };
 		22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C83CAB1AACF44D009E155E /* LoanDetail.m */; };
 		5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89281AAB8D1400DDEE3D /* Team.m */; };
-		5D1E892C1AAB902B00DDEE3D /* TeamList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E892B1AAB902B00DDEE3D /* TeamList.m */; };
 		5D1E892F1AAB92BE00DDEE3D /* TeamSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E892E1AAB92BE00DDEE3D /* TeamSearchViewController.m */; };
 		5D1E89331AAB92E500DDEE3D /* TeamsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89311AAB92E500DDEE3D /* TeamsListViewController.m */; };
 		5D1E89341AAB92E500DDEE3D /* TeamsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E89321AAB92E500DDEE3D /* TeamsListViewController.xib */; };
@@ -32,7 +31,6 @@
 		5D680AA41AA5846F000F365D /* Kiva_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D680AA31AA5846F000F365D /* Kiva_AppTests.m */; };
 		63183DA51AAA9D8D00F63194 /* LoansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DA31AAA9D8D00F63194 /* LoansViewController.m */; };
 		63183DA61AAA9D8D00F63194 /* LoansViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63183DA41AAA9D8D00F63194 /* LoansViewController.xib */; };
-		63183DA91AAAE91800F63194 /* LoanInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DA81AAAE91800F63194 /* LoanInfo.m */; };
 		63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DAC1AAAF26400F63194 /* LoanCell.m */; };
 		63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63183DAD1AAAF26400F63194 /* LoanCell.xib */; };
 		63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DB11AABE8CA00F63194 /* KivaClientO.m */; };
@@ -42,7 +40,6 @@
 		639850711AAE6B85008269CE /* StatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6398506F1AAE6B85008269CE /* StatCell.m */; };
 		639850721AAE6B85008269CE /* StatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639850701AAE6B85008269CE /* StatCell.xib */; };
 		63B199CB1AA8433000ED685D /* Loan.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B199CA1AA8433000ED685D /* Loan.m */; };
-		63B199CE1AA8439300ED685D /* KivaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B199CD1AA8439300ED685D /* KivaClient.m */; };
 		63E72F6B1AACDE5300BD1F9F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E72F6A1AACDE5300BD1F9F /* User.m */; };
 		63E72F6F1AACF59E00BD1F9F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E72F6D1AACF59E00BD1F9F /* LoginViewController.m */; };
 		63E72F701AACF59E00BD1F9F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E72F6E1AACF59E00BD1F9F /* LoginViewController.xib */; };
@@ -78,8 +75,6 @@
 		2EA917B2940A1400F9037894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1E89271AAB8D1400DDEE3D /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		5D1E89281AAB8D1400DDEE3D /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
-		5D1E892A1AAB902B00DDEE3D /* TeamList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamList.h; sourceTree = "<group>"; };
-		5D1E892B1AAB902B00DDEE3D /* TeamList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamList.m; sourceTree = "<group>"; };
 		5D1E892D1AAB92BE00DDEE3D /* TeamSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamSearchViewController.h; sourceTree = "<group>"; };
 		5D1E892E1AAB92BE00DDEE3D /* TeamSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamSearchViewController.m; sourceTree = "<group>"; };
 		5D1E89301AAB92E500DDEE3D /* TeamsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamsListViewController.h; sourceTree = "<group>"; };
@@ -106,8 +101,6 @@
 		63183DA21AAA9D8D00F63194 /* LoansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoansViewController.h; sourceTree = "<group>"; };
 		63183DA31AAA9D8D00F63194 /* LoansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoansViewController.m; sourceTree = "<group>"; };
 		63183DA41AAA9D8D00F63194 /* LoansViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoansViewController.xib; sourceTree = "<group>"; };
-		63183DA71AAAE91800F63194 /* LoanInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanInfo.h; sourceTree = "<group>"; };
-		63183DA81AAAE91800F63194 /* LoanInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanInfo.m; sourceTree = "<group>"; };
 		63183DAB1AAAF26400F63194 /* LoanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanCell.h; sourceTree = "<group>"; };
 		63183DAC1AAAF26400F63194 /* LoanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanCell.m; sourceTree = "<group>"; };
 		63183DAD1AAAF26400F63194 /* LoanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanCell.xib; sourceTree = "<group>"; };
@@ -123,8 +116,6 @@
 		639850701AAE6B85008269CE /* StatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatCell.xib; sourceTree = "<group>"; };
 		63B199C91AA8433000ED685D /* Loan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loan.h; sourceTree = "<group>"; };
 		63B199CA1AA8433000ED685D /* Loan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loan.m; sourceTree = "<group>"; };
-		63B199CC1AA8439300ED685D /* KivaClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KivaClient.h; sourceTree = "<group>"; };
-		63B199CD1AA8439300ED685D /* KivaClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KivaClient.m; sourceTree = "<group>"; };
 		63E72F691AACDE5300BD1F9F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		63E72F6A1AACDE5300BD1F9F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		63E72F6C1AACF59E00BD1F9F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -269,12 +260,8 @@
 			children = (
 				63B199C91AA8433000ED685D /* Loan.h */,
 				63B199CA1AA8433000ED685D /* Loan.m */,
-				63183DA71AAAE91800F63194 /* LoanInfo.h */,
-				63183DA81AAAE91800F63194 /* LoanInfo.m */,
 				5D1E89271AAB8D1400DDEE3D /* Team.h */,
 				5D1E89281AAB8D1400DDEE3D /* Team.m */,
-				5D1E892A1AAB902B00DDEE3D /* TeamList.h */,
-				5D1E892B1AAB902B00DDEE3D /* TeamList.m */,
 				22C83CAA1AACF44D009E155E /* LoanDetail.h */,
 				22C83CAB1AACF44D009E155E /* LoanDetail.m */,
 				224E0E371AAD25510077A85C /* LoanDetailInfo.h */,
@@ -294,8 +281,6 @@
 		63B199CF1AA8439D00ED685D /* API */ = {
 			isa = PBXGroup;
 			children = (
-				63B199CC1AA8439300ED685D /* KivaClient.h */,
-				63B199CD1AA8439300ED685D /* KivaClient.m */,
 				63183DB01AABE8CA00F63194 /* KivaClientO.h */,
 				63183DB11AABE8CA00F63194 /* KivaClientO.m */,
 			);
@@ -470,7 +455,6 @@
 				5D1E892F1AAB92BE00DDEE3D /* TeamSearchViewController.m in Sources */,
 				224E0E391AAD25510077A85C /* LoanDetailInfo.m in Sources */,
 				63B199CB1AA8433000ED685D /* Loan.m in Sources */,
-				63B199CE1AA8439300ED685D /* KivaClient.m in Sources */,
 				63E72F6B1AACDE5300BD1F9F /* User.m in Sources */,
 				63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */,
 				2281B3271AAEC41000834666 /* PartnerInfo.m in Sources */,
@@ -478,12 +462,10 @@
 				63E72F6F1AACF59E00BD1F9F /* LoginViewController.m in Sources */,
 				224E0E3E1AAD72A20077A85C /* LoansSearchFilterForm.m in Sources */,
 				63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */,
-				63183DA91AAAE91800F63194 /* LoanInfo.m in Sources */,
 				2281B3241AAEC3F900834666 /* Partner.m in Sources */,
 				639850691AAE450A008269CE /* MySummaryViewController.m in Sources */,
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,
 				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,
-				5D1E892C1AAB902B00DDEE3D /* TeamList.m in Sources */,
 				6398506D1AAE53B1008269CE /* UserStats.m in Sources */,
 				5D1E893C1AABB31200DDEE3D /* TeamsSearchFilterForm.m in Sources */,
 				5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */,

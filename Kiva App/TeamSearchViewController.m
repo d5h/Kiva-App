@@ -8,9 +8,9 @@
 
 #import "TeamSearchViewController.h"
 #import "TeamsListViewController.h"
-#import "TeamList.h"
 #import "KivaClientO.h"
 #import "TeamsSearchFilterForm.h"
+#import "User.h"
 
 @interface TeamSearchViewController () <UISearchBarDelegate>
 
@@ -33,10 +33,13 @@
     
     self.filters = @{@"sort_by": @"loaned_amount"};
     [self loadTeamsWithFilters:self.filters];
-    
+
+
     UISearchBar *searchBar = [[UISearchBar alloc] init];
     searchBar.delegate = self;
     self.teamsListViewController.navigationItem.titleView = searchBar;
+
+    self.teamsListViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"My Teams" style:UIBarButtonItemStylePlain target:self action:@selector(onMyTeams)];
     self.teamsListViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
 }
 
@@ -75,6 +78,21 @@
     [self.filterNavigationController dismissViewControllerAnimated:YES completion:nil];
     self.filters = [self.filterForm dictionary];
     [self loadTeamsWithFilters:self.filters];
+}
+
+#pragma mark My Teams
+
+- (void)onMyTeams {
+    User *user = [User currentUser];
+    if (user) {
+        [[KivaClientO sharedInstance] fetchMyTeamsWithCompletion:^(NSArray *teams, NSError *error) {
+            if (error) {
+                NSLog(@"TeamSearchViewController error loading teams: %@", error);
+            } else {
+                self.teamsListViewController.teams = teams;
+            }
+        }];
+    }
 }
 
 #pragma mark - Seach Bar
