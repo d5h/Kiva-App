@@ -12,12 +12,14 @@
 #import "KivaClientO.h"
 #import "TeamsSearchFilterForm.h"
 
-@interface TeamSearchViewController ()
+@interface TeamSearchViewController () <UISearchBarDelegate>
 
 @property (strong, nonatomic) TeamsListViewController *teamsListViewController;
 @property (nonatomic, strong) TeamsSearchFilterForm *filterForm;
 @property (nonatomic, strong) UINavigationController *filterNavigationController;
 @property (nonatomic, strong) NSDictionary *filters;
+@property (nonatomic, strong) NSString *searchText;
+
 
 @end
 
@@ -32,7 +34,9 @@
     self.filters = @{@"sort_by": @"loaned_amount"};
     [self loadTeamsWithFilters:self.filters];
     
-    self.teamsListViewController.navigationItem.titleView = [[UISearchBar alloc] init];
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    searchBar.delegate = self;
+    self.teamsListViewController.navigationItem.titleView = searchBar;
     self.teamsListViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
 }
 
@@ -71,6 +75,16 @@
     [self.filterNavigationController dismissViewControllerAnimated:YES completion:nil];
     self.filters = [self.filterForm dictionary];
     [self loadTeamsWithFilters:self.filters];
+}
+
+#pragma mark - Seach Bar
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    self.searchText = searchBar.text;
+    NSMutableDictionary *filters = [self.filters mutableCopy];
+    [filters setObject:self.searchText forKey:@"q"];
+    [self loadTeamsWithFilters:filters];
+    [searchBar resignFirstResponder];
 }
 
 @end
