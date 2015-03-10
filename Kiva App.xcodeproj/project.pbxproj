@@ -34,6 +34,11 @@
 		63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DAC1AAAF26400F63194 /* LoanCell.m */; };
 		63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63183DAD1AAAF26400F63194 /* LoanCell.xib */; };
 		63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DB11AABE8CA00F63194 /* KivaClientO.m */; };
+		639850691AAE450A008269CE /* MySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639850671AAE450A008269CE /* MySummaryViewController.m */; };
+		6398506A1AAE450A008269CE /* MySummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639850681AAE450A008269CE /* MySummaryViewController.xib */; };
+		6398506D1AAE53B1008269CE /* UserStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6398506C1AAE53B1008269CE /* UserStats.m */; };
+		639850711AAE6B85008269CE /* StatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6398506F1AAE6B85008269CE /* StatCell.m */; };
+		639850721AAE6B85008269CE /* StatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639850701AAE6B85008269CE /* StatCell.xib */; };
 		63B199CB1AA8433000ED685D /* Loan.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B199CA1AA8433000ED685D /* Loan.m */; };
 		63B199CE1AA8439300ED685D /* KivaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B199CD1AA8439300ED685D /* KivaClient.m */; };
 		63E72F6B1AACDE5300BD1F9F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E72F6A1AACDE5300BD1F9F /* User.m */; };
@@ -102,6 +107,14 @@
 		63183DAD1AAAF26400F63194 /* LoanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanCell.xib; sourceTree = "<group>"; };
 		63183DB01AABE8CA00F63194 /* KivaClientO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KivaClientO.h; sourceTree = "<group>"; };
 		63183DB11AABE8CA00F63194 /* KivaClientO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KivaClientO.m; sourceTree = "<group>"; };
+		639850661AAE450A008269CE /* MySummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySummaryViewController.h; sourceTree = "<group>"; };
+		639850671AAE450A008269CE /* MySummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySummaryViewController.m; sourceTree = "<group>"; };
+		639850681AAE450A008269CE /* MySummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySummaryViewController.xib; sourceTree = "<group>"; };
+		6398506B1AAE53B1008269CE /* UserStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStats.h; sourceTree = "<group>"; };
+		6398506C1AAE53B1008269CE /* UserStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStats.m; sourceTree = "<group>"; };
+		6398506E1AAE6B85008269CE /* StatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatCell.h; sourceTree = "<group>"; };
+		6398506F1AAE6B85008269CE /* StatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatCell.m; sourceTree = "<group>"; };
+		639850701AAE6B85008269CE /* StatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatCell.xib; sourceTree = "<group>"; };
 		63B199C91AA8433000ED685D /* Loan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loan.h; sourceTree = "<group>"; };
 		63B199CA1AA8433000ED685D /* Loan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loan.m; sourceTree = "<group>"; };
 		63B199CC1AA8439300ED685D /* KivaClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KivaClient.h; sourceTree = "<group>"; };
@@ -222,6 +235,9 @@
 				224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */,
 				224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */,
 				224E0E3F1AAD72B50077A85C /* LoansSearchFilterForm.h */,
+				639850661AAE450A008269CE /* MySummaryViewController.h */,
+				639850671AAE450A008269CE /* MySummaryViewController.m */,
+				639850681AAE450A008269CE /* MySummaryViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -235,6 +251,9 @@
 				5D1E89351AAB932500DDEE3D /* TeamCell.h */,
 				5D1E89361AAB932500DDEE3D /* TeamCell.m */,
 				5D1E89371AAB932500DDEE3D /* TeamCell.xib */,
+				6398506E1AAE6B85008269CE /* StatCell.h */,
+				6398506F1AAE6B85008269CE /* StatCell.m */,
+				639850701AAE6B85008269CE /* StatCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -256,6 +275,8 @@
 				224E0E381AAD25510077A85C /* LoanDetailInfo.m */,
 				63E72F691AACDE5300BD1F9F /* User.h */,
 				63E72F6A1AACDE5300BD1F9F /* User.m */,
+				6398506B1AAE53B1008269CE /* UserStats.h */,
+				6398506C1AAE53B1008269CE /* UserStats.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -371,8 +392,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D1E89341AAB92E500DDEE3D /* TeamsListViewController.xib in Resources */,
+				6398506A1AAE450A008269CE /* MySummaryViewController.xib in Resources */,
 				5D680A981AA5846E000F365D /* LaunchScreen.xib in Resources */,
 				5D680A951AA5846E000F365D /* Images.xcassets in Resources */,
+				639850721AAE6B85008269CE /* StatCell.xib in Resources */,
 				63183DA61AAA9D8D00F63194 /* LoansViewController.xib in Resources */,
 				5D1E89391AAB932500DDEE3D /* TeamCell.xib in Resources */,
 				63E72F701AACF59E00BD1F9F /* LoginViewController.xib in Resources */,
@@ -445,11 +468,14 @@
 				224E0E3E1AAD72A20077A85C /* LoansSearchFilterForm.m in Sources */,
 				63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */,
 				63183DA91AAAE91800F63194 /* LoanInfo.m in Sources */,
+				639850691AAE450A008269CE /* MySummaryViewController.m in Sources */,
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,
 				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,
 				5D1E892C1AAB902B00DDEE3D /* TeamList.m in Sources */,
+				6398506D1AAE53B1008269CE /* UserStats.m in Sources */,
 				5D1E893C1AABB31200DDEE3D /* TeamsSearchFilterForm.m in Sources */,
 				5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */,
+				639850711AAE6B85008269CE /* StatCell.m in Sources */,
 				5D680A8A1AA5846E000F365D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

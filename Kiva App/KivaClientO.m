@@ -84,6 +84,22 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
 
 }
 
+- (void)fetchUserStatsWithParams:(NSDictionary *)params completion:(void (^)(UserStats *, NSError *))completion {
+    [self GET:@"my/stats.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        UserStats *stats = [MTLJSONAdapter modelOfClass:[UserStats class] fromJSONDictionary:responseObject error:&error];
+        if (error) {
+            NSLog(@"Error deserializing stats: %@", error);
+            completion(nil, error);
+        } else {
+            completion(stats, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+
 - (void)fetchLoansWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion {
     [self GET:@"loans/search.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;

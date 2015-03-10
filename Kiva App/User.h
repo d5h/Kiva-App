@@ -7,6 +7,7 @@
 //
 
 #import <Mantle/Mantle.h>
+#import "UserStats.h"
 
 @interface User : MTLModel <MTLJSONSerializing>
 

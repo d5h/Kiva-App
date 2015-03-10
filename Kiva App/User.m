@@ -26,6 +26,7 @@
 static User *_currentUser = nil;
 NSString * const kCurrentUserKey = @"kCurrentUserKey";
 
+
 + (User *)currentUser {
     
     if (_currentUser == nil) {

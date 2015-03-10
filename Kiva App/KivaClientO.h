@@ -18,12 +18,10 @@
 - (void)loginWithCompletion:(void (^)(User *user, NSError *error))completion;
 - (void)openURL:(NSURL *)url;
 
+- (void)fetchUserStatsWithParams:(NSDictionary *)params completion:(void (^)(UserStats *, NSError *))completion;
 - (void)fetchLoansWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
 - (void)fetchTeamsWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
 
 - (void)fetchLoanDetailsWithParams:(NSDictionary *)params  withLoanId :(NSNumber*) loanId completion:(void (^)(NSArray *, NSError *))completion;
-
-//- (PMKPromise *)fetchLoanDetailsWithParameters:(NSDictionary *)parameters  withLoanId :(NSNumber*) loanId;
-
 
 @end
