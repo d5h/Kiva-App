@@ -28,12 +28,12 @@
 
     self.teamsListViewController = [[TeamsListViewController alloc] init];
     [self setViewControllers:@[self.teamsListViewController]];
-    [self loadTeamsWithFilters:nil];
+    
+    self.filters = @{@"sort_by": @"loaned_amount"};
+    [self loadTeamsWithFilters:self.filters];
     
     self.teamsListViewController.navigationItem.titleView = [[UISearchBar alloc] init];
     self.teamsListViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
-    
-    self.filters = @{};
 }
 
 - (void)loadTeamsWithFilters:(NSDictionary *)filters {

@@ -17,6 +17,7 @@ const NSString *kCategoriesAllValue = @"All Categories";
     
     if (self) {
         self.category = [dictionary objectForKey:@"category"];
+        self.sortBy = [dictionary objectForKey:@"sort_by"];
     }
     
     return self;
@@ -45,10 +46,24 @@ const NSString *kCategoriesAllValue = @"All Categories";
                      ]};
 }
 
+- (NSDictionary *)sortByField {
+    return @{FXFormFieldOptions: @[
+                     @"newest",
+                     @"oldest",
+                     @"member_count",
+                     @"loan_count",
+                     @"loaned_amount",
+                     @"query_relevance"
+                     ]};
+}
+
 - (NSDictionary *)dictionary {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     if (self.category) {
         [result setObject:self.category forKey:@"category"];
+    }
+    if (self.sortBy) {
+        [result setObject:self.sortBy forKey:@"sort_by"];
     }
     return result;
 }

@@ -14,6 +14,7 @@ extern const NSString *kCategoriesAllValue;
 @interface TeamsSearchFilterForm : NSObject <FXForm>
 
 @property (nonatomic, copy) NSString *category;
+@property (nonatomic, copy) NSString *sortBy;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionary;
