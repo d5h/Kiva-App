@@ -47,7 +47,10 @@
                                   constant:0];
     [self.view addConstraint:rightConstraint];
     
-    [self.teamImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", self.team.imageId]]];
+    self.teamImageView.image = [UIImage imageNamed:@"kiva_team"];
+    if (self.team.imageId != 0) {
+        [self.teamImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", self.team.imageId]]];
+    }
     self.nameLabel.text = self.team.name;
     self.memberLoansLabel.text = [NSString stringWithFormat:@"%@ members with $%@ in %@ loans", self.team.memberCount, self.team.loanedAmount, self.team.loanCount];
     self.categoryLabel.text = [NSString stringWithFormat:@"A %@ team", self.team.category];  // Add "since <Year>"
