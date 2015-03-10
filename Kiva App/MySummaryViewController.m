@@ -17,6 +17,7 @@
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSDictionary *data;
 @property (nonatomic, strong) NSArray *statNames;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end
 
@@ -52,11 +53,10 @@
     
     NSString *statName = self.statNames[indexPath.row];
     cell.descriptionLabel.text = statName;
-    cell.valueLabel.text = [[self.data valueForKey:statName] stringValue];
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%@", [[self.data valueForKey:statName] stringValue]];
     
     return cell;
 }
-
 
 #pragma mark - Private
 

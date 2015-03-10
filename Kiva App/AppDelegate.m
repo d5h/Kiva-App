@@ -12,6 +12,7 @@
 #import "LoansViewController.h"
 #import "TeamSearchViewController.h"
 #import "LoansSearchViewController.h"
+#import "MySummaryViewController.h"
 
 @interface AppDelegate ()
 
@@ -29,11 +30,17 @@
 //    UIViewController *loansViewControoler = [[UINavigationController alloc] initWithRootViewController:[LoansViewController new]];
     TeamSearchViewController *teamSearchViewController = [[TeamSearchViewController alloc] init];
     LoansSearchViewController *loansSearchViewController = [[LoansSearchViewController alloc]init];
-    LoginViewController *loginViewController = [LoginViewController new];
-    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, loginViewController];
+    UIViewController *myVC;
+    if ([User currentUser] == nil) {
+        myVC = [LoginViewController new];
+    } else {
+        myVC = [MySummaryViewController new];
+    }
+    //LoginViewController *loginViewController = [LoginViewController new];
+    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC];
     loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:nil tag:0];
     teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:nil tag:0];
-    loginViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My" image:nil tag:0];
+    myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My" image:nil tag:0];
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];

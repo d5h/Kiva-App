@@ -12,10 +12,9 @@
 
 - (void)awakeFromNib {
     
-    self.backgroundColor = [UIColor greenColor];
-    //self.layer.borderWidth = 2.0f;
+    self.layer.borderWidth = 2.0f;
     self.layer.borderColor = [UIColor whiteColor].CGColor;
-    //self.layer.cornerRadius = 50.0f;
+    self.layer.cornerRadius = 50.0f;
 }
 
 @end
