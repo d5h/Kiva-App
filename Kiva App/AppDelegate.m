@@ -36,7 +36,7 @@
     } else {
         myVC = [MySummaryViewController new];
     }
-    UpdatesViewController *updatesViewController = [[UpdatesViewController alloc] init];
+    UINavigationController *updatesViewController = [[UINavigationController alloc] initWithRootViewController:[[UpdatesViewController alloc] init]];
     tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController];
     loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:nil tag:0];
     teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:nil tag:0];

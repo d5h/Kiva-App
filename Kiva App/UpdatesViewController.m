@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"Updates";
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"JournalEntryCell" bundle:nil] forCellReuseIdentifier:@"JournalEntryCell"];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
