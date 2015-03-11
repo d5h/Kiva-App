@@ -13,6 +13,7 @@
 #import "LoanDetail.h"
 #import "PartnerInfo.h"
 #import "Partner.h"
+#import "JournalEntry.h"
 
 static NSString * const kConsumerKey = @"com.drrajan.cp-kiva-app";
 static NSString * const kConsumerSecret = @"tptzHtsswtGmqsltikFDwxAxGjnmkxCm";
@@ -172,7 +173,7 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
         NSError *error;
         NSArray *partners = [MTLJSONAdapter modelsOfClass:[PartnerInfo class] fromJSONArray:responseObject[@"partners"] error:&error];
         if (error) {
-            NSLog(@"Error deserializing loan details: %@", error);
+            NSLog(@"Error deserializing partner details: %@", error);
             completion(nil, error);
         } else {
             completion(partners, nil);
@@ -180,7 +181,22 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(nil, error);
     }];
-    
+}
+
+- (void)fetchUpdatesForLoan:(long)loanId completion:(void (^)(NSArray *, NSError *))completion {
+    NSString *path = [NSString stringWithFormat:@"loans/%ld/journal_entries.json", loanId];
+    [self GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        NSArray *updates = [MTLJSONAdapter modelsOfClass:[JournalEntry class] fromJSONArray:responseObject[@"journal_entries"] error:&error];
+        if (error) {
+            NSLog(@"Error deserializing journal entry details: %@", error);
+            completion(nil, error);
+        } else {
+            completion(updates, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
 }
 
 //NSString *path = [NSString stringWithFormat:@"loans/%d.json", [loanId intValue]];

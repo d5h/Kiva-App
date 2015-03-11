@@ -24,6 +24,11 @@
 		5D1E893C1AABB31200DDEE3D /* TeamsSearchFilterForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E893B1AABB31200DDEE3D /* TeamsSearchFilterForm.m */; };
 		5D1E89401AACD96200DDEE3D /* TeamDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E893E1AACD96200DDEE3D /* TeamDetailViewController.m */; };
 		5D1E89411AACD96200DDEE3D /* TeamDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E893F1AACD96200DDEE3D /* TeamDetailViewController.xib */; };
+		5D1E89441AAFD7AD00DDEE3D /* JournalEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89431AAFD7AD00DDEE3D /* JournalEntry.m */; };
+		5D1E89481AAFDF0B00DDEE3D /* UpdatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89461AAFDF0B00DDEE3D /* UpdatesViewController.m */; };
+		5D1E89491AAFDF0B00DDEE3D /* UpdatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E89471AAFDF0B00DDEE3D /* UpdatesViewController.xib */; };
+		5D1E894D1AAFE07900DDEE3D /* JournalEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E894B1AAFE07900DDEE3D /* JournalEntryCell.m */; };
+		5D1E894E1AAFE07900DDEE3D /* JournalEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E894C1AAFE07900DDEE3D /* JournalEntryCell.xib */; };
 		5D680A8A1AA5846E000F365D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D680A891AA5846E000F365D /* main.m */; };
 		5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D680A8C1AA5846E000F365D /* AppDelegate.m */; };
 		5D680A951AA5846E000F365D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D680A941AA5846E000F365D /* Images.xcassets */; };
@@ -88,6 +93,14 @@
 		5D1E893D1AACD96200DDEE3D /* TeamDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamDetailViewController.h; sourceTree = "<group>"; };
 		5D1E893E1AACD96200DDEE3D /* TeamDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamDetailViewController.m; sourceTree = "<group>"; };
 		5D1E893F1AACD96200DDEE3D /* TeamDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamDetailViewController.xib; sourceTree = "<group>"; };
+		5D1E89421AAFD7AD00DDEE3D /* JournalEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JournalEntry.h; sourceTree = "<group>"; };
+		5D1E89431AAFD7AD00DDEE3D /* JournalEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JournalEntry.m; sourceTree = "<group>"; };
+		5D1E89451AAFDF0B00DDEE3D /* UpdatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatesViewController.h; sourceTree = "<group>"; };
+		5D1E89461AAFDF0B00DDEE3D /* UpdatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatesViewController.m; sourceTree = "<group>"; };
+		5D1E89471AAFDF0B00DDEE3D /* UpdatesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdatesViewController.xib; sourceTree = "<group>"; };
+		5D1E894A1AAFE07900DDEE3D /* JournalEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JournalEntryCell.h; sourceTree = "<group>"; };
+		5D1E894B1AAFE07900DDEE3D /* JournalEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JournalEntryCell.m; sourceTree = "<group>"; };
+		5D1E894C1AAFE07900DDEE3D /* JournalEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JournalEntryCell.xib; sourceTree = "<group>"; };
 		5D680A841AA5846E000F365D /* Kiva App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kiva App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D680A881AA5846E000F365D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D680A891AA5846E000F365D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -235,6 +248,9 @@
 				639850661AAE450A008269CE /* MySummaryViewController.h */,
 				639850671AAE450A008269CE /* MySummaryViewController.m */,
 				639850681AAE450A008269CE /* MySummaryViewController.xib */,
+				5D1E89451AAFDF0B00DDEE3D /* UpdatesViewController.h */,
+				5D1E89461AAFDF0B00DDEE3D /* UpdatesViewController.m */,
+				5D1E89471AAFDF0B00DDEE3D /* UpdatesViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -251,6 +267,9 @@
 				6398506E1AAE6B85008269CE /* StatCell.h */,
 				6398506F1AAE6B85008269CE /* StatCell.m */,
 				639850701AAE6B85008269CE /* StatCell.xib */,
+				5D1E894A1AAFE07900DDEE3D /* JournalEntryCell.h */,
+				5D1E894B1AAFE07900DDEE3D /* JournalEntryCell.m */,
+				5D1E894C1AAFE07900DDEE3D /* JournalEntryCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -274,6 +293,8 @@
 				2281B3231AAEC3F900834666 /* Partner.m */,
 				2281B3251AAEC41000834666 /* PartnerInfo.h */,
 				2281B3261AAEC41000834666 /* PartnerInfo.m */,
+				5D1E89421AAFD7AD00DDEE3D /* JournalEntry.h */,
+				5D1E89431AAFD7AD00DDEE3D /* JournalEntry.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -395,8 +416,10 @@
 				5D1E89391AAB932500DDEE3D /* TeamCell.xib in Resources */,
 				63E72F701AACF59E00BD1F9F /* LoginViewController.xib in Resources */,
 				63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */,
+				5D1E894E1AAFE07900DDEE3D /* JournalEntryCell.xib in Resources */,
 				22C83CA91AACC703009E155E /* LoanDetailViewController.xib in Resources */,
 				5D1E89411AACD96200DDEE3D /* TeamDetailViewController.xib in Resources */,
+				5D1E89491AAFDF0B00DDEE3D /* UpdatesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +477,8 @@
 				5D1E89331AAB92E500DDEE3D /* TeamsListViewController.m in Sources */,
 				5D1E892F1AAB92BE00DDEE3D /* TeamSearchViewController.m in Sources */,
 				224E0E391AAD25510077A85C /* LoanDetailInfo.m in Sources */,
+				5D1E89481AAFDF0B00DDEE3D /* UpdatesViewController.m in Sources */,
+				5D1E894D1AAFE07900DDEE3D /* JournalEntryCell.m in Sources */,
 				63B199CB1AA8433000ED685D /* Loan.m in Sources */,
 				63E72F6B1AACDE5300BD1F9F /* User.m in Sources */,
 				63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */,
@@ -466,6 +491,7 @@
 				639850691AAE450A008269CE /* MySummaryViewController.m in Sources */,
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,
 				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,
+				5D1E89441AAFD7AD00DDEE3D /* JournalEntry.m in Sources */,
 				6398506D1AAE53B1008269CE /* UserStats.m in Sources */,
 				5D1E893C1AABB31200DDEE3D /* TeamsSearchFilterForm.m in Sources */,
 				5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */,

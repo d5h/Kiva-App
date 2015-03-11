@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="1099" id="KGk-i7-Jjw" customClass="JournalEntryCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="1099"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Kiva Field Update - Message from Kiva Fellow in Nicaragua" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bi-8X-XoS">
+                        <rect key="frame" x="8" y="8" width="253.5" height="26.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8b-fo-U3F">
+                        <rect key="frame" x="8" y="42" width="304" height="1048.5"/>
+                        <attributedString key="attributedText">
+                            <fragment>
+                                <mutableString key="content">Thank you for supporting a micro-entrepreneur in Nicaragua. I’m excited to be writing you as the Kiva Fellow in Leon, Nicaragua. For the past few months, I have been working with Fundación Leon 2000, a Kiva field partner. All entrepreneur profiles on Kiva’s Web site are posted by local field partners, which are microfinance institutions that lend to the working poor to help the poor lift themselves out of poverty. The field partners screen each entrepreneur, upload his/her loan request to the Kiva website, disburse the loan, and collect repayments.
+Let’s get to know Fundación León 2000 a little better. The organization is based in Leon, Nicaragua, which is about 60 miles northwest of Managua, the capital city. In a country where 50% of its citizens live below the poverty line with an average GDP of $3,600 per person, Fundación Leon’s loans represent a life-changing opportunity to embrace financial self-sufficiency and escape the oppressive grips of poverty. For most, there is no other opportunity in the community for business growth such as that provided by Fundación León 2000.
+During my three months of service at Fundación León 2000, I visited over forty small business entrepreneurs. In brief loan updates to Kiva lenders, I tried to capture and portray candidly their attitudes towards microfinance. These micro-loans would not be possible without the diligence and dedication of Fundación León’s Kiva Coordinator, Sandra, and the group of hard-working loan officers.
+I spent the majority of my time at Fundación León working alongside Sandra as she screened clients for loans, posted loans on the Kiva Web site, tracked monthly repayments, and arranged loan update visits. Although Sandra and I have been able to provide many of you with updates about entrepreneurs who received a loan contribution from you, reaching every entrepreneur for an update is not logistically possible.
+Even if you did not contribute to this particular entrepreneur, I hope that you will enjoy the following story of a Kiva borrower in León whose story exemplifies the challenges and fortunes experienced by many in the León community.
+Maria Guadalupe Blanco is quite the small business entrepreneur, and she’s become pretty good at requesting loans and repaying them in stride—seventeen loans to be precise. Her primary business is a general store on the edge of town, which is filled with everything from candy, cookies, and canned vegetables to soups, soaps, and shampoos. Once the general store was operating at a sustainable level, Maria decided to expand her financial approach and purchase two taxis for local operation. Through the course of her partnership with Fundación León, and now Kiva, Maria Guadalupe has created a closed-loop business cycle by successfully forging two independent businesses, where one can sustain her livelihood if another falls victim to hardship. The success of the micro finance model for Maria Guadalupe is a complete testament to her respectful yet determined attitude towards its process and lenders. Towards the end of our visit, she frankly stated, “I seek loans to work; there is no other way.”
+From Kiva, Fundación León 2000, and its family of borrowers, we thank you for your continued support of our work.
+To see all current fundraising loans from the Fundación León 2000, click here:</mutableString>
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="http://www.kiva.org/app.php?page=businesses&amp;partner_id=96&amp;status=fundRaising&amp;sortBy=New+to+Old&amp;_te=mj">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.kiva.org/app.php?page=businesses&amp;partner_id=96&amp;status=fundRaising&amp;sortBy=New+to+Old&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                    <integer key="NSUnderline" value="1"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">And finally, I compiled this short video to provide you with a nice glance into the world of Fundación León 2000 and its variety of Kiva borrowers. Please enjoy.</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.kiva.org/app.php?page=businesses&amp;partner_id=96&amp;status=fundRaising&amp;sortBy=New+to+Old&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                    <integer key="NSUnderline" value="1"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.kiva.org/app.php?page=businesses&amp;partner_id=96&amp;status=fundRaising&amp;sortBy=New+to+Old&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                    <integer key="NSUnderline" value="1"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Sincerely,">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                    <integer key="NSUnderline" value="1"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Sean P. Calhoun">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                    <integer key="NSUnderline" value="1"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Kiva Fellow, Fundación León 2000">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                    <integer key="NSUnderline" value="1"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <real key="NSKern" value="0.0"/>
+                                    <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
+                                    <real key="NSStrokeWidth" value="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="4Bi-8X-XoS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="3NK-WC-yVQ"/>
+                    <constraint firstItem="U8b-fo-U3F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="BZh-Ps-qQL"/>
+                    <constraint firstItem="U8b-fo-U3F" firstAttribute="top" secondItem="4Bi-8X-XoS" secondAttribute="bottom" constant="8" id="Ods-vV-4NP"/>
+                    <constraint firstItem="4Bi-8X-XoS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Qf1-MV-RoV"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U8b-fo-U3F" secondAttribute="trailing" constant="8" id="c68-Lv-ypd"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="U8b-fo-U3F" secondAttribute="bottom" constant="8" id="oLr-J1-tEO"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Bi-8X-XoS" secondAttribute="trailing" constant="8" id="osQ-he-9gu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bodyLabel" destination="U8b-fo-U3F" id="cZs-mT-VJI"/>
+                <outlet property="subjectLabel" destination="4Bi-8X-XoS" id="kWU-19-IoZ"/>
+            </connections>
+            <point key="canvasLocation" x="432" y="932.5"/>
+        </tableViewCell>
+    </objects>
+</document>

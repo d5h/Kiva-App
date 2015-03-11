@@ -13,6 +13,7 @@
 #import "TeamSearchViewController.h"
 #import "LoansSearchViewController.h"
 #import "MySummaryViewController.h"
+#import "UpdatesViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,20 +28,20 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-//    UIViewController *loansViewControoler = [[UINavigationController alloc] initWithRootViewController:[LoansViewController new]];
     TeamSearchViewController *teamSearchViewController = [[TeamSearchViewController alloc] init];
-    LoansSearchViewController *loansSearchViewController = [[LoansSearchViewController alloc]init];
+    LoansSearchViewController *loansSearchViewController = [[LoansSearchViewController alloc] init];
     UIViewController *myVC;
     if ([User currentUser] == nil) {
         myVC = [LoginViewController new];
     } else {
         myVC = [MySummaryViewController new];
     }
-    //LoginViewController *loginViewController = [LoginViewController new];
-    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC];
+    UpdatesViewController *updatesViewController = [[UpdatesViewController alloc] init];
+    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController];
     loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:nil tag:0];
     teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:nil tag:0];
     myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My" image:nil tag:0];
+    updatesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:nil tag:0];
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
