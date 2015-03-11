@@ -54,12 +54,14 @@
 
 - (void)setAppearance {
     UIColor *kivaColor = [[UIColor alloc] initWithRed:169/255. green:207/255. blue:141/255. alpha:1];
+    UIColor *white = [UIColor whiteColor];
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setBarTintColor:kivaColor];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:white];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:white}];
     [[UITabBar appearance] setTranslucent:NO];
     [[UITabBar appearance] setBarTintColor:kivaColor];
-    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setTintColor:white];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
