@@ -35,7 +35,8 @@
     if ([User currentUser] == nil) {
         myVC = [LoginViewController new];
     } else {
-        myVC = [MySummaryViewController new];
+        myVC = [[UINavigationController alloc] initWithRootViewController:[MySummaryViewController new]];
+
     }
     UINavigationController *updatesViewController = [[UINavigationController alloc] initWithRootViewController:[[UpdatesViewController alloc] init]];
     tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController];

@@ -8,6 +8,7 @@
 
 #import "MySummaryViewController.h"
 #import "KivaClientO.h"
+#import "LoginViewController.h"
 #import "StatCell.h"
 #import "User.h"
 #import "SVProgressHUD.h"
@@ -66,7 +67,8 @@
     [[KivaClientO sharedInstance] fetchUserStatsWithParams:nil completion:^(UserStats *stats, NSError *error) {
         [SVProgressHUD dismiss];
         if (error) {
-            NSLog(@"LoansViewController error loading loans: %@", error);
+            [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:nil];
+            NSLog(@"My Summary error loading stats: %@", error);
         } else {
             self.data = @{
                           @"Outstanding Loans" : stats.amountOutstanding,
