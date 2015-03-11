@@ -26,6 +26,7 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self setAppearance];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     TeamSearchViewController *teamSearchViewController = [[TeamSearchViewController alloc] init];
@@ -38,14 +39,26 @@
     }
     UINavigationController *updatesViewController = [[UINavigationController alloc] initWithRootViewController:[[UpdatesViewController alloc] init]];
     tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController];
-    loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:nil tag:0];
-    teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:nil tag:0];
-    myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"My" image:nil tag:0];
-    updatesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:nil tag:0];
+    loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:[UIImage imageNamed:@"loan"] tag:0];
+    teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:[UIImage imageNamed:@"team"] tag:0];
+    myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Me" image:[UIImage imageNamed:@"me"] tag:0];
+    updatesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:[UIImage imageNamed:@"updates"] tag:0];
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+#pragma mark - Styling
+
+- (void)setAppearance {
+    UIColor *kivaColor = [[UIColor alloc] initWithRed:169/255. green:207/255. blue:141/255. alpha:1];
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setBarTintColor:kivaColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setTranslucent:NO];
+    [[UITabBar appearance] setBarTintColor:kivaColor];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
