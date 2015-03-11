@@ -82,6 +82,14 @@ static UIColor *bgColor;
             cell.valueLabel.text = @"";
             cell.backgroundColor = [UIColor orangeColor];
             cell.layer.cornerRadius = 30.0;
+            for (Loan *loan in self.loans) {
+                for (NSString *theme in loan.themes) {
+                    if ([theme isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
+                        cell.backgroundColor = bgColor;
+                        continue;
+                    }
+                }
+            }
             break;
         case 1:
             cell.descriptionLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
@@ -92,7 +100,7 @@ static UIColor *bgColor;
             for (Loan *loan in self.loans) {
                 if ([loan.sector isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
                     cell.backgroundColor = bgColor;
-                    break;
+                    continue;
                 }
             }
             break;
@@ -105,11 +113,10 @@ static UIColor *bgColor;
             for (Loan *loan in self.loans) {
                 if ([loan.countryCode isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
                     cell.backgroundColor = bgColor;
-                    break;
+                    continue;
                 }
             }
             break;
-            
         default:
             break;
     }

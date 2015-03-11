@@ -28,6 +28,7 @@
     @"postedDate": @"posted_date",
     @"plannedExpirationDate": @"planned_expiration_date",
     @"partnerId" : @"partner_id",
+    @"themes" : @"themes"
     };
 }
 
