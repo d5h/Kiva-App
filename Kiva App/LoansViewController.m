@@ -32,7 +32,8 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 450;
     
-    [self refresh];
+//    [self refresh];
+    [self.tableView reloadData];
 }
 
 - (void)setLoans:(NSArray *)loans{
