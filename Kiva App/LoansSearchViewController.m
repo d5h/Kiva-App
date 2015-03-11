@@ -10,7 +10,7 @@
 #import "LoansViewController.h"
 #import "KivaClientO.h"
 #import "LoansSearchFilterForm.h"
-
+#import "SVProgressHUD.h"
 
 @interface LoansSearchViewController ()
 @property (strong, nonatomic) LoansViewController *loansViewController;
@@ -38,7 +38,9 @@
 }
 
 - (void)loadLoansWithFilters:(NSDictionary *)filters {
+    [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchLoansWithParams:filters completion:^(NSArray *loans, NSError *error) {
+        [SVProgressHUD dismiss];
         if (error) {
             NSLog(@"TeamSearchViewController error loading teams: %@", error);
         } else {

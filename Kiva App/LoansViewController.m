@@ -11,6 +11,7 @@
 #import "Loan.h"
 #import "LoanCell.h"
 #import "LoanDetailViewController.h"
+#import "SVProgressHUD.h"
 
 @interface LoansViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -40,7 +41,9 @@
 }
 
 - (void) refresh {
+    [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
+        [SVProgressHUD dismiss];
         if (error) {
             NSLog(@"LoansViewController error loading loans: %@", error);
         } else {

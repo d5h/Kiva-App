@@ -11,6 +11,7 @@
 #import "KivaClientO.h"
 #import "TeamsSearchFilterForm.h"
 #import "User.h"
+#import "SVProgressHUD.h"
 
 static NSString *kMyTeams = @"My Teams";
 
@@ -46,7 +47,9 @@ static NSString *kMyTeams = @"My Teams";
 }
 
 - (void)loadTeamsWithFilters:(NSDictionary *)filters {
+    [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchTeamsWithParams:filters completion:^(NSArray *teams, NSError *error) {
+        [SVProgressHUD dismiss];
         if (error) {
             NSLog(@"TeamSearchViewController error loading teams: %@", error);
         } else {
@@ -96,7 +99,9 @@ static NSString *kMyTeams = @"My Teams";
     if ([self.teamsListViewController.navigationItem.leftBarButtonItem.title isEqualToString:kMyTeams]) {
         User *user = [User currentUser];
         if (user) {
+            [SVProgressHUD show];
             [[KivaClientO sharedInstance] fetchMyTeamsWithCompletion:^(NSArray *teams, NSError *error) {
+                [SVProgressHUD dismiss];
                 if (error) {
                     NSLog(@"TeamSearchViewController error loading teams: %@", error);
                 } else {

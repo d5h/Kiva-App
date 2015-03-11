@@ -10,6 +10,7 @@
 #import "KivaClientO.h"
 #import "StatCell.h"
 #import "User.h"
+#import "SVProgressHUD.h"
 
 @interface MySummaryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -61,7 +62,9 @@
 #pragma mark - Private
 
 - (void)loadData {
+    [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchUserStatsWithParams:nil completion:^(UserStats *stats, NSError *error) {
+        [SVProgressHUD dismiss];
         if (error) {
             NSLog(@"LoansViewController error loading loans: %@", error);
         } else {
