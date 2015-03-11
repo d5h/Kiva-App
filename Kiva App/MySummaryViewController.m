@@ -9,6 +9,7 @@
 #import "MySummaryViewController.h"
 #import "KivaClientO.h"
 #import "LoginViewController.h"
+#import "MyDetailsViewController.h"
 #import "StatCell.h"
 #import "User.h"
 #import "SVProgressHUD.h"
@@ -23,6 +24,8 @@
 
 @end
 
+static UIColor *bgColor;
+
 @implementation MySummaryViewController
 
 - (void)viewDidLoad {
@@ -34,6 +37,8 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"StatCell" bundle:nil] forCellWithReuseIdentifier:@"StatCell"];
     
     self.user = [User currentUser];
+    
+    bgColor = [UIColor colorWithRed:127/255.0 green:173/255.0 blue:76/255.0 alpha:1.0];
     
     [self loadData];
 }
@@ -47,17 +52,40 @@
 #pragma mark - Collection view
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.data.count;
+    return self.data.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
     StatCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StatCell" forIndexPath:indexPath];
-    
-    NSString *statName = self.statNames[indexPath.row];
-    cell.descriptionLabel.text = statName;
-    cell.valueLabel.text = [NSString stringWithFormat:@"$%@", [[self.data valueForKey:statName] stringValue]];
-    
+    if (indexPath.row == self.data.count) {
+        cell.valueLabel.text = @"More >";
+        cell.descriptionLabel.text = @"See more!";
+        cell.backgroundColor = [UIColor redColor];
+        
+    } else {
+        NSString *statName = self.statNames[indexPath.row];
+        cell.descriptionLabel.text = statName;
+        cell.valueLabel.text = [NSString stringWithFormat:@"$%@", [[self.data valueForKey:statName] stringValue]];
+        cell.backgroundColor = bgColor;
+    }
+    cell.layer.cornerRadius = 50.0f;
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == self.data.count) {
+        [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
+            if (error) {
+                NSLog(@"My Summary error loading my loans: %@", error);
+            } else {
+                MyDetailsViewController *vc = [MyDetailsViewController new];
+                vc.loans = loans;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }];
+
+    }
 }
 
 #pragma mark - Private

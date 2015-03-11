@@ -119,6 +119,22 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
 
 }
 
+- (void)fetchMyLoansWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion {
+    [self GET:@"my/loans.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        NSArray *loans = [MTLJSONAdapter modelsOfClass:[Loan class] fromJSONArray:responseObject[@"loans"] error:&error];
+        if (error) {
+            NSLog(@"Error deserializing loans: %@", error);
+            completion(nil, error);
+        } else {
+            completion(loans, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+
 - (void)fetchTeamsWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion {
     [self GET:@"teams/search.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;

@@ -10,4 +10,6 @@
 
 @interface MyDetailsViewController : UIViewController
 
+@property (nonatomic, strong) NSArray *loans;
+
 @end
