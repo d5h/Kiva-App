@@ -50,6 +50,8 @@
 		63E72F701AACF59E00BD1F9F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E72F6E1AACF59E00BD1F9F /* LoginViewController.xib */; };
 		63FE25F11AAFE99D00CC5FE5 /* MyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FE25EF1AAFE99D00CC5FE5 /* MyDetailsViewController.m */; };
 		63FE25F21AAFE99D00CC5FE5 /* MyDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FE25F01AAFE99D00CC5FE5 /* MyDetailsViewController.xib */; };
+		63FE25F61AB0134A00CC5FE5 /* StatHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FE25F41AB0134A00CC5FE5 /* StatHeader.m */; };
+		63FE25F71AB0134A00CC5FE5 /* StatHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FE25F51AB0134A00CC5FE5 /* StatHeader.xib */; };
 		C5C3DE6F5A3E018797E083A3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA917B2940A1400F9037894 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +141,9 @@
 		63FE25EE1AAFE99D00CC5FE5 /* MyDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDetailsViewController.h; sourceTree = "<group>"; };
 		63FE25EF1AAFE99D00CC5FE5 /* MyDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDetailsViewController.m; sourceTree = "<group>"; };
 		63FE25F01AAFE99D00CC5FE5 /* MyDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDetailsViewController.xib; sourceTree = "<group>"; };
+		63FE25F31AB0134A00CC5FE5 /* StatHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatHeader.h; sourceTree = "<group>"; };
+		63FE25F41AB0134A00CC5FE5 /* StatHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatHeader.m; sourceTree = "<group>"; };
+		63FE25F51AB0134A00CC5FE5 /* StatHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatHeader.xib; sourceTree = "<group>"; };
 		8525FEC0978939D1C72D4BDF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A831D9969C6347BB330CEC30 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -278,6 +283,9 @@
 				5D1E894A1AAFE07900DDEE3D /* JournalEntryCell.h */,
 				5D1E894B1AAFE07900DDEE3D /* JournalEntryCell.m */,
 				5D1E894C1AAFE07900DDEE3D /* JournalEntryCell.xib */,
+				63FE25F31AB0134A00CC5FE5 /* StatHeader.h */,
+				63FE25F41AB0134A00CC5FE5 /* StatHeader.m */,
+				63FE25F51AB0134A00CC5FE5 /* StatHeader.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -425,6 +433,7 @@
 				63E72F701AACF59E00BD1F9F /* LoginViewController.xib in Resources */,
 				63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */,
 				63FE25F21AAFE99D00CC5FE5 /* MyDetailsViewController.xib in Resources */,
+				63FE25F71AB0134A00CC5FE5 /* StatHeader.xib in Resources */,
 				5D1E894E1AAFE07900DDEE3D /* JournalEntryCell.xib in Resources */,
 				22C83CA91AACC703009E155E /* LoanDetailViewController.xib in Resources */,
 				5D1E89411AACD96200DDEE3D /* TeamDetailViewController.xib in Resources */,
@@ -488,6 +497,7 @@
 				224E0E391AAD25510077A85C /* LoanDetailInfo.m in Sources */,
 				5D1E89481AAFDF0B00DDEE3D /* UpdatesViewController.m in Sources */,
 				5D1E894D1AAFE07900DDEE3D /* JournalEntryCell.m in Sources */,
+				63FE25F61AB0134A00CC5FE5 /* StatHeader.m in Sources */,
 				63B199CB1AA8433000ED685D /* Loan.m in Sources */,
 				63E72F6B1AACDE5300BD1F9F /* User.m in Sources */,
 				63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */,

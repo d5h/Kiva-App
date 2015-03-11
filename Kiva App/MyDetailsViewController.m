@@ -8,15 +8,19 @@
 
 #import "MyDetailsViewController.h"
 #import "Loan.h"
+#import "StatHeader.h"
 #import "StatCell.h"
 
-@interface MyDetailsViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MyDetailsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 
 @property (strong, nonatomic) NSArray *stats;
-@property (strong, nonatomic) NSArray * countries;
+@property (strong, nonatomic) NSArray *themes;
+@property (strong, nonatomic) NSArray *sectors;
+@property (strong, nonatomic) NSArray *countries;
+@property (nonatomic, strong) NSArray *sectionHeaders;
 
 @end
 
@@ -30,7 +34,7 @@ static UIColor *bgColor;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     [self.collectionView registerNib:[UINib nibWithNibName:@"StatCell" bundle:nil] forCellWithReuseIdentifier:@"StatCell"];
-
+    [self.collectionView registerNib:[UINib nibWithNibName:@"StatHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"StatHeader"];
     [self initData];
 }
 
@@ -45,30 +49,94 @@ static UIColor *bgColor;
     return [[self.stats objectAtIndex:section] count];
 }
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return [self.stats count];
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGSize size;
+    
+    switch (indexPath.section) {
+        case 2:
+            size = CGSizeMake(30.0, 25.0);
+            break;
+            
+        default:
+            size = CGSizeMake(60.0, 60.0);
+            break;
+    }
+    
+    return size;
+}
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     StatCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StatCell" forIndexPath:indexPath];
     
-    cell.valueLabel.text = self.countries[indexPath.row];
-    cell.valueLabel.font = [UIFont fontWithName:@"Helvetica-Neue" size:8.0];
-    cell.descriptionLabel.text = @"";
-    cell.backgroundColor = [UIColor redColor];
-    for (Loan *loan in self.loans) {
-        if ([loan.countryCode isEqualToString:self.countries[indexPath.row]]) {
-            cell.backgroundColor = bgColor;
+    switch (indexPath.section) {
+        case 0:
+            cell.descriptionLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
+            cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
+            cell.valueLabel.text = @"";
+            cell.backgroundColor = [UIColor orangeColor];
+            cell.layer.cornerRadius = 30.0;
             break;
-        }
+        case 1:
+            cell.descriptionLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
+            cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
+            cell.valueLabel.text = @"";
+            cell.backgroundColor = [UIColor magentaColor];
+            cell.layer.cornerRadius = 30.0;
+            for (Loan *loan in self.loans) {
+                if ([loan.sector isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
+                    cell.backgroundColor = bgColor;
+                    break;
+                }
+            }
+            break;
+        case 2:
+            cell.valueLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:8.0];
+            cell.valueLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
+            cell.descriptionLabel.text = @"";
+            cell.backgroundColor = [UIColor redColor];
+            cell.layer.cornerRadius = 0.0;
+            for (Loan *loan in self.loans) {
+                if ([loan.countryCode isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
+                    cell.backgroundColor = bgColor;
+                    break;
+                }
+            }
+            break;
+            
+        default:
+            break;
     }
     
     return cell;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        StatHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"StatHeader" forIndexPath:indexPath];
+        headerView.headerLabel.text = self.sectionHeaders[indexPath.section];
+        
+        return headerView;
+    }
+    return nil;
+}
+
 #pragma mark - Private
 
 - (void)initData {
+    self.sectionHeaders = @[@"Themes", @"Sectors", @"Countries"];
+    self.themes = @[@"Green", @"Higher Education", @"Arab Youth", @"Kiva City LA", @"Islamic Finance", @"Youth", @"Start-Up", @"Water and Sanitation", @"Vulnerable Groups", @"Fair Trade", @"Rural Exclusion", @"Mobile Technology", @"Underfunded Areas", @"Conflict Zones", @"Job Creation", @"SME", @"Growing Businesses", @"Kiva City Detroit", @"Health", @"Disaster recovery", @"Flexible Credit Study", @"Innovative Loans"];
+    self.sectors = @[@"Agriculture", @"Arts", @"Clothing", @"Construction", @"Education", @"Entertainment", @"Food", @"Health", @"Housing", @"Manufacturing", @"Personal Use", @"Retail", @"Services", @"Transportation", @"Wholesale"];
     self.countries = @[@"AF", @"AL", @"AM", @"AZ", @"BA", @"BF", @"BG", @"BI", @"BJ", @"BO", @"BR", @"BW", @"BZ", @"CD", @"CG", @"CI", @"CL", @"CM", @"CN", @"CO", @"CR", @"DO", @"EC", @"EG", @"GE", @"GH", @"GT", @"GZ", @"HN", @"HT", @"ID", @"IL", @"IN", @"IQ", @"JO", @"KE", @"KG", @"KH", @"LA", @"LB", @"LK", @"LR", @"MD", @"MG", @"ML", @"MM", @"MN", @"MR", @"MW", @"MX", @"MZ", @"NA", @"NG", @"NI", @"NP", @"PA", @"PE", @"PG", @"PH", @"PK", @"PS", @"PY", @"QS", @"RW", @"SB", @"SG", @"SL", @"SN", @"SO", @"SR", @"SV", @"TD", @"TG", @"TH", @"TJ", @"TL", @"TN", @"TR", @"TZ", @"UA", @"UG", @"US", @"VC", @"VN", @"VU", @"WS", @"XK", @"YE", @"ZA", @"ZM", @"ZW"];
   
-    self.stats = [NSArray arrayWithObjects:self.countries, nil];
+    self.stats = [NSArray arrayWithObjects:self.themes, self.sectors, self.countries, nil];
     [self.collectionView reloadData];
     
 }
