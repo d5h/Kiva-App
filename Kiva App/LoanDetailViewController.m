@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSArray *partnerInfo;
 //@property(nonatomic, strong) NSNumber *partnerId;
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *loanImage;
 @property (weak, nonatomic) IBOutlet UILabel *loanAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *percentFundedLabel;
@@ -63,11 +64,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-
+    NSLayoutConstraint *leftConstraint =
+    [NSLayoutConstraint constraintWithItem:self.contentView
+                                 attribute:NSLayoutAttributeLeading
+                                 relatedBy:0
+                                    toItem:self.view
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1.0
+                                  constant:0];
+    [self.view addConstraint:leftConstraint];
+    
+    NSLayoutConstraint *rightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.contentView
+                                 attribute:NSLayoutAttributeTrailing
+                                 relatedBy:0
+                                    toItem:self.view
+                                 attribute:NSLayoutAttributeRight
+                                multiplier:1.0
+                                  constant:0];
+    [self.view addConstraint:rightConstraint];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Browse" style:UIBarButtonItemStylePlain target:self action:@selector(onBackButton)];
     
     //self.partnerId = [[NSNumber alloc]init];
+    
+    
     
     [[KivaClientO sharedInstance] fetchLoanDetailsWithParams:nil withLoanId:self.loanId completion:^(NSArray *loansDetails, NSError *error){
         
@@ -80,6 +101,9 @@
 
             [self.loanImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", loandetail.imageId]]];
             self.borrowersStoryLabel.text = loandetail.texts;
+            
+            [self.borrowersStoryLabel sizeToFit];
+            
             self.loanUseLabel.text = [NSString stringWithFormat:@"A loan of $%ld helps %@ %@", (long)[loandetail.loanAmount integerValue], loandetail.name, loandetail.use];
 
             
