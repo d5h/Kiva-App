@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Mantle/Mantle.h>
+#import "Partner.h"
 
 @interface PartnerInfo : MTLModel <MTLJSONSerializing>
 

@@ -26,6 +26,10 @@
       @"plannedExpirationDate": @"planned_expiration_date",
       @"partnerId" : @"partner_id",
       @"texts" : @"description.texts.en",
+      @"repaymentTerm": @"terms.repayment_term",
+      @"repaymentSchedule": @"terms.repayment_interval",
+      @"disbursalDate":@"terms.disbursal_date",
+      @"currencyLossPossibility" : @"loss_liability.currency_exchange",
       };
 }
 

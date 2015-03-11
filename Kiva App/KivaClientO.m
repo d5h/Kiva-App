@@ -171,7 +171,7 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     NSString *path = [NSString stringWithFormat:@"partners/%d.json", [partnerId intValue]];
     [self GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;
-        NSArray *partners = [MTLJSONAdapter modelsOfClass:[PartnerInfo class] fromJSONArray:responseObject[@"partners"] error:&error];
+        NSArray *partners = [MTLJSONAdapter modelsOfClass:[Partner class] fromJSONArray:responseObject[@"partners"] error:&error];
         if (error) {
             NSLog(@"Error deserializing partner details: %@", error);
             completion(nil, error);

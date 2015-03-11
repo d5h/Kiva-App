@@ -12,12 +12,16 @@
 #import "LoanDetail.h"
 #import <PromiseKit/PromiseKit.h>
 #import "UIImageView+AFNetworking.h"
+#import "PartnerInfo.h"
+#import "Partner.h"
 
 
 @interface LoanDetailViewController ()
 
 //@property(nonatomic, strong)LoanDetail *loanDetail;
 @property (nonatomic, strong) NSArray *loansDetails;
+@property (nonatomic, strong) NSArray *partnerInfo;
+//@property(nonatomic, strong) NSNumber *partnerId;
 
 @property (weak, nonatomic) IBOutlet UIImageView *loanImage;
 @property (weak, nonatomic) IBOutlet UILabel *loanAmountLabel;
@@ -34,6 +38,22 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (weak, nonatomic) IBOutlet UILabel *repaymentTermLabel;
+@property (weak, nonatomic) IBOutlet UILabel *repaymentScheduleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *listedDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *disbursalDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currencyLossPossibilityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *partnerNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *partnerRiskRatingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *partnerTimeOnKivaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *partnerLoansPostedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *partnerTotalLoansLabel;
+@property (weak, nonatomic) IBOutlet UILabel *partnerInterestFeesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *partnerAverageLoanSizePercentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *partnerCurrencyExchangeLossRateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *partnerLoansAtRiskRateLabel;
+
+
 
 @end
 
@@ -46,6 +66,8 @@
 
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Browse" style:UIBarButtonItemStylePlain target:self action:@selector(onBackButton)];
+    
+    //self.partnerId = [[NSNumber alloc]init];
     
     [[KivaClientO sharedInstance] fetchLoanDetailsWithParams:nil withLoanId:self.loanId completion:^(NSArray *loansDetails, NSError *error){
         
@@ -70,12 +92,47 @@
             self.loanAmountLabel.text = [NSString stringWithFormat:@"$%d/%d", [loandetail.fundedAmount intValue], [loandetail.loanAmount intValue]];
             self.percentFundedLabel.text = [NSString stringWithFormat:@"%0.0f%% funded", [loandetail.fundedAmount floatValue]/[loandetail.loanAmount floatValue] * 100];
             self.progressBar.progress = [loandetail.fundedAmount floatValue]/[loandetail.loanAmount floatValue];
-
             
+            //self.partnerId = loandetail.partnerId;
+            
+            //NSLog(@"partner id is %d", [self.partnerId intValue]);
+
+           
+            
+            //self.repaymentTermLabel.text = loandetail.
+            
+            self.repaymentTermLabel.text = [NSString stringWithFormat:@"%d months", [loandetail.repaymentTerm intValue]];
+            self.repaymentScheduleLabel.text = loandetail.repaymentSchedule;
+            self.listedDateLabel.text = loandetail.postedDate;
+            self.disbursalDateLabel.text = loandetail.disbursalDate;
+            self.currencyLossPossibilityLabel.text = loandetail.currencyLossPossibility;
  
         }
         
  }];
+ 
+    
+    
+    [[KivaClientO sharedInstance] fetchPartnerDetailsWithParams:nil withPartnerId:self.partnerId completion:^(NSArray *PartnerInfo, NSError *error){
+        
+        if (error) {
+            NSLog(@"LoansDetailViewController error loading PartnerInfo: %@", error);
+        } else {
+            Partner *partner = PartnerInfo[0];
+            self.partnerNameLabel.text = partner.name;
+            self.partnerRiskRatingLabel.text = [NSString stringWithFormat:@"%0.2f", [partner.riskRating floatValue]];
+            
+            self.partnerLoansPostedLabel.text = [NSString stringWithFormat:@"%d", [partner.numLoansPosted intValue]];
+            self.partnerTotalLoansLabel.text = [NSString stringWithFormat:@"$%d", [partner.totalAmountRaised intValue]];
+            self.partnerInterestFeesLabel.text = partner.chargesFeesAndInterest;
+            self.partnerAverageLoanSizePercentLabel.text = [NSString stringWithFormat:@"%0.2f%%", [partner.averageLoanSizePercentPerCapitaIncome floatValue]];
+            self.partnerCurrencyExchangeLossRateLabel.text = [NSString stringWithFormat:@"%0.2f%%", [partner.currencyExchangeLossRate floatValue]];
+            self.partnerLoansAtRiskRateLabel.text = [NSString stringWithFormat:@"%0.2f%%", [partner.loansAtRiskRate floatValue]];
+
+ 
+        }
+        
+    }];
     
     
 

@@ -11,5 +11,6 @@
 
 @interface LoanDetailViewController : UIViewController
 @property(nonatomic, strong)NSNumber *loanId;
+@property(nonatomic, strong)NSNumber *partnerId;
 
 @end

@@ -17,6 +17,9 @@
     
     if (self) {
         self.status = [dictionary objectForKey:@"status"];
+        self.gender = [dictionary objectForKey:@"gender"];
+        self.region = [dictionary objectForKey:@"region"];
+        self.sortBy = [dictionary objectForKey:@"sort_by"];
     }
     
     return self;
@@ -35,11 +38,56 @@
                      ]};
 }
 
+- (NSDictionary *)genderField {
+    return @{FXFormFieldOptions: @[
+                     @"male",
+                     @"female",
+                     ]};
+}
+
+- (NSDictionary *)regionField {
+    return @{FXFormFieldOptions: @[
+                     @"na",
+                     @"ca",
+                     @"sa",
+                     @"af",
+                     @"as",
+                     @"me",
+                     @"ee",
+                     @"we",
+                     @"an",
+                     @"oc",
+                     ]};
+}
+
+- (NSDictionary *)sortByField {
+    return @{FXFormFieldOptions: @[
+                     @"popularity",
+                     @"loan_amount",
+                     @"expiration",
+                     @"newest",
+                     @"oldest",
+                     @"amount_remaining",
+                     @"repayment_term",
+                     @"random",
+                     ]};
+}
+
 - (NSDictionary *)dictionary {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     if (self.status) {
         [result setObject:self.status forKey:@"status"];
     }
+    if (self.gender) {
+        [result setObject:self.gender forKey:@"gender"];
+    }
+    if (self.sortBy) {
+        [result setObject:self.sortBy forKey:@"sort_by"];
+    }
+    if (self.region) {
+        [result setObject:self.region forKey:@"region"];
+    }
+    
     return result;
 }
 

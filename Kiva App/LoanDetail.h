@@ -24,5 +24,9 @@
 @property (copy, nonatomic, readonly) NSString *postedDate;
 @property (copy, nonatomic, readonly) NSString *plannedExpirationDate;
 @property (copy, nonatomic, readonly) NSString *texts;
+@property (copy, nonatomic, readonly) NSNumber *repaymentTerm;
+@property (copy, nonatomic, readonly) NSString *repaymentSchedule;
+@property (copy, nonatomic, readonly) NSString *disbursalDate;
+@property (copy, nonatomic, readonly) NSString *currencyLossPossibility;
 
 @end

@@ -26,6 +26,7 @@
       @"chargesFeesAndInterest" : @"charges_fees_and_interest",
       @"currencyExchangeLossRate" :@"currency_exchange_loss_rate",
       @"averageLoanSizePercentPerCapitaIncome" :@"average_loan_size_percent_per_capita_income",
+      @"loansAtRiskRate" : @"loans_at_risk_rate",
       
       };
 }

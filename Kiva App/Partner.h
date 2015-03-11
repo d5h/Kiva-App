@@ -24,6 +24,6 @@
 @property (copy, nonatomic, readonly) NSString *chargesFeesAndInterest;
 @property (copy, nonatomic, readonly) NSNumber *averageLoanSizePercentPerCapitaIncome;
 @property (nonatomic, readonly) NSNumber *currencyExchangeLossRate;
-
+@property (nonatomic, readonly) NSNumber *loansAtRiskRate;
 
 @end

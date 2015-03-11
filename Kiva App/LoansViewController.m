@@ -79,6 +79,7 @@
     LoanDetailViewController *ldvc = [[LoanDetailViewController alloc] init];
     Loan *loan = self.loans[indexPath.row];
     ldvc.loanId = loan.identifier;
+    ldvc.partnerId = loan.partnerId;
 
     
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:ldvc];
