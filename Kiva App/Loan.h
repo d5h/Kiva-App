@@ -24,7 +24,7 @@
 @property (copy, nonatomic, readonly) NSString *activity;
 @property (copy, nonatomic, readonly) NSString *postedDate;
 @property (copy, nonatomic, readonly) NSString *plannedExpirationDate;
-
+@property (copy, nonatomic, readonly) NSArray *themes;
 
 
 @end
