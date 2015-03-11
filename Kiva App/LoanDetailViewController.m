@@ -124,7 +124,7 @@
             
             self.partnerLoansPostedLabel.text = [NSString stringWithFormat:@"%d", [partner.numLoansPosted intValue]];
             self.partnerTotalLoansLabel.text = [NSString stringWithFormat:@"$%d", [partner.totalAmountRaised intValue]];
-            self.partnerInterestFeesLabel.text = partner.chargesFeesAndInterest;
+            self.partnerInterestFeesLabel.text = partner.chargesFeesAndInterest ? @"Yes" : @"No";
             self.partnerAverageLoanSizePercentLabel.text = [NSString stringWithFormat:@"%0.2f%%", [partner.averageLoanSizePercentPerCapitaIncome floatValue]];
             self.partnerCurrencyExchangeLossRateLabel.text = [NSString stringWithFormat:@"%0.2f%%", [partner.currencyExchangeLossRate floatValue]];
             self.partnerLoansAtRiskRateLabel.text = [NSString stringWithFormat:@"%0.2f%%", [partner.loansAtRiskRate floatValue]];

@@ -31,4 +31,8 @@
       };
 }
 
++ (NSValueTransformer *)chargesFeesAndInterestJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
+}
+
 @end
