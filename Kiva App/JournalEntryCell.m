@@ -7,6 +7,7 @@
 //
 
 #import "JournalEntryCell.h"
+#import "DTCoreText.h"
 
 @interface JournalEntryCell ()
 
@@ -26,7 +27,11 @@
     _journalEntry = journalEntry;
     
     self.subjectLabel.text = journalEntry.subject;
-    self.bodyLabel.text = journalEntry.body;
+
+    NSData *data = [journalEntry.body dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *options = @{DTUseiOS6Attributes: @(1)};
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithHTMLData:data options:options documentAttributes:NULL];
+    self.bodyLabel.attributedText = attrString;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
