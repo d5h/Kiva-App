@@ -38,6 +38,9 @@ static NSString * const kInvites = @"Invites";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:UserDidLogoutNotification object:nil];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutButton)];
+    
     self.loans = nil;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -127,7 +130,13 @@ static NSString * const kInvites = @"Invites";
             [self.collectionView reloadData];
         }
     }];
-    
-    
+}
+
+- (void)onLogoutButton {
+    [User logout];
+}
+
+- (void)userDidLogout {
+    [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:nil];
 }
 @end

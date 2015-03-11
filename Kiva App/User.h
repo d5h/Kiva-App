@@ -9,6 +9,9 @@
 #import <Mantle/Mantle.h>
 #import "UserStats.h"
 
+extern NSString * const UserDidLoginNotification;
+extern NSString * const UserDidLogoutNotification;
+
 @interface User : MTLModel <MTLJSONSerializing>
 
 @property (copy, nonatomic, readonly) NSString *name;
@@ -19,5 +22,6 @@
 
 + (User *)currentUser;
 + (void)setCurrentUser:(User *)user;
++ (void)logout;
 
 @end

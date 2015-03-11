@@ -26,18 +26,13 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
     [self setAppearance];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     TeamSearchViewController *teamSearchViewController = [[TeamSearchViewController alloc] init];
     LoansSearchViewController *loansSearchViewController = [[LoansSearchViewController alloc] init];
-    UIViewController *myVC;
-    if ([User currentUser] == nil) {
-        myVC = [LoginViewController new];
-    } else {
-        myVC = [[UINavigationController alloc] initWithRootViewController:[MySummaryViewController new]];
-
-    }
+    UINavigationController *myVC = [[UINavigationController alloc] initWithRootViewController:[MySummaryViewController new]];
     UINavigationController *updatesViewController = [[UINavigationController alloc] initWithRootViewController:[[UpdatesViewController alloc] init]];
     tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController];
     loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:[UIImage imageNamed:@"loan"] tag:0];

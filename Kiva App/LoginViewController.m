@@ -25,7 +25,7 @@
     [[KivaClientO sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
             NSLog(@"Welcome to %@", user.name);
-            [self presentViewController:[[UINavigationController alloc] initWithRootViewController:[[MySummaryViewController alloc] init]] animated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             NSLog(@"login error: %@", error);
             // Present error view

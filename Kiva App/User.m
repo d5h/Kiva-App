@@ -8,6 +8,9 @@
 
 #import "User.h"
 
+NSString * const UserDidLoginNotification = @"UserDidLoginNotification";
+NSString * const UserDidLogoutNotification = @"UserDidLogoutNotification";
+
 @implementation User
 
 #pragma mark - MTLJSONSerializing
@@ -61,6 +64,11 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
     }
     
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)logout {
+    [User setCurrentUser:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:UserDidLogoutNotification object:nil];
 }
 
 
