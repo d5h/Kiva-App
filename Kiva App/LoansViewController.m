@@ -32,7 +32,7 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 450;
     
-//    [self refresh];
+
     [self.tableView reloadData];
 }
 
@@ -41,18 +41,7 @@
     [self.tableView reloadData];
 }
 
-- (void) refresh {
-    [SVProgressHUD show];
-    [[KivaClientO sharedInstance] fetchLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
-        [SVProgressHUD dismiss];
-        if (error) {
-            NSLog(@"LoansViewController error loading loans: %@", error);
-        } else {
-            self.loans = loans;
-            [self.tableView reloadData];
-        }
-    }];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -165,6 +165,7 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     }];
 }
 
+
 - (void)fetchLoanDetailsWithParams:(NSDictionary *)params  withLoanId :(NSNumber*) loanId completion:(void (^)(NSArray *, NSError *))completion {
     
     NSString *path = [NSString stringWithFormat:@"loans/%d.json", [loanId intValue]];

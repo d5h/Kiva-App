@@ -11,12 +11,16 @@
 #import "KivaClientO.h"
 #import "LoansSearchFilterForm.h"
 #import "SVProgressHUD.h"
+#import "User.h"
 
-@interface LoansSearchViewController ()
+static NSString *kMyLoans = @"My Loans";
+
+@interface LoansSearchViewController ()<UISearchBarDelegate>
 @property (strong, nonatomic) LoansViewController *loansViewController;
 @property (nonatomic, strong) LoansSearchFilterForm *filterForm;
 @property (nonatomic, strong) UINavigationController *filterNavigationController;
 @property (nonatomic, strong) NSDictionary *filters;
+@property (nonatomic, strong) NSString *searchText;
 
 @end
 
@@ -28,13 +32,18 @@
     self.loansViewController = [[LoansViewController alloc]init];
 
     [self setViewControllers:@[self.loansViewController]];
-    [self loadLoansWithFilters:nil];
-    
-    
-    self.loansViewController.navigationItem.titleView = [[UISearchBar alloc] init];
-    self.loansViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
-    
     self.filters = @{};
+    [self loadLoans];
+    
+    
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    searchBar.delegate = self;
+    self.loansViewController.navigationItem.titleView = searchBar;
+    
+    self.loansViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kMyLoans style:UIBarButtonItemStylePlain target:self action:@selector(onMyLoans)];
+    self.loansViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
+
+    
 }
 
 - (void)loadLoansWithFilters:(NSDictionary *)filters {
@@ -50,7 +59,13 @@
     }];
 }
     
-
+- (void)loadLoans {
+    NSMutableDictionary *filters = [self.filters mutableCopy];
+    if (self.searchText) {
+        [filters setObject:self.searchText forKey:@"q"];
+    }
+    [self loadLoansWithFilters:filters];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -80,5 +95,38 @@
 
 }
 
+#pragma mark My Teams
+
+- (void)onMyLoans {
+    if ([self.loansViewController.navigationItem.leftBarButtonItem.title isEqualToString:kMyLoans]) {
+        User *user = [User currentUser];
+        if (user) {
+            [SVProgressHUD show];
+            [[KivaClientO sharedInstance] fetchMyTeamsWithCompletion:^(NSArray *loans, NSError *error) {
+                [SVProgressHUD dismiss];
+                if (error) {
+                    NSLog(@"LoansSearchViewController error loading loans: %@", error);
+                } else {
+                    self.loansViewController.loans = loans;
+                }
+            }];
+            self.loansViewController.navigationItem.leftBarButtonItem.title = @"All Loans";
+        } else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Requires log in" message:@"Please use the My tab to log in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+    } else {
+        self.loansViewController.navigationItem.leftBarButtonItem.title = kMyLoans;
+        [self loadLoans];
+    }
+}
+
+#pragma mark - Seach Bar
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    self.searchText = searchBar.text;
+    [self loadLoans];
+    [searchBar resignFirstResponder];
+}
 
 @end
