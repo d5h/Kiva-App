@@ -9,6 +9,7 @@
 #import "MySummaryViewController.h"
 #import "KivaClientO.h"
 #import "LoginViewController.h"
+#import "LoansViewController.h"
 #import "MyDetailsViewController.h"
 #import "StatCell.h"
 #import "User.h"
@@ -20,17 +21,24 @@
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSDictionary *data;
 @property (nonatomic, strong) NSArray *statNames;
+@property (nonatomic, strong) NSArray *loans;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end
 
 static UIColor *bgColor;
+static NSString * const kOutstandingLoans = @"Outstanding Loans";
+static NSString * const kTotalLoans = @"Total Loans";
+static NSString * const kDonations = @"Donations";
+static NSString * const kAmountLent = @"Total Amount Lent";
+static NSString * const kInvites = @"Invites";
 
 @implementation MySummaryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.loans = nil;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -66,7 +74,7 @@ static UIColor *bgColor;
     } else {
         NSString *statName = self.statNames[indexPath.row];
         cell.descriptionLabel.text = statName;
-        cell.valueLabel.text = [NSString stringWithFormat:@"$%@", [[self.data valueForKey:statName] stringValue]];
+        cell.valueLabel.text = [[self.data valueForKey:statName] stringValue];
         cell.backgroundColor = bgColor;
     }
     cell.layer.cornerRadius = 50.0f;
@@ -74,17 +82,27 @@ static UIColor *bgColor;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == self.data.count) {
+    if (self.loans == nil) {
         [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
             if (error) {
                 NSLog(@"My Summary error loading my loans: %@", error);
+                return;
             } else {
-                MyDetailsViewController *vc = [MyDetailsViewController new];
-                vc.loans = loans;
-                [self.navigationController pushViewController:vc animated:YES];
+                self.loans = loans;
             }
         }];
-
+    }
+    
+    if (indexPath.row == self.data.count) {
+        MyDetailsViewController *vc = [MyDetailsViewController new];
+        vc.title = @"My Detailed Stats";
+        vc.loans = self.loans;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([self.statNames[indexPath.row] isEqualToString:kOutstandingLoans]){
+        LoansViewController *vc = [LoansViewController new];
+        vc.title = @"My Loans";
+        vc.loans = self.loans;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -99,13 +117,13 @@ static UIColor *bgColor;
             NSLog(@"My Summary error loading stats: %@", error);
         } else {
             self.data = @{
-                          @"Outstanding Loans" : stats.amountOutstanding,
-                          @"Total Amount Lent" : stats.amountLoans,
-                          @"Loans" : stats.numLoans,
-                          @"Donations" : stats.amountDonated,
-                          @"Invites" : stats.numInvites
+                          kOutstandingLoans : stats.amountOutstanding,
+                          kAmountLent : stats.amountLoans,
+                          kTotalLoans : stats.numLoans,
+                          kDonations : stats.amountDonated,
+                          kInvites : stats.numInvites
                           };
-            self.statNames = [self.data allKeys];
+            self.statNames = @[kOutstandingLoans, kTotalLoans, kDonations, kAmountLent, kInvites];
             [self.collectionView reloadData];
         }
     }];
