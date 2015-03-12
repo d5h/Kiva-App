@@ -13,6 +13,8 @@
 #import "MyDetailsViewController.h"
 #import "StatCell.h"
 #import "User.h"
+#import "Loan.h"
+#import "Partner.h"
 #import "SVProgressHUD.h"
 
 @interface MySummaryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -22,6 +24,7 @@
 @property (nonatomic, strong) NSDictionary *data;
 @property (nonatomic, strong) NSArray *statNames;
 @property (nonatomic, strong) NSArray *loans;
+@property (nonatomic, strong) NSArray *partners;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end
@@ -92,6 +95,17 @@ static NSString * const kInvites = @"Invites";
                 return;
             } else {
                 self.loans = loans;
+                NSMutableArray *partners = [NSMutableArray array];
+                for (Loan *loan in loans) {
+                    [partners addObject:loan.partnerId];
+                }
+                [[KivaClientO sharedInstance] fetchPartnerDetailsWithParams:nil withPartnerId:partners completion:^(NSArray *partnerInfo, NSError *error){
+                    if (error) {
+                        NSLog(@"My Summary error loading partners: %@", error);
+                    } else {
+                        self.partners = partnerInfo;
+                    }
+                }];
             }
         }];
     }
@@ -100,6 +114,7 @@ static NSString * const kInvites = @"Invites";
         MyDetailsViewController *vc = [MyDetailsViewController new];
         vc.title = @"My Detailed Stats";
         vc.loans = self.loans;
+        vc.partners = self.partners;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([self.statNames[indexPath.row] isEqualToString:kOutstandingLoans]){
         LoansViewController *vc = [LoansViewController new];

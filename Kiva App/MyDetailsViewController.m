@@ -8,6 +8,7 @@
 
 #import "MyDetailsViewController.h"
 #import "Loan.h"
+#import "Partner.h"
 #import "StatHeader.h"
 #import "StatCell.h"
 
@@ -86,6 +87,12 @@ static UIColor *bgColor;
             cell.valueLabel.text = @"";
             cell.backgroundColor = [UIColor yellowColor];
             cell.layer.cornerRadius = 50.0;
+//            for (Partner *partner in self.partners) {
+//                if ([partnersocialfocus isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
+//                    cell.backgroundColor = bgColor;
+//                    continue;
+//                }
+//            }
             break;
         case 1:
             cell.descriptionLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
