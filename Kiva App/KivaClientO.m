@@ -184,8 +184,8 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     
 }
 
-- (void)fetchPartnerDetailsWithParams:(NSDictionary *)params  withPartnerId :(NSNumber*) partnerId completion:(void (^)(NSArray *, NSError *))completion {
-    NSString *path = [NSString stringWithFormat:@"partners/%d.json", [partnerId intValue]];
+- (void)fetchPartnerDetailsWithParams:(NSDictionary *)params  withPartnerId :(NSArray*) partnerIds completion:(void (^)(NSArray *, NSError *))completion {
+    NSString *path = [NSString stringWithFormat:@"partners/%@.json", [partnerIds componentsJoinedByString:@","]];
     [self GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;
         NSArray *partners = [MTLJSONAdapter modelsOfClass:[Partner class] fromJSONArray:responseObject[@"partners"] error:&error];

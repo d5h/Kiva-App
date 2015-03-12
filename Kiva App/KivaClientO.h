@@ -26,7 +26,7 @@
 - (void)fetchUpdatesForLoan:(long)loanId completion:(void (^)(NSArray *, NSError *))completion;
 
 - (void)fetchLoanDetailsWithParams:(NSDictionary *)params  withLoanId :(NSNumber*) loanId completion:(void (^)(NSArray *, NSError *))completion;
-- (void)fetchPartnerDetailsWithParams:(NSDictionary *)params  withPartnerId :(NSNumber*) partnerId completion:(void (^)(NSArray *, NSError *))completion;
+- (void)fetchPartnerDetailsWithParams:(NSDictionary *)params  withPartnerId :(NSArray*) partnerIds completion:(void (^)(NSArray *, NSError *))completion;
 
 
 @end

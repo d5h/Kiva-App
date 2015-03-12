@@ -137,7 +137,7 @@
  
     
     
-    [[KivaClientO sharedInstance] fetchPartnerDetailsWithParams:nil withPartnerId:self.partnerId completion:^(NSArray *PartnerInfo, NSError *error){
+    [[KivaClientO sharedInstance] fetchPartnerDetailsWithParams:nil withPartnerId:[NSArray arrayWithObject:[self.partnerId stringValue]] completion:^(NSArray *PartnerInfo, NSError *error){
         
         if (error) {
             NSLog(@"LoansDetailViewController error loading PartnerInfo: %@", error);
