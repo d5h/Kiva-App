@@ -102,7 +102,7 @@ static NSString *kMyLoans = @"My Loans";
         User *user = [User currentUser];
         if (user) {
             [SVProgressHUD show];
-            [[KivaClientO sharedInstance] fetchMyTeamsWithCompletion:^(NSArray *loans, NSError *error) {
+            [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
                 [SVProgressHUD dismiss];
                 if (error) {
                     NSLog(@"LoansSearchViewController error loading loans: %@", error);
