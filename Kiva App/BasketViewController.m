@@ -26,13 +26,20 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 100;}
+    self.tableView.estimatedRowHeight = 100;
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void) setBasketLoans:(NSMutableArray *)basketLoans {
+    _basketLoans = basketLoans;
+    [self.tableView reloadData];
+    
+}
 
 #pragma mark - Table Methods
 
