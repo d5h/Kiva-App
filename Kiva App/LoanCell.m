@@ -31,6 +31,13 @@
     // Initialization code
     
     self.useLabel.preferredMaxLayoutWidth = self.useLabel.frame.size.width;
+    self.nameLabel.preferredMaxLayoutWidth = self.nameLabel.frame.size.width;
+    self.countryLabel.preferredMaxLayoutWidth = self.countryLabel.frame.size.width;
+    self.sectorLabel.preferredMaxLayoutWidth = self.sectorLabel.frame.size.width;
+    self.activityLabel.preferredMaxLayoutWidth = self.activityLabel.frame.size.width;
+    self.daysLeftLabel.preferredMaxLayoutWidth = self.daysLeftLabel.frame.size.width;
+    self.percentFundedLabel.preferredMaxLayoutWidth = self.percentFundedLabel.frame.size.width;
+    self.loanAmountLabel.preferredMaxLayoutWidth = self.loanAmountLabel.frame.size.width;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

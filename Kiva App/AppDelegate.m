@@ -14,6 +14,7 @@
 #import "LoansSearchViewController.h"
 #import "MySummaryViewController.h"
 #import "UpdatesViewController.h"
+#import "BasketViewController.h"
 
 @interface AppDelegate ()
 
@@ -34,11 +35,17 @@
     LoansSearchViewController *loansSearchViewController = [[LoansSearchViewController alloc] init];
     UINavigationController *myVC = [[UINavigationController alloc] initWithRootViewController:[MySummaryViewController new]];
     UINavigationController *updatesViewController = [[UINavigationController alloc] initWithRootViewController:[[UpdatesViewController alloc] init]];
-    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController];
+    BasketViewController *basketViewController = [[BasketViewController alloc]init];
+    UINavigationController *basketNvc = [[UINavigationController alloc]initWithRootViewController:basketViewController];
+    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController, basketNvc];
     loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:[UIImage imageNamed:@"loan"] tag:0];
     teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:[UIImage imageNamed:@"team"] tag:0];
     myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Me" image:[UIImage imageNamed:@"me"] tag:0];
+    basketNvc.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Basket" image:[UIImage imageNamed:@"basket"] tag:0];
     updatesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:[UIImage imageNamed:@"updates"] tag:0];
+    
+    
+    
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];

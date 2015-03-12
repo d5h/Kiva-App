@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APa-VL-tnM">
-                        <rect key="frame" x="15" y="9" width="298" height="27"/>
+                        <rect key="frame" x="15" y="9" width="74" height="27"/>
                         <fontDescription key="fontDescription" name="Superclarendon-Bold" family="Superclarendon" pointSize="22"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -177,7 +177,7 @@
                     <constraint firstItem="5zw-CW-gbI" firstAttribute="top" secondItem="KXe-FO-9hd" secondAttribute="bottom" constant="10" id="tNe-h9-eMk"/>
                     <constraint firstItem="1vL-yH-FXc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="tbb-uN-JJp"/>
                     <constraint firstItem="uXh-Fr-Rqn" firstAttribute="leading" secondItem="6YU-p8-rfH" secondAttribute="trailing" constant="8" id="tjX-rM-Kei"/>
-                    <constraint firstAttribute="trailing" secondItem="APa-VL-tnM" secondAttribute="trailing" constant="7" id="uEz-pz-Qw9"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="APa-VL-tnM" secondAttribute="trailing" constant="60" id="uEz-pz-Qw9"/>
                     <constraint firstItem="1vL-yH-FXc" firstAttribute="top" secondItem="KXe-FO-9hd" secondAttribute="bottom" constant="8" id="ugC-db-6Ek"/>
                     <constraint firstItem="ocf-yJ-gHW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="uis-5B-aSA"/>
                     <constraint firstItem="1vL-yH-FXc" firstAttribute="top" secondItem="KXe-FO-9hd" secondAttribute="bottom" constant="8" id="ujs-KZ-fFy"/>

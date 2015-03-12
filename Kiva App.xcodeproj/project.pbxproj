@@ -10,6 +10,10 @@
 		224E0E391AAD25510077A85C /* LoanDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E0E381AAD25510077A85C /* LoanDetailInfo.m */; };
 		224E0E3C1AAD6EFC0077A85C /* LoansSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */; };
 		224E0E3E1AAD72A20077A85C /* LoansSearchFilterForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */; };
+		227A193A1AB104E5003B0726 /* BasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A19381AB104E5003B0726 /* BasketViewController.m */; };
+		227A193B1AB104E5003B0726 /* BasketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227A19391AB104E5003B0726 /* BasketViewController.xib */; };
+		227A193F1AB1053A003B0726 /* BasketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A193D1AB1053A003B0726 /* BasketCell.m */; };
+		227A19401AB1053A003B0726 /* BasketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227A193E1AB1053A003B0726 /* BasketCell.xib */; };
 		2281B3241AAEC3F900834666 /* Partner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2281B3231AAEC3F900834666 /* Partner.m */; };
 		2281B3271AAEC41000834666 /* PartnerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2281B3261AAEC41000834666 /* PartnerInfo.m */; };
 		22C83CA81AACC703009E155E /* LoanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C83CA61AACC703009E155E /* LoanDetailViewController.m */; };
@@ -72,6 +76,12 @@
 		224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoansSearchViewController.m; sourceTree = "<group>"; };
 		224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoansSearchFilterForm.m; sourceTree = "<group>"; };
 		224E0E3F1AAD72B50077A85C /* LoansSearchFilterForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoansSearchFilterForm.h; sourceTree = "<group>"; };
+		227A19371AB104E5003B0726 /* BasketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasketViewController.h; sourceTree = "<group>"; };
+		227A19381AB104E5003B0726 /* BasketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasketViewController.m; sourceTree = "<group>"; };
+		227A19391AB104E5003B0726 /* BasketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasketViewController.xib; sourceTree = "<group>"; };
+		227A193C1AB1053A003B0726 /* BasketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasketCell.h; sourceTree = "<group>"; };
+		227A193D1AB1053A003B0726 /* BasketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasketCell.m; sourceTree = "<group>"; };
+		227A193E1AB1053A003B0726 /* BasketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasketCell.xib; sourceTree = "<group>"; };
 		2281B3221AAEC3F900834666 /* Partner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partner.h; sourceTree = "<group>"; };
 		2281B3231AAEC3F900834666 /* Partner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Partner.m; sourceTree = "<group>"; };
 		2281B3251AAEC41000834666 /* PartnerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerInfo.h; sourceTree = "<group>"; };
@@ -264,6 +274,9 @@
 				5D1E89451AAFDF0B00DDEE3D /* UpdatesViewController.h */,
 				5D1E89461AAFDF0B00DDEE3D /* UpdatesViewController.m */,
 				5D1E89471AAFDF0B00DDEE3D /* UpdatesViewController.xib */,
+				227A19371AB104E5003B0726 /* BasketViewController.h */,
+				227A19381AB104E5003B0726 /* BasketViewController.m */,
+				227A19391AB104E5003B0726 /* BasketViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -286,6 +299,9 @@
 				63FE25F31AB0134A00CC5FE5 /* StatHeader.h */,
 				63FE25F41AB0134A00CC5FE5 /* StatHeader.m */,
 				63FE25F51AB0134A00CC5FE5 /* StatHeader.xib */,
+				227A193C1AB1053A003B0726 /* BasketCell.h */,
+				227A193D1AB1053A003B0726 /* BasketCell.m */,
+				227A193E1AB1053A003B0726 /* BasketCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -423,8 +439,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227A19401AB1053A003B0726 /* BasketCell.xib in Resources */,
 				5D1E89341AAB92E500DDEE3D /* TeamsListViewController.xib in Resources */,
 				6398506A1AAE450A008269CE /* MySummaryViewController.xib in Resources */,
+				227A193B1AB104E5003B0726 /* BasketViewController.xib in Resources */,
 				5D680A981AA5846E000F365D /* LaunchScreen.xib in Resources */,
 				5D680A951AA5846E000F365D /* Images.xcassets in Resources */,
 				639850721AAE6B85008269CE /* StatCell.xib in Resources */,
@@ -504,12 +522,14 @@
 				2281B3271AAEC41000834666 /* PartnerInfo.m in Sources */,
 				63183DA51AAA9D8D00F63194 /* LoansViewController.m in Sources */,
 				63E72F6F1AACF59E00BD1F9F /* LoginViewController.m in Sources */,
+				227A193A1AB104E5003B0726 /* BasketViewController.m in Sources */,
 				224E0E3E1AAD72A20077A85C /* LoansSearchFilterForm.m in Sources */,
 				63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */,
 				2281B3241AAEC3F900834666 /* Partner.m in Sources */,
 				639850691AAE450A008269CE /* MySummaryViewController.m in Sources */,
 				63FE25F11AAFE99D00CC5FE5 /* MyDetailsViewController.m in Sources */,
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,
+				227A193F1AB1053A003B0726 /* BasketCell.m in Sources */,
 				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,
 				5D1E89441AAFD7AD00DDEE3D /* JournalEntry.m in Sources */,
 				6398506D1AAE53B1008269CE /* UserStats.m in Sources */,
