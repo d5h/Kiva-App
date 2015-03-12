@@ -84,7 +84,7 @@
                                   constant:0];
     [self.view addConstraint:rightConstraint];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Browse" style:UIBarButtonItemStylePlain target:self action:@selector(onBackButton)];
+   // self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Browse" style:UIBarButtonItemStylePlain target:self action:@selector(onBackButton)];
     
     //self.partnerId = [[NSNumber alloc]init];
     
@@ -167,12 +167,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) onBackButton {
-    CATransition *tdvctransition = [CATransition animation];
-    tdvctransition.type = kCATransitionPush;
-    tdvctransition.subtype = kCATransitionFromLeft;
-    [self.view.window.layer addAnimation:tdvctransition forKey:kCATransition];
-    [self dismissViewControllerAnimated:NO completion:nil];
-}
+//- (void) onBackButton {
+//    [self dismissViewControllerAnimated:NO completion:nil];
+//}
 
 @end
