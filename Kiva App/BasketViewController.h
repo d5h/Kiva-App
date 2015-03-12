@@ -10,6 +10,6 @@
 #import "Loan.h"
 
 @interface BasketViewController : UIViewController
-@property (nonatomic, strong) NSArray *basketLoans;
+@property (nonatomic, strong) NSMutableArray *basketLoans;
 
 @end

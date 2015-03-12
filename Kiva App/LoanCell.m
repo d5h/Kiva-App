@@ -25,6 +25,7 @@
 
 @end
 
+
 @implementation LoanCell
 
 - (void)awakeFromNib {
@@ -61,6 +62,10 @@
     self.percentFundedLabel.text = [NSString stringWithFormat:@"%0.0f%% funded", [loan.fundedAmount floatValue]/[loan.loanAmount floatValue] * 100];
     self.progressBar.progress = [loan.fundedAmount floatValue]/[loan.loanAmount floatValue];
     
+    
+}
+- (IBAction)onLendNowButton:(id)sender {
+    [self.delegate onLendNowButton:self];
     
 }
 

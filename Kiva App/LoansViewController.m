@@ -12,8 +12,9 @@
 #import "LoanCell.h"
 #import "LoanDetailViewController.h"
 #import "SVProgressHUD.h"
+#import "BasketViewController.h"
 
-@interface LoansViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface LoansViewController () <UITableViewDataSource, UITableViewDelegate, LoanCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -56,7 +57,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LoanCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoanCell"];
-    
+    cell.delegate = self;
     cell.loan = self.loans[indexPath.row];
     
     return cell;
@@ -85,5 +86,13 @@
     [self.navigationController presentViewController:nvc animated:NO completion:nil];
 }
 
+#pragma mark delegate methods
+
+- (void)onLendNowButton:(LoanCell *)loanCell {
+    BasketViewController *bvc = [[BasketViewController alloc]init];
+    NSLog(@"going to add %@ to basketloans array", loanCell.loan);
+    [bvc.basketLoans addObject:loanCell.loan];
+    
+}
 
 @end

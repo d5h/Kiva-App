@@ -7,12 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "Loan.h"
+
+@class LoanCell;
+
+@protocol LoanCellDelegate <NSObject>
+
+- (void)onLendNowButton:(LoanCell *)loanCell;
+
+@end
+
 
 @interface LoanCell : UITableViewCell
 
 @property (nonatomic, strong) Loan *loan;
+@property (nonatomic, weak) id <LoanCellDelegate> delegate;
 
 - (void)setLoan:(Loan *)loan;
 
