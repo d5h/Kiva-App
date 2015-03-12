@@ -86,7 +86,7 @@ static NSString * const kInvites = @"Invites";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.loans == nil) {
-        [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
+        [[KivaClientO sharedInstance] fetchLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
             if (error) {
                 NSLog(@"My Summary error loading my loans: %@", error);
                 return;
