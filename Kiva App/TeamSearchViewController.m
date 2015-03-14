@@ -15,14 +15,14 @@
 
 static NSString *kMyTeams = @"My Teams";
 
-@interface TeamSearchViewController () <UISearchBarDelegate>
+@interface TeamSearchViewController () <UISearchBarDelegate, InfiniteScrollDelegate>
 
 @property (strong, nonatomic) TeamsListViewController *teamsListViewController;
 @property (nonatomic, strong) TeamsSearchFilterForm *filterForm;
 @property (nonatomic, strong) UINavigationController *filterNavigationController;
 @property (nonatomic, strong) NSDictionary *filters;
 @property (nonatomic, strong) NSString *searchText;
-
+@property (nonatomic, assign) int scrollPage;
 
 @end
 
@@ -32,11 +32,11 @@ static NSString *kMyTeams = @"My Teams";
     [super viewDidLoad];
 
     self.teamsListViewController = [[TeamsListViewController alloc] init];
+    self.teamsListViewController.scrollDegegate = self;
     [self setViewControllers:@[self.teamsListViewController]];
     
     self.filters = @{@"sort_by": @"loaned_amount"};
-    [self loadTeams];
-
+    [self loadTeamsPage1];
 
     UISearchBar *searchBar = [[UISearchBar alloc] init];
     searchBar.delegate = self;
@@ -47,13 +47,21 @@ static NSString *kMyTeams = @"My Teams";
 }
 
 - (void)loadTeamsWithFilters:(NSDictionary *)filters {
+    self.teamsListViewController.navigationItem.leftBarButtonItem.title = kMyTeams;
+    
     [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchTeamsWithParams:filters completion:^(NSArray *teams, NSError *error) {
         [SVProgressHUD dismiss];
         if (error) {
             NSLog(@"TeamSearchViewController error loading teams: %@", error);
         } else {
-            self.teamsListViewController.teams = teams;
+            if (self.scrollPage == 1) {
+                self.teamsListViewController.teams = teams;
+            } else {
+                NSMutableArray *allTeams = [self.teamsListViewController.teams mutableCopy];
+                [allTeams addObjectsFromArray:teams];
+                self.teamsListViewController.teams = allTeams;
+            }
         }
     }];
 }
@@ -63,7 +71,20 @@ static NSString *kMyTeams = @"My Teams";
     if (self.searchText) {
         [filters setObject:self.searchText forKey:@"q"];
     }
+    if (self.scrollPage > 1) {
+        [filters setObject:@(self.scrollPage) forKey:@"page"];
+    }
     [self loadTeamsWithFilters:filters];
+}
+
+- (void)loadTeamsPage1 {
+    self.scrollPage = 1;
+    [self loadTeams];
+}
+
+- (void)scrollHitBottom {
+    self.scrollPage++;
+    [self loadTeams];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,7 +111,7 @@ static NSString *kMyTeams = @"My Teams";
 - (void)onFilterDone {
     [self.filterNavigationController dismissViewControllerAnimated:YES completion:nil];
     self.filters = [self.filterForm dictionary];
-    [self loadTeams];
+    [self loadTeamsPage1];
 }
 
 #pragma mark My Teams
@@ -114,8 +135,7 @@ static NSString *kMyTeams = @"My Teams";
             [alertView show];
         }
     } else {
-        self.teamsListViewController.navigationItem.leftBarButtonItem.title = kMyTeams;
-        [self loadTeams];
+        [self loadTeamsPage1];
     }
 }
 
@@ -123,7 +143,7 @@ static NSString *kMyTeams = @"My Teams";
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     self.searchText = searchBar.text;
-    [self loadTeams];
+    [self loadTeamsPage1];
     [searchBar resignFirstResponder];
 }
 

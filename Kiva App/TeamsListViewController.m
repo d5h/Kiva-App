@@ -9,6 +9,7 @@
 #import "TeamsListViewController.h"
 #import "TeamCell.h"
 #import "TeamDetailViewController.h"
+#import "SVPullToRefresh.h"
 
 @interface TeamsListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -26,6 +27,11 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 140;
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [self.scrollDegegate scrollHitBottom];
+        [self.tableView.infiniteScrollingView stopAnimating];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

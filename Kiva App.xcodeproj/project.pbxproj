@@ -115,6 +115,7 @@
 		5D1E894A1AAFE07900DDEE3D /* JournalEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JournalEntryCell.h; sourceTree = "<group>"; };
 		5D1E894B1AAFE07900DDEE3D /* JournalEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JournalEntryCell.m; sourceTree = "<group>"; };
 		5D1E894C1AAFE07900DDEE3D /* JournalEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JournalEntryCell.xib; sourceTree = "<group>"; };
+		5D1E89561AB4D2B200DDEE3D /* InfiniteScroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfiniteScroll.h; sourceTree = "<group>"; };
 		5D680A841AA5846E000F365D /* Kiva App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kiva App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D680A881AA5846E000F365D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D680A891AA5846E000F365D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -277,6 +278,7 @@
 				227A19371AB104E5003B0726 /* BasketViewController.h */,
 				227A19381AB104E5003B0726 /* BasketViewController.m */,
 				227A19391AB104E5003B0726 /* BasketViewController.xib */,
+				5D1E89561AB4D2B200DDEE3D /* InfiniteScroll.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

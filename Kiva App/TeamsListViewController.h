@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InfiniteScroll.h"
 
 @interface TeamsListViewController : UIViewController
 
 @property (nonatomic, strong) NSArray *teams;
+@property (nonatomic, weak) id<InfiniteScrollDelegate> scrollDegegate;
 
 - (void)setTeams:(NSArray *)teams;
 
