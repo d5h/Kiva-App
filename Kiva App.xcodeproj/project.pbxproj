@@ -43,6 +43,13 @@
 		63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DAC1AAAF26400F63194 /* LoanCell.m */; };
 		63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63183DAD1AAAF26400F63194 /* LoanCell.xib */; };
 		63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DB11AABE8CA00F63194 /* KivaClientO.m */; };
+		634461641AB5846500AF3B50 /* Balance.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461631AB5846500AF3B50 /* Balance.m */; };
+		6344616B1AB5848B00AF3B50 /* ProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461661AB5848B00AF3B50 /* ProfileHeaderView.m */; };
+		6344616C1AB5848B00AF3B50 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634461671AB5848B00AF3B50 /* ProfileHeaderView.xib */; };
+		6344616D1AB5848B00AF3B50 /* ProfileLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461691AB5848B00AF3B50 /* ProfileLoanCell.m */; };
+		6344616E1AB5848B00AF3B50 /* ProfileLoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6344616A1AB5848B00AF3B50 /* ProfileLoanCell.xib */; };
+		634461721AB584A200AF3B50 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461701AB584A200AF3B50 /* ProfileViewController.m */; };
+		634461731AB584A200AF3B50 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634461711AB584A200AF3B50 /* ProfileViewController.xib */; };
 		639850691AAE450A008269CE /* MySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639850671AAE450A008269CE /* MySummaryViewController.m */; };
 		6398506A1AAE450A008269CE /* MySummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639850681AAE450A008269CE /* MySummaryViewController.xib */; };
 		6398506D1AAE53B1008269CE /* UserStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6398506C1AAE53B1008269CE /* UserStats.m */; };
@@ -135,6 +142,17 @@
 		63183DAD1AAAF26400F63194 /* LoanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanCell.xib; sourceTree = "<group>"; };
 		63183DB01AABE8CA00F63194 /* KivaClientO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KivaClientO.h; sourceTree = "<group>"; };
 		63183DB11AABE8CA00F63194 /* KivaClientO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KivaClientO.m; sourceTree = "<group>"; };
+		634461621AB5846500AF3B50 /* Balance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balance.h; sourceTree = "<group>"; };
+		634461631AB5846500AF3B50 /* Balance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Balance.m; sourceTree = "<group>"; };
+		634461651AB5848B00AF3B50 /* ProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderView.h; sourceTree = "<group>"; };
+		634461661AB5848B00AF3B50 /* ProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHeaderView.m; sourceTree = "<group>"; };
+		634461671AB5848B00AF3B50 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
+		634461681AB5848B00AF3B50 /* ProfileLoanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileLoanCell.h; sourceTree = "<group>"; };
+		634461691AB5848B00AF3B50 /* ProfileLoanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileLoanCell.m; sourceTree = "<group>"; };
+		6344616A1AB5848B00AF3B50 /* ProfileLoanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileLoanCell.xib; sourceTree = "<group>"; };
+		6344616F1AB584A200AF3B50 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		634461701AB584A200AF3B50 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		634461711AB584A200AF3B50 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		639850661AAE450A008269CE /* MySummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySummaryViewController.h; sourceTree = "<group>"; };
 		639850671AAE450A008269CE /* MySummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySummaryViewController.m; sourceTree = "<group>"; };
 		639850681AAE450A008269CE /* MySummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySummaryViewController.xib; sourceTree = "<group>"; };
@@ -276,6 +294,9 @@
 				5D1E89451AAFDF0B00DDEE3D /* UpdatesViewController.h */,
 				5D1E89461AAFDF0B00DDEE3D /* UpdatesViewController.m */,
 				5D1E89471AAFDF0B00DDEE3D /* UpdatesViewController.xib */,
+				6344616F1AB584A200AF3B50 /* ProfileViewController.h */,
+				634461701AB584A200AF3B50 /* ProfileViewController.m */,
+				634461711AB584A200AF3B50 /* ProfileViewController.xib */,
 				227A19371AB104E5003B0726 /* BasketViewController.h */,
 				227A19381AB104E5003B0726 /* BasketViewController.m */,
 				227A19391AB104E5003B0726 /* BasketViewController.xib */,
@@ -288,6 +309,12 @@
 		63183DAA1AAAF24900F63194 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				634461651AB5848B00AF3B50 /* ProfileHeaderView.h */,
+				634461661AB5848B00AF3B50 /* ProfileHeaderView.m */,
+				634461671AB5848B00AF3B50 /* ProfileHeaderView.xib */,
+				634461681AB5848B00AF3B50 /* ProfileLoanCell.h */,
+				634461691AB5848B00AF3B50 /* ProfileLoanCell.m */,
+				6344616A1AB5848B00AF3B50 /* ProfileLoanCell.xib */,
 				63183DAB1AAAF26400F63194 /* LoanCell.h */,
 				63183DAC1AAAF26400F63194 /* LoanCell.m */,
 				63183DAD1AAAF26400F63194 /* LoanCell.xib */,
@@ -313,6 +340,8 @@
 		63B199C81AA8431100ED685D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				634461621AB5846500AF3B50 /* Balance.h */,
+				634461631AB5846500AF3B50 /* Balance.m */,
 				63B199C91AA8433000ED685D /* Loan.h */,
 				63B199CA1AA8433000ED685D /* Loan.m */,
 				5D1E89271AAB8D1400DDEE3D /* Team.h */,
@@ -450,15 +479,18 @@
 				5D680A981AA5846E000F365D /* LaunchScreen.xib in Resources */,
 				5D680A951AA5846E000F365D /* Images.xcassets in Resources */,
 				639850721AAE6B85008269CE /* StatCell.xib in Resources */,
+				6344616C1AB5848B00AF3B50 /* ProfileHeaderView.xib in Resources */,
 				63183DA61AAA9D8D00F63194 /* LoansViewController.xib in Resources */,
 				5D1E89391AAB932500DDEE3D /* TeamCell.xib in Resources */,
 				63E72F701AACF59E00BD1F9F /* LoginViewController.xib in Resources */,
+				6344616E1AB5848B00AF3B50 /* ProfileLoanCell.xib in Resources */,
 				63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */,
 				63FE25F21AAFE99D00CC5FE5 /* MyDetailsViewController.xib in Resources */,
 				63FE25F71AB0134A00CC5FE5 /* StatHeader.xib in Resources */,
 				5D1E894E1AAFE07900DDEE3D /* JournalEntryCell.xib in Resources */,
 				22C83CA91AACC703009E155E /* LoanDetailViewController.xib in Resources */,
 				5D1E89411AACD96200DDEE3D /* TeamDetailViewController.xib in Resources */,
+				634461731AB584A200AF3B50 /* ProfileViewController.xib in Resources */,
 				5D1E89491AAFDF0B00DDEE3D /* UpdatesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,16 +546,19 @@
 				5D1E89401AACD96200DDEE3D /* TeamDetailViewController.m in Sources */,
 				5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */,
 				22C83CA81AACC703009E155E /* LoanDetailViewController.m in Sources */,
+				634461721AB584A200AF3B50 /* ProfileViewController.m in Sources */,
 				5D1E89331AAB92E500DDEE3D /* TeamsListViewController.m in Sources */,
 				5D1E892F1AAB92BE00DDEE3D /* TeamSearchViewController.m in Sources */,
 				224E0E391AAD25510077A85C /* LoanDetailInfo.m in Sources */,
 				5D1E89481AAFDF0B00DDEE3D /* UpdatesViewController.m in Sources */,
 				5D1E894D1AAFE07900DDEE3D /* JournalEntryCell.m in Sources */,
 				63FE25F61AB0134A00CC5FE5 /* StatHeader.m in Sources */,
+				634461641AB5846500AF3B50 /* Balance.m in Sources */,
 				63B199CB1AA8433000ED685D /* Loan.m in Sources */,
 				63E72F6B1AACDE5300BD1F9F /* User.m in Sources */,
 				63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */,
 				2281B3271AAEC41000834666 /* PartnerInfo.m in Sources */,
+				6344616D1AB5848B00AF3B50 /* ProfileLoanCell.m in Sources */,
 				63183DA51AAA9D8D00F63194 /* LoansViewController.m in Sources */,
 				63E72F6F1AACF59E00BD1F9F /* LoginViewController.m in Sources */,
 				227A193A1AB104E5003B0726 /* BasketViewController.m in Sources */,
@@ -534,6 +569,7 @@
 				63FE25F11AAFE99D00CC5FE5 /* MyDetailsViewController.m in Sources */,
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,
 				227A193F1AB1053A003B0726 /* BasketCell.m in Sources */,
+				6344616B1AB5848B00AF3B50 /* ProfileHeaderView.m in Sources */,
 				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,
 				5D1E89441AAFD7AD00DDEE3D /* JournalEntry.m in Sources */,
 				6398506D1AAE53B1008269CE /* UserStats.m in Sources */,
