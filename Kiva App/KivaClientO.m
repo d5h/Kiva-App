@@ -9,6 +9,7 @@
 #import <Mantle/Mantle.h>
 #import "KivaClientO.h"
 #import "Loan.h"
+#import "Balance.h"
 #import "Team.h"
 #import "LoanDetail.h"
 #import "PartnerInfo.h"
@@ -123,6 +124,23 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     [self GET:@"my/loans.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;
         NSArray *loans = [MTLJSONAdapter modelsOfClass:[Loan class] fromJSONArray:responseObject[@"loans"] error:&error];
+        if (error) {
+            NSLog(@"Error deserializing loans: %@", error);
+            completion(nil, error);
+        } else {
+            completion(loans, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+
+- (void)fetchMyBalancesWithParams:(NSDictionary *)params withLoanIDs:(NSArray*)loanIDs completion:(void (^)(NSArray *, NSError *))completion {
+    NSString *path = [NSString stringWithFormat:@"my/loans/%@/balances.json", [loanIDs componentsJoinedByString:@","]];
+    [self GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        NSArray *loans = [MTLJSONAdapter modelsOfClass:[Balance class] fromJSONArray:responseObject[@"balances"] error:&error];
         if (error) {
             NSLog(@"Error deserializing loans: %@", error);
             completion(nil, error);
