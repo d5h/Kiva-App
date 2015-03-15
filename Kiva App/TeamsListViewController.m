@@ -28,8 +28,13 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 140;
     
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [self.pullToRefreshDelegate onPullToRefresh];
+        [self.tableView.pullToRefreshView stopAnimating];
+    }];
+    
     [self.tableView addInfiniteScrollingWithActionHandler:^{
-        [self.scrollDegegate scrollHitBottom];
+        [self.scrollDelegate scrollHitBottom];
         [self.tableView.infiniteScrollingView stopAnimating];
     }];
 }

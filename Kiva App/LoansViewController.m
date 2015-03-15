@@ -13,10 +13,12 @@
 #import "LoanDetailViewController.h"
 #import "SVProgressHUD.h"
 #import "BasketViewController.h"
+#import "SVPullToRefresh.h"
 
 @interface LoansViewController () <UITableViewDataSource, UITableViewDelegate, LoanCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIColor *arrowColor;
 
 //@property (nonatomic, strong) NSArray *loans;
 
@@ -32,6 +34,16 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 450;
+    
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [self.pullToRefreshDelegate onPullToRefresh];
+        [self.tableView.pullToRefreshView stopAnimating];
+    }];
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [self.scrollDelegate scrollHitBottom];
+        [self.tableView.infiniteScrollingView stopAnimating];
+    }];
     
 
     [self.tableView reloadData];

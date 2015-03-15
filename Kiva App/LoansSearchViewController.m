@@ -15,12 +15,13 @@
 
 static NSString *kMyLoans = @"My Loans";
 
-@interface LoansSearchViewController ()<UISearchBarDelegate>
+@interface LoansSearchViewController ()<UISearchBarDelegate, InfiniteScrollDelegate, PullToRefreshDelegate>
 @property (strong, nonatomic) LoansViewController *loansViewController;
 @property (nonatomic, strong) LoansSearchFilterForm *filterForm;
 @property (nonatomic, strong) UINavigationController *filterNavigationController;
 @property (nonatomic, strong) NSDictionary *filters;
 @property (nonatomic, strong) NSString *searchText;
+@property (nonatomic, assign) int scrollPage;
 
 @end
 
@@ -30,10 +31,12 @@ static NSString *kMyLoans = @"My Loans";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.loansViewController = [[LoansViewController alloc]init];
+    self.loansViewController.scrollDelegate = self;
 
     [self setViewControllers:@[self.loansViewController]];
     self.filters = @{};
-    [self loadLoans];
+    [self loadLoansPage1];
+
     
     
     UISearchBar *searchBar = [[UISearchBar alloc] init];
@@ -47,14 +50,20 @@ static NSString *kMyLoans = @"My Loans";
 }
 
 - (void)loadLoansWithFilters:(NSDictionary *)filters {
+    self.loansViewController.navigationItem.leftBarButtonItem.title = kMyLoans;
     [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchLoansWithParams:filters completion:^(NSArray *loans, NSError *error) {
         [SVProgressHUD dismiss];
         if (error) {
             NSLog(@"TeamSearchViewController error loading teams: %@", error);
         } else {
-            self.loansViewController.loans = loans;
-            //NSLog(@"%@", loans);
+            if (self.scrollPage == 1) {
+                self.loansViewController.loans = loans;
+            } else {
+                NSMutableArray *allLoans = [self.loansViewController.loans mutableCopy];
+                [allLoans addObjectsFromArray:loans];
+                self.loansViewController.loans = allLoans;
+            }
         }
     }];
 }
@@ -64,8 +73,26 @@ static NSString *kMyLoans = @"My Loans";
     if (self.searchText) {
         [filters setObject:self.searchText forKey:@"q"];
     }
+    if (self.scrollPage > 1) {
+        [filters setObject:@(self.scrollPage) forKey:@"page"];
+    }
     [self loadLoansWithFilters:filters];
 }
+
+- (void)loadLoansPage1 {
+    self.scrollPage = 1;
+    [self loadLoans];
+}
+
+- (void)scrollHitBottom {
+    self.scrollPage++;
+    [self loadLoans];
+}
+
+- (void)onPullToRefresh {
+    [self loadLoans];    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -95,7 +122,7 @@ static NSString *kMyLoans = @"My Loans";
 
 }
 
-#pragma mark My Teams
+#pragma mark My Loans
 
 - (void)onMyLoans {
     if ([self.loansViewController.navigationItem.leftBarButtonItem.title isEqualToString:kMyLoans]) {
@@ -116,8 +143,7 @@ static NSString *kMyLoans = @"My Loans";
             [alertView show];
         }
     } else {
-        self.loansViewController.navigationItem.leftBarButtonItem.title = kMyLoans;
-        [self loadLoans];
+        [self loadLoansPage1];
     }
 }
 
@@ -125,7 +151,7 @@ static NSString *kMyLoans = @"My Loans";
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     self.searchText = searchBar.text;
-    [self loadLoans];
+    [self loadLoansPage1];
     [searchBar resignFirstResponder];
 }
 

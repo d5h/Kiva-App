@@ -91,6 +91,7 @@
 		22C83CA71AACC703009E155E /* LoanDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanDetailViewController.xib; sourceTree = "<group>"; };
 		22C83CAA1AACF44D009E155E /* LoanDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanDetail.h; sourceTree = "<group>"; };
 		22C83CAB1AACF44D009E155E /* LoanDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanDetail.m; sourceTree = "<group>"; };
+		22E06DB11AB513D20013E1D0 /* PullToRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PullToRefresh.h; sourceTree = "<group>"; };
 		2EA917B2940A1400F9037894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1E89271AAB8D1400DDEE3D /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		5D1E89281AAB8D1400DDEE3D /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
@@ -279,6 +280,7 @@
 				227A19381AB104E5003B0726 /* BasketViewController.m */,
 				227A19391AB104E5003B0726 /* BasketViewController.xib */,
 				5D1E89561AB4D2B200DDEE3D /* InfiniteScroll.h */,
+				22E06DB11AB513D20013E1D0 /* PullToRefresh.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

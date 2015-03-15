@@ -15,7 +15,7 @@
 
 static NSString *kMyTeams = @"My Teams";
 
-@interface TeamSearchViewController () <UISearchBarDelegate, InfiniteScrollDelegate>
+@interface TeamSearchViewController () <UISearchBarDelegate, InfiniteScrollDelegate, PullToRefreshDelegate>
 
 @property (strong, nonatomic) TeamsListViewController *teamsListViewController;
 @property (nonatomic, strong) TeamsSearchFilterForm *filterForm;
@@ -32,7 +32,7 @@ static NSString *kMyTeams = @"My Teams";
     [super viewDidLoad];
 
     self.teamsListViewController = [[TeamsListViewController alloc] init];
-    self.teamsListViewController.scrollDegegate = self;
+    self.teamsListViewController.scrollDelegate = self;
     [self setViewControllers:@[self.teamsListViewController]];
     
     self.filters = @{@"sort_by": @"loaned_amount"};
@@ -84,6 +84,10 @@ static NSString *kMyTeams = @"My Teams";
 
 - (void)scrollHitBottom {
     self.scrollPage++;
+    [self loadTeams];
+}
+
+- (void)onPullToRefresh {
     [self loadTeams];
 }
 

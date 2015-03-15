@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InfiniteScroll.h"
+#import "PullToRefresh.h"
 
 @interface LoansViewController : UIViewController
 
 @property (nonatomic, strong) NSArray *loans;
+@property (nonatomic, weak) id<InfiniteScrollDelegate> scrollDelegate;
+@property (nonatomic, weak) id<PullToRefreshDelegate> pullToRefreshDelegate;
 
 - (void)setLoans:(NSArray *)loans;
 
