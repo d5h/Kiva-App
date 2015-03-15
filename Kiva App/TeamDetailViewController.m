@@ -56,6 +56,9 @@
     countFormatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
     [countFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"MMM, y";
+    
     self.teamImageView.image = [UIImage imageNamed:@"kiva_team"];
     if (self.team.imageId != 0) {
         [self.teamImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", self.team.imageId]]];
@@ -63,7 +66,7 @@
     self.nameLabel.text = self.team.name;
     self.memberLoansLabel.text = [NSString stringWithFormat:@"%@ members with %@ in %@ loans", [countFormatter stringFromNumber:self.team.memberCount], [currencyFormatter stringFromNumber:self.team.loanedAmount], [countFormatter stringFromNumber:self.team.loanCount]];
     
-    self.categoryLabel.text = [NSString stringWithFormat:@"A %@ team", self.team.category];  // Add "since <Year>"
+    self.categoryLabel.text = [NSString stringWithFormat:@"A %@ team since %@", self.team.category, [dateFormatter stringFromDate:self.team.teamSince]];
     self.whereaboutsLabel.text = self.team.whereabouts;
     self.loanBecauseLabel.text = self.team.loanBecause;
     self.descriptionLabel.text = self.team.desc;

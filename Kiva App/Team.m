@@ -17,7 +17,9 @@
              @"loanBecause": @"loan_because",
              @"loanCount": @"loan_count",
              @"loanedAmount": @"loaned_amount",
-             @"memberCount": @"member_count"};
+             @"memberCount": @"member_count",
+             @"teamSince": @"team_since",
+             };
 }
 
 + (NSDateFormatter *)dateFormatter {
