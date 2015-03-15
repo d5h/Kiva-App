@@ -47,12 +47,22 @@
                                   constant:0];
     [self.view addConstraint:rightConstraint];
     
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc]init];
+    currencyFormatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [currencyFormatter setMaximumFractionDigits:0];
+    
+    NSNumberFormatter *countFormatter = [[NSNumberFormatter alloc]init];
+    countFormatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+    [countFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
     self.teamImageView.image = [UIImage imageNamed:@"kiva_team"];
     if (self.team.imageId != 0) {
         [self.teamImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", self.team.imageId]]];
     }
     self.nameLabel.text = self.team.name;
-    self.memberLoansLabel.text = [NSString stringWithFormat:@"%@ members with $%@ in %@ loans", self.team.memberCount, self.team.loanedAmount, self.team.loanCount];
+    self.memberLoansLabel.text = [NSString stringWithFormat:@"%@ members with %@ in %@ loans", [countFormatter stringFromNumber:self.team.memberCount], [currencyFormatter stringFromNumber:self.team.loanedAmount], [countFormatter stringFromNumber:self.team.loanCount]];
+    
     self.categoryLabel.text = [NSString stringWithFormat:@"A %@ team", self.team.category];  // Add "since <Year>"
     self.whereaboutsLabel.text = self.team.whereabouts;
     self.loanBecauseLabel.text = self.team.loanBecause;
@@ -63,6 +73,8 @@
     self.memberLoansLabel.preferredMaxLayoutWidth = self.memberLoansLabel.frame.size.width;
     self.loanBecauseLabel.preferredMaxLayoutWidth = self.loanBecauseLabel.frame.size.width;
     self.descriptionLabel.preferredMaxLayoutWidth = self.descriptionLabel.frame.size.width;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

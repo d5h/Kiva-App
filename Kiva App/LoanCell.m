@@ -63,6 +63,11 @@
     self.progressBar.progress = [loan.fundedAmount floatValue]/[loan.loanAmount floatValue];
     
     
+    NSTimeInterval secondsLeft = [loan.plannedExpirationDate timeIntervalSinceNow];
+    self.daysLeftLabel.text = [NSString stringWithFormat:@"%.0f days left", secondsLeft/86400];
+
+    
+    
 }
 - (IBAction)onLendNowButton:(id)sender {
     [self.delegate onLendNowButton:self];

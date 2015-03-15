@@ -22,8 +22,8 @@
 @property (copy, nonatomic, readonly) NSString *countryCode;
 @property (copy, nonatomic, readonly) NSString *sector;
 @property (copy, nonatomic, readonly) NSString *activity;
-@property (copy, nonatomic, readonly) NSString *postedDate;
-@property (copy, nonatomic, readonly) NSString *plannedExpirationDate;
+@property (copy, nonatomic, readonly) NSDate *postedDate;
+@property (copy, nonatomic, readonly) NSDate *plannedExpirationDate;
 @property (copy, nonatomic, readonly) NSArray *themes;
 
 

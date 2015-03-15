@@ -14,7 +14,7 @@
 @property (copy, nonatomic, readonly) NSNumber *identifier;
 @property (copy, nonatomic, readonly) NSString *name;
 @property (copy, nonatomic, readonly) NSNumber *riskRating;
-@property (copy, nonatomic, readonly) NSString *startDate;
+@property (copy, nonatomic, readonly) NSDate *startDate;
 @property (copy, nonatomic, readonly) NSNumber *numLoansPosted;
 @property (copy, nonatomic, readonly) NSNumber *totalAmountRaised;
 @property (nonatomic, readonly) int imageId;
@@ -25,5 +25,6 @@
 @property (copy, nonatomic, readonly) NSNumber *averageLoanSizePercentPerCapitaIncome;
 @property (nonatomic, readonly) NSNumber *currencyExchangeLossRate;
 @property (nonatomic, readonly) NSNumber *loansAtRiskRate;
+
 
 @end

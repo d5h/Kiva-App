@@ -14,6 +14,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "PartnerInfo.h"
 #import "Partner.h"
+#import "SVProgressHUD.h"
 
 
 @interface LoanDetailViewController ()
@@ -63,6 +64,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [SVProgressHUD show];
     
     NSLayoutConstraint *leftConstraint =
     [NSLayoutConstraint constraintWithItem:self.contentView
@@ -84,9 +86,7 @@
                                   constant:0];
     [self.view addConstraint:rightConstraint];
     
-   // self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Browse" style:UIBarButtonItemStylePlain target:self action:@selector(onBackButton)];
-    
-    //self.partnerId = [[NSNumber alloc]init];
+
     
     
     
@@ -117,19 +117,25 @@
             self.percentFundedLabel.text = [NSString stringWithFormat:@"%0.0f%% funded", [loandetail.fundedAmount floatValue]/[loandetail.loanAmount floatValue] * 100];
             self.progressBar.progress = [loandetail.fundedAmount floatValue]/[loandetail.loanAmount floatValue];
             
-            //self.partnerId = loandetail.partnerId;
-            
-            //NSLog(@"partner id is %d", [self.partnerId intValue]);
-
-           
-            
-            //self.repaymentTermLabel.text = loandetail.
             
             self.repaymentTermLabel.text = [NSString stringWithFormat:@"%d months", [loandetail.repaymentTerm intValue]];
             self.repaymentScheduleLabel.text = loandetail.repaymentSchedule;
-            self.listedDateLabel.text = loandetail.postedDate;
-            self.disbursalDateLabel.text = loandetail.disbursalDate;
-            self.currencyLossPossibilityLabel.text = loandetail.currencyLossPossibility;
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+            formatter.dateFormat = @"d MMM y";
+            
+            self.listedDateLabel.text = [formatter stringFromDate:loandetail.postedDate];
+            self.disbursalDateLabel.text = [formatter stringFromDate:loandetail.disbursalDate];
+            
+            if ([loandetail.currencyLossPossibility isEqualToString:@"none"]) {
+                self.currencyLossPossibilityLabel.text = @"None";
+            } else {
+            
+                self.currencyLossPossibilityLabel.text = @"Possible";
+            }
+            
+            NSTimeInterval secondsLeft = [loandetail.plannedExpirationDate timeIntervalSinceNow];
+            self.daysLeftLabel.text = [NSString stringWithFormat:@"%.0f days left", secondsLeft/86400];
  
         }
         
@@ -146,19 +152,35 @@
             self.partnerNameLabel.text = partner.name;
             self.partnerRiskRatingLabel.text = [NSString stringWithFormat:@"%0.2f", [partner.riskRating floatValue]];
             
-            self.partnerLoansPostedLabel.text = [NSString stringWithFormat:@"%d", [partner.numLoansPosted intValue]];
-            self.partnerTotalLoansLabel.text = [NSString stringWithFormat:@"$%d", [partner.totalAmountRaised intValue]];
+            NSNumberFormatter *loansPostedFormatter = [[NSNumberFormatter alloc]init];
+            loansPostedFormatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+            [loansPostedFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+
+            
+            self.partnerLoansPostedLabel.text = [loansPostedFormatter stringFromNumber:partner.numLoansPosted];
+
+            
+            NSNumberFormatter *totalLoansFormatter = [[NSNumberFormatter alloc]init];
+            totalLoansFormatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+            [totalLoansFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+            [totalLoansFormatter setMaximumFractionDigits:0];
+            self.partnerTotalLoansLabel.text = [totalLoansFormatter stringFromNumber:partner.totalAmountRaised];
+            
             self.partnerInterestFeesLabel.text = partner.chargesFeesAndInterest ? @"Yes" : @"No";
             self.partnerAverageLoanSizePercentLabel.text = [NSString stringWithFormat:@"%0.2f%%", [partner.averageLoanSizePercentPerCapitaIncome floatValue]];
             self.partnerCurrencyExchangeLossRateLabel.text = [NSString stringWithFormat:@"%0.2f%%", [partner.currencyExchangeLossRate floatValue]];
             self.partnerLoansAtRiskRateLabel.text = [NSString stringWithFormat:@"%0.2f%%", [partner.loansAtRiskRate floatValue]];
+            
+            NSTimeInterval secondsLeft = -[partner.startDate timeIntervalSinceNow];
+            self.partnerTimeOnKivaLabel.text = [NSString stringWithFormat:@"%.0f months", secondsLeft/2592000];
+
 
  
         }
         
     }];
     
-    
+    [SVProgressHUD dismiss];
 
 }
 
@@ -167,8 +189,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void) onBackButton {
-//    [self dismissViewControllerAnimated:NO completion:nil];
-//}
 
 @end

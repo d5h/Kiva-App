@@ -31,13 +31,25 @@
 - (void)setTeam:(Team *)team {
     _team = team;
     
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc]init];
+    currencyFormatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [currencyFormatter setMaximumFractionDigits:0];
+    
+    NSNumberFormatter *countFormatter = [[NSNumberFormatter alloc]init];
+    countFormatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+    [countFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
     self.teamImageView.image = [UIImage imageNamed:@"kiva_team"];
     if (team.imageId != 0) {
         [self.teamImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", team.imageId]]];
     }
     self.nameLabel.text = team.name;
-    self.memberCountLabel.text = [NSString stringWithFormat:@"%ld members", [team.memberCount longValue]];
-    self.loanAmountsLabel.text = [NSString stringWithFormat:@"$%@ in %@ loans", team.loanedAmount, team.loanCount];
+    
+    self.memberCountLabel.text = [NSString stringWithFormat:@"%@ members", [countFormatter stringFromNumber:team.memberCount]];
+    
+    self.loanAmountsLabel.text = [NSString stringWithFormat:@"%@ in %@ loans", [currencyFormatter stringFromNumber:team.loanedAmount], [countFormatter stringFromNumber:team.loanCount]];
+    
     self.loanBecauseLabel.text = [NSString stringWithFormat:@"We loan because: %@", team.loanBecause];
 }
 
