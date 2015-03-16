@@ -88,28 +88,6 @@ static NSString * const kInvites = @"Invites";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.loans == nil) {
-        [[KivaClientO sharedInstance] fetchLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
-            if (error) {
-                NSLog(@"My Summary error loading my loans: %@", error);
-                return;
-            } else {
-                self.loans = loans;
-                NSMutableArray *partners = [NSMutableArray array];
-                for (Loan *loan in loans) {
-                    [partners addObject:loan.partnerId];
-                }
-                [[KivaClientO sharedInstance] fetchPartnerDetailsWithParams:nil withPartnerId:partners completion:^(NSArray *partnerInfo, NSError *error){
-                    if (error) {
-                        NSLog(@"My Summary error loading partners: %@", error);
-                    } else {
-                        self.partners = partnerInfo;
-                    }
-                }];
-            }
-        }];
-    }
-    
     if (indexPath.row == self.data.count) {
         MyDetailsViewController *vc = [MyDetailsViewController new];
         vc.title = @"My Detailed Stats";
@@ -129,7 +107,6 @@ static NSString * const kInvites = @"Invites";
 - (void)loadData {
     [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchUserStatsWithParams:nil completion:^(UserStats *stats, NSError *error) {
-        [SVProgressHUD dismiss];
         if (error) {
             [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:nil];
             NSLog(@"My Summary error loading stats: %@", error);
@@ -142,7 +119,28 @@ static NSString * const kInvites = @"Invites";
                           kInvites : stats.numInvites
                           };
             self.statNames = @[kOutstandingLoans, kTotalLoans, kDonations, kAmountLent, kInvites];
-            [self.collectionView reloadData];
+
+            [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
+                if (error) {
+                    NSLog(@"My Summary error loading my loans: %@", error);
+                    return;
+                } else {
+                    self.loans = loans;
+                    NSMutableArray *partners = [NSMutableArray array];
+                    for (Loan *loan in loans) {
+                        [partners addObject:loan.partnerId];
+                    }
+                    [[KivaClientO sharedInstance] fetchPartnerDetailsWithParams:nil withPartnerId:partners completion:^(NSArray *partnerInfo, NSError *error){
+                        [SVProgressHUD dismiss];
+                        if (error) {
+                            NSLog(@"My Summary error loading partners: %@", error);
+                        } else {
+                            self.partners = partnerInfo;
+                            [self.collectionView reloadData];
+                        }
+                    }];
+                }
+            }];
         }
     }];
 }

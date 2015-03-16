@@ -30,7 +30,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"ProfileLoanCell.h" bundle:nil] forCellReuseIdentifier:@"ProfileLoanCell.h"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ProfileLoanCell" bundle:nil] forCellReuseIdentifier:@"ProfileLoanCell"];
     ProfileHeaderView *headerCell = [ProfileHeaderView instantiateFromNib];
     [self.tableView setParallaxHeaderView:headerCell mode:VGParallaxHeaderModeFill height:150];
     
@@ -78,7 +78,7 @@
 #pragma mark - Private
 
 - (void)refresh {
-    [[KivaClientO sharedInstance] fetchLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
+    [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
         if (error) {
             NSLog(@"My Summary error loading my loans: %@", error);
             return;
