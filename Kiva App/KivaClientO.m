@@ -140,12 +140,30 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     NSString *path = [NSString stringWithFormat:@"my/loans/%@/balances.json", [loanIDs componentsJoinedByString:@","]];
     [self GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;
-        NSArray *loans = [MTLJSONAdapter modelsOfClass:[Balance class] fromJSONArray:responseObject[@"balances"] error:&error];
+        NSLog(@"balances: %@", responseObject);
+        NSArray *balances = [MTLJSONAdapter modelsOfClass:[Balance class] fromJSONArray:responseObject[@"balances"] error:&error];
         if (error) {
             NSLog(@"Error deserializing loans: %@", error);
             completion(nil, error);
         } else {
-            completion(loans, nil);
+            completion(balances, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+
+- (void)fetchMyLenderWithParams:(NSDictionary *)params completion:(void (^)(Lender *, NSError *))completion {
+    [self GET:@"my/lender.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        NSArray *lenders = [MTLJSONAdapter modelsOfClass:[Lender class] fromJSONArray:responseObject[@"lenders"] error:&error];
+        if (error) {
+            NSLog(@"Error getting lender object: %@", error);
+            completion(nil, error);
+        } else {
+            Lender *lender = [lenders firstObject];
+            completion(lender, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(nil, error);

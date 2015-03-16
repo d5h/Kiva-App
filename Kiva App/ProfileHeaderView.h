@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Lender.h"
 
 @interface ProfileHeaderView : UIView
 
-+ (instancetype)instantiateFromNib;
++ (instancetype)instantiateFromNibWithLender:(Lender *)lender;
 
 @end

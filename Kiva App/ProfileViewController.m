@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *balances;
+@property (strong, nonatomic) ProfileHeaderView *headerView;
 
 @end
 
@@ -31,9 +32,17 @@
     self.tableView.dataSource = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProfileLoanCell" bundle:nil] forCellReuseIdentifier:@"ProfileLoanCell"];
-    ProfileHeaderView *headerCell = [ProfileHeaderView instantiateFromNib];
-    [self.tableView setParallaxHeaderView:headerCell mode:VGParallaxHeaderModeFill height:150];
     
+    [[KivaClientO sharedInstance] fetchMyLenderWithParams:nil completion:^(Lender *lender, NSError *error) {
+        if (error) {
+            NSLog(@"My Summary error getting lender: %@", error);
+            return;
+        } else {
+            self.headerView = [ProfileHeaderView instantiateFromNibWithLender:lender];
+            [self.tableView setParallaxHeaderView:self.headerView mode:VGParallaxHeaderModeFill height:150];
+        }
+    }];
+
     [self refresh];
     
 }

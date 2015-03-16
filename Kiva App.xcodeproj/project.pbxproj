@@ -50,6 +50,7 @@
 		6344616E1AB5848B00AF3B50 /* ProfileLoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6344616A1AB5848B00AF3B50 /* ProfileLoanCell.xib */; };
 		634461721AB584A200AF3B50 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461701AB584A200AF3B50 /* ProfileViewController.m */; };
 		634461731AB584A200AF3B50 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634461711AB584A200AF3B50 /* ProfileViewController.xib */; };
+		638B759F1AB764080054FE6D /* Lender.m in Sources */ = {isa = PBXBuildFile; fileRef = 638B759E1AB764080054FE6D /* Lender.m */; };
 		639850691AAE450A008269CE /* MySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639850671AAE450A008269CE /* MySummaryViewController.m */; };
 		6398506A1AAE450A008269CE /* MySummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639850681AAE450A008269CE /* MySummaryViewController.xib */; };
 		6398506D1AAE53B1008269CE /* UserStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6398506C1AAE53B1008269CE /* UserStats.m */; };
@@ -153,6 +154,8 @@
 		6344616F1AB584A200AF3B50 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		634461701AB584A200AF3B50 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		634461711AB584A200AF3B50 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		638B759D1AB764080054FE6D /* Lender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lender.h; sourceTree = "<group>"; };
+		638B759E1AB764080054FE6D /* Lender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lender.m; sourceTree = "<group>"; };
 		639850661AAE450A008269CE /* MySummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySummaryViewController.h; sourceTree = "<group>"; };
 		639850671AAE450A008269CE /* MySummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySummaryViewController.m; sourceTree = "<group>"; };
 		639850681AAE450A008269CE /* MySummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySummaryViewController.xib; sourceTree = "<group>"; };
@@ -360,6 +363,8 @@
 				2281B3261AAEC41000834666 /* PartnerInfo.m */,
 				5D1E89421AAFD7AD00DDEE3D /* JournalEntry.h */,
 				5D1E89431AAFD7AD00DDEE3D /* JournalEntry.m */,
+				638B759D1AB764080054FE6D /* Lender.h */,
+				638B759E1AB764080054FE6D /* Lender.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				2281B3241AAEC3F900834666 /* Partner.m in Sources */,
 				639850691AAE450A008269CE /* MySummaryViewController.m in Sources */,
 				63FE25F11AAFE99D00CC5FE5 /* MyDetailsViewController.m in Sources */,
+				638B759F1AB764080054FE6D /* Lender.m in Sources */,
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,
 				227A193F1AB1053A003B0726 /* BasketCell.m in Sources */,
 				6344616B1AB5848B00AF3B50 /* ProfileHeaderView.m in Sources */,
