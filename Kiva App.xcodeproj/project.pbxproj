@@ -19,6 +19,8 @@
 		22C83CA81AACC703009E155E /* LoanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C83CA61AACC703009E155E /* LoanDetailViewController.m */; };
 		22C83CA91AACC703009E155E /* LoanDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C83CA71AACC703009E155E /* LoanDetailViewController.xib */; };
 		22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C83CAB1AACF44D009E155E /* LoanDetail.m */; };
+		5074C0F91AB94B09000D2F70 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5074C0F71AB94B09000D2F70 /* WebViewController.m */; };
+		5074C0FA1AB94B09000D2F70 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5074C0F81AB94B09000D2F70 /* WebViewController.xib */; };
 		5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89281AAB8D1400DDEE3D /* Team.m */; };
 		5D1E892F1AAB92BE00DDEE3D /* TeamSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E892E1AAB92BE00DDEE3D /* TeamSearchViewController.m */; };
 		5D1E89331AAB92E500DDEE3D /* TeamsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89311AAB92E500DDEE3D /* TeamsListViewController.m */; };
@@ -107,6 +109,9 @@
 		22C83CAB1AACF44D009E155E /* LoanDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanDetail.m; sourceTree = "<group>"; };
 		22E06DB11AB513D20013E1D0 /* PullToRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PullToRefresh.h; sourceTree = "<group>"; };
 		2EA917B2940A1400F9037894 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5074C0F61AB94B09000D2F70 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		5074C0F71AB94B09000D2F70 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		5074C0F81AB94B09000D2F70 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		5D1E89271AAB8D1400DDEE3D /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		5D1E89281AAB8D1400DDEE3D /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		5D1E892D1AAB92BE00DDEE3D /* TeamSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamSearchViewController.h; sourceTree = "<group>"; };
@@ -325,6 +330,9 @@
 				5D1E89451AAFDF0B00DDEE3D /* UpdatesViewController.h */,
 				5D1E89461AAFDF0B00DDEE3D /* UpdatesViewController.m */,
 				5D1E89471AAFDF0B00DDEE3D /* UpdatesViewController.xib */,
+				5074C0F61AB94B09000D2F70 /* WebViewController.h */,
+				5074C0F71AB94B09000D2F70 /* WebViewController.m */,
+				5074C0F81AB94B09000D2F70 /* WebViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -503,6 +511,7 @@
 				227A19401AB1053A003B0726 /* BasketCell.xib in Resources */,
 				5D1E89341AAB92E500DDEE3D /* TeamsListViewController.xib in Resources */,
 				6398506A1AAE450A008269CE /* MySummaryViewController.xib in Resources */,
+				5074C0FA1AB94B09000D2F70 /* WebViewController.xib in Resources */,
 				227A193B1AB104E5003B0726 /* BasketViewController.xib in Resources */,
 				638B75A41AB7A19D0054FE6D /* MapViewController.xib in Resources */,
 				5D680A981AA5846E000F365D /* LaunchScreen.xib in Resources */,
@@ -592,6 +601,7 @@
 				2281B3271AAEC41000834666 /* PartnerInfo.m in Sources */,
 				6344616D1AB5848B00AF3B50 /* ProfileLoanCell.m in Sources */,
 				63183DA51AAA9D8D00F63194 /* LoansViewController.m in Sources */,
+				5074C0F91AB94B09000D2F70 /* WebViewController.m in Sources */,
 				63E72F6F1AACF59E00BD1F9F /* LoginViewController.m in Sources */,
 				227A193A1AB104E5003B0726 /* BasketViewController.m in Sources */,
 				224E0E3E1AAD72A20077A85C /* LoansSearchFilterForm.m in Sources */,

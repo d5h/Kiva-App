@@ -16,6 +16,8 @@
 #import "BasketViewController.h"
 #import "SVPullToRefresh.h"
 #import "UIImageView+AFNetworking.h"
+#import "WebViewController.h"
+
 
 @interface LoansViewController () <UITableViewDataSource, UITableViewDelegate, LoanCellDelegate, MKMapViewDelegate>
 
@@ -133,9 +135,12 @@ calloutAccessoryControlTapped:(UIControl *)control {
 #pragma mark - delegate methods
 
 - (void)onLendNowButton:(LoanCell *)loanCell {
-    BasketViewController *bvc = [[BasketViewController alloc]init];
-    NSLog(@"going to add %@ to basketloans array", loanCell.loan);
-    [bvc.basketLoans addObject:loanCell.loan];
+//    BasketViewController *bvc = [[BasketViewController alloc]init];
+//    NSLog(@"going to add %@ to basketloans array", loanCell.loan);
+//    [bvc.basketLoans addObject:loanCell.loan];
+    WebViewController *wvc = [[WebViewController alloc]init];
+    [self.navigationController pushViewController:wvc animated:YES];
+    
     
 }
 
