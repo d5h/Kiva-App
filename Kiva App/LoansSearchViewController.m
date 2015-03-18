@@ -43,14 +43,13 @@ static NSString *kMyLoans = @"My Loans";
     searchBar.delegate = self;
     self.loansViewController.navigationItem.titleView = searchBar;
     
-    self.loansViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kMyLoans style:UIBarButtonItemStylePlain target:self action:@selector(onMyLoans)];
-    self.loansViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
+    self.loansViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
+    self.loansViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(onMapButton)];
 
     
 }
 
 - (void)loadLoansWithFilters:(NSDictionary *)filters {
-    self.loansViewController.navigationItem.leftBarButtonItem.title = kMyLoans;
     [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchLoansWithParams:filters completion:^(NSArray *loans, NSError *error) {
         [SVProgressHUD dismiss];
@@ -124,28 +123,32 @@ static NSString *kMyLoans = @"My Loans";
 
 #pragma mark My Loans
 
-- (void)onMyLoans {
-    if ([self.loansViewController.navigationItem.leftBarButtonItem.title isEqualToString:kMyLoans]) {
-        User *user = [User currentUser];
-        if (user) {
-            [SVProgressHUD show];
-            [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
-                [SVProgressHUD dismiss];
-                if (error) {
-                    NSLog(@"LoansSearchViewController error loading loans: %@", error);
-                } else {
-                    self.loansViewController.loans = loans;
-                }
-            }];
-            self.loansViewController.navigationItem.leftBarButtonItem.title = @"All Loans";
-        } else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Requires log in" message:@"Please use the My tab to log in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alertView show];
-        }
-    } else {
-        [self loadLoansPage1];
-    }
+- (void)onMapButton {
+    [self.loansViewController onMapButton];
 }
+
+//- (void)onMyLoans {
+//    if ([self.loansViewController.navigationItem.leftBarButtonItem.title isEqualToString:kMyLoans]) {
+//        User *user = [User currentUser];
+//        if (user) {
+//            [SVProgressHUD show];
+//            [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
+//                [SVProgressHUD dismiss];
+//                if (error) {
+//                    NSLog(@"LoansSearchViewController error loading loans: %@", error);
+//                } else {
+//                    self.loansViewController.loans = loans;
+//                }
+//            }];
+//            self.loansViewController.navigationItem.leftBarButtonItem.title = @"All Loans";
+//        } else {
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Requires log in" message:@"Please use the My tab to log in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alertView show];
+//        }
+//    } else {
+//        [self loadLoansPage1];
+//    }
+//}
 
 #pragma mark - Seach Bar
 

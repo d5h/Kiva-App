@@ -17,5 +17,6 @@
 @property (nonatomic, weak) id<PullToRefreshDelegate> pullToRefreshDelegate;
 
 - (void)setLoans:(NSArray *)loans;
+- (void)onMapButton;
 
 @end

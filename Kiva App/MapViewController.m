@@ -85,7 +85,6 @@ calloutAccessoryControlTapped:(UIControl *)control {
         } else {
             self.loans = loans;
             for (Loan *loan in loans) {
-//                NSLog(@"ll=%f,%f",loan.locationCoordinate.latitude, loan.locationCoordinate.longitude);
                 LoanAnnotation *annotation = [[LoanAnnotation alloc] initWithLoan:loan];
                 [self.mapView addAnnotation:annotation];
             }
