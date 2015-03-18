@@ -108,8 +108,9 @@ static NSString * const kInvites = @"Invites";
     [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchUserStatsWithParams:nil completion:^(UserStats *stats, NSError *error) {
         if (error) {
-            [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:nil];
             NSLog(@"My Summary error loading stats: %@", error);
+            [self doLogin];
+            return;
         } else {
             self.data = @{
                           kOutstandingLoans : stats.amountOutstanding,
@@ -123,6 +124,7 @@ static NSString * const kInvites = @"Invites";
             [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
                 if (error) {
                     NSLog(@"My Summary error loading my loans: %@", error);
+                    [self doLogin];
                     return;
                 } else {
                     self.loans = loans;
@@ -142,6 +144,12 @@ static NSString * const kInvites = @"Invites";
                 }
             }];
         }
+    }];
+}
+
+- (void)doLogin {
+    [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:^{
+        [self loadData];
     }];
 }
 

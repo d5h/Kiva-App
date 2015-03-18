@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "ProfileHeaderView.h"
 #import "ProfileLoanCell.h"
+#import "LoginViewController.h"
 #import "UIScrollView+VGParallaxHeader.h"
 #import "KivaClientO.h"
 #import "Loan.h"
@@ -33,15 +34,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProfileLoanCell" bundle:nil] forCellReuseIdentifier:@"ProfileLoanCell"];
     
-    [[KivaClientO sharedInstance] fetchMyLenderWithParams:nil completion:^(Lender *lender, NSError *error) {
-        if (error) {
-            NSLog(@"My Summary error getting lender: %@", error);
-            return;
-        } else {
-            self.headerView = [ProfileHeaderView instantiateFromNibWithLender:lender];
-            [self.tableView setParallaxHeaderView:self.headerView mode:VGParallaxHeaderModeFill height:150];
-        }
-    }];
+    [self loadProfile];
 
     [self refresh];
     
@@ -108,6 +101,25 @@
         }
     }];
     
+}
+
+- (void)loadProfile {
+    [[KivaClientO sharedInstance] fetchMyLenderWithParams:nil completion:^(Lender *lender, NSError *error) {
+        if (error) {
+            NSLog(@"My Summary error getting lender: %@", error);
+            [self doLogin];
+            return;
+        } else {
+            self.headerView = [ProfileHeaderView instantiateFromNibWithLender:lender];
+            [self.tableView setParallaxHeaderView:self.headerView mode:VGParallaxHeaderModeFill height:150];
+        }
+    }];
+}
+
+- (void)doLogin {
+    [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:^{
+        [self loadProfile];
+    }];
 }
 
 
