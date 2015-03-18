@@ -28,7 +28,8 @@
     @"postedDate": @"posted_date",
     @"plannedExpirationDate": @"planned_expiration_date",
     @"partnerId" : @"partner_id",
-    @"themes" : @"themes"
+    @"themes" : @"themes",
+    @"locationCoordinate" : @"location.geo.pairs"
     };
 }
 
@@ -53,6 +54,16 @@
         return [self.dateFormatter dateFromString:str];
     } reverseBlock:^(NSDate *date) {
         return [self.dateFormatter stringFromDate:date];
+    }];
+}
+
++ (NSValueTransformer *)locationCoordinateJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *pair) {
+        NSArray *pairArray = [pair componentsSeparatedByString:@" "];
+        return [NSValue valueWithMKCoordinate:CLLocationCoordinate2DMake([pairArray[0] doubleValue], [pairArray[1] doubleValue])];
+    } reverseBlock:^(NSValue *coordinateValue) {
+        CLLocationCoordinate2D coordinate = [coordinateValue MKCoordinateValue];
+        return [NSString stringWithFormat:@"%f %f", coordinate.latitude, coordinate.longitude];
     }];
 }
 

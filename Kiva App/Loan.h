@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Mantle/Mantle.h>
+#import <MapKit/MapKit.h>
 
 @interface Loan : MTLModel <MTLJSONSerializing>
 
@@ -25,6 +26,7 @@
 @property (copy, nonatomic, readonly) NSDate *postedDate;
 @property (copy, nonatomic, readonly) NSDate *plannedExpirationDate;
 @property (copy, nonatomic, readonly) NSArray *themes;
+@property(nonatomic, assign) CLLocationCoordinate2D locationCoordinate;
 
 
 @end

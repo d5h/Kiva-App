@@ -15,6 +15,7 @@
 #import "MySummaryViewController.h"
 #import "UpdatesViewController.h"
 #import "ProfileViewController.h"
+#import "MapViewController.h"
 
 @interface AppDelegate ()
 
@@ -36,12 +37,14 @@
     UINavigationController *myVC = [[UINavigationController alloc] initWithRootViewController:[MySummaryViewController new]];
     UINavigationController *updatesViewController = [[UINavigationController alloc] initWithRootViewController:[[UpdatesViewController alloc] init]];
     UINavigationController *profileNVC = [[UINavigationController alloc]initWithRootViewController:[ProfileViewController new]];
-    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController, profileNVC];
+    MapViewController *mapViewController = [MapViewController new];
+    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController, profileNVC, mapViewController];
     loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:[UIImage imageNamed:@"loan"] tag:0];
     teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:[UIImage imageNamed:@"team"] tag:0];
     myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Stats" image:[UIImage imageNamed:@"me"] tag:0];
     profileNVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"basket"] tag:0];
     updatesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:[UIImage imageNamed:@"updates"] tag:0];
+    mapViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Visualize" image:[UIImage imageNamed:@"me"] tag:0];
     
     
     

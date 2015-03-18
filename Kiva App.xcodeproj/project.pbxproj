@@ -51,6 +51,12 @@
 		634461721AB584A200AF3B50 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461701AB584A200AF3B50 /* ProfileViewController.m */; };
 		634461731AB584A200AF3B50 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634461711AB584A200AF3B50 /* ProfileViewController.xib */; };
 		638B759F1AB764080054FE6D /* Lender.m in Sources */ = {isa = PBXBuildFile; fileRef = 638B759E1AB764080054FE6D /* Lender.m */; };
+		638B75A31AB7A19D0054FE6D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638B75A11AB7A19D0054FE6D /* MapViewController.m */; };
+		638B75A41AB7A19D0054FE6D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638B75A21AB7A19D0054FE6D /* MapViewController.xib */; };
+		638B75A61AB7A1DD0054FE6D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638B75A51AB7A1DD0054FE6D /* MapKit.framework */; };
+		638B75A91AB7B2C60054FE6D /* countries2.kml in Resources */ = {isa = PBXBuildFile; fileRef = 638B75A71AB7B2C60054FE6D /* countries2.kml */; };
+		638B75AA1AB7B2C60054FE6D /* countries1.kml in Resources */ = {isa = PBXBuildFile; fileRef = 638B75A81AB7B2C60054FE6D /* countries1.kml */; };
+		638B75AD1AB921C90054FE6D /* LoanAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 638B75AC1AB921C90054FE6D /* LoanAnnotation.m */; };
 		639850691AAE450A008269CE /* MySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639850671AAE450A008269CE /* MySummaryViewController.m */; };
 		6398506A1AAE450A008269CE /* MySummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639850681AAE450A008269CE /* MySummaryViewController.xib */; };
 		6398506D1AAE53B1008269CE /* UserStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6398506C1AAE53B1008269CE /* UserStats.m */; };
@@ -156,6 +162,14 @@
 		634461711AB584A200AF3B50 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		638B759D1AB764080054FE6D /* Lender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lender.h; sourceTree = "<group>"; };
 		638B759E1AB764080054FE6D /* Lender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lender.m; sourceTree = "<group>"; };
+		638B75A01AB7A19D0054FE6D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		638B75A11AB7A19D0054FE6D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		638B75A21AB7A19D0054FE6D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		638B75A51AB7A1DD0054FE6D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		638B75A71AB7B2C60054FE6D /* countries2.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = countries2.kml; sourceTree = "<group>"; };
+		638B75A81AB7B2C60054FE6D /* countries1.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = countries1.kml; sourceTree = "<group>"; };
+		638B75AB1AB921C90054FE6D /* LoanAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanAnnotation.h; sourceTree = "<group>"; };
+		638B75AC1AB921C90054FE6D /* LoanAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanAnnotation.m; sourceTree = "<group>"; };
 		639850661AAE450A008269CE /* MySummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySummaryViewController.h; sourceTree = "<group>"; };
 		639850671AAE450A008269CE /* MySummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySummaryViewController.m; sourceTree = "<group>"; };
 		639850681AAE450A008269CE /* MySummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySummaryViewController.xib; sourceTree = "<group>"; };
@@ -186,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638B75A61AB7A1DD0054FE6D /* MapKit.framework in Frameworks */,
 				C5C3DE6F5A3E018797E083A3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +244,8 @@
 				63B199C81AA8431100ED685D /* Models */,
 				5D680A8B1AA5846E000F365D /* AppDelegate.h */,
 				5D680A8C1AA5846E000F365D /* AppDelegate.m */,
+				638B75A71AB7B2C60054FE6D /* countries2.kml */,
+				638B75A81AB7B2C60054FE6D /* countries1.kml */,
 				5D680A941AA5846E000F365D /* Images.xcassets */,
 				5D680A961AA5846E000F365D /* LaunchScreen.xib */,
 				5D680A871AA5846E000F365D /* Supporting Files */,
@@ -265,12 +282,39 @@
 		63183DA11AAA9BDB00F63194 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				63FE25EE1AAFE99D00CC5FE5 /* MyDetailsViewController.h */,
-				63FE25EF1AAFE99D00CC5FE5 /* MyDetailsViewController.m */,
-				63FE25F01AAFE99D00CC5FE5 /* MyDetailsViewController.xib */,
+				227A19371AB104E5003B0726 /* BasketViewController.h */,
+				227A19381AB104E5003B0726 /* BasketViewController.m */,
+				227A19391AB104E5003B0726 /* BasketViewController.xib */,
+				5D1E89561AB4D2B200DDEE3D /* InfiniteScroll.h */,
+				22C83CA51AACC703009E155E /* LoanDetailViewController.h */,
+				22C83CA61AACC703009E155E /* LoanDetailViewController.m */,
+				22C83CA71AACC703009E155E /* LoanDetailViewController.xib */,
+				224E0E3F1AAD72B50077A85C /* LoansSearchFilterForm.h */,
+				224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */,
+				224E0E3A1AAD6EFC0077A85C /* LoansSearchViewController.h */,
+				224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */,
 				63183DA21AAA9D8D00F63194 /* LoansViewController.h */,
 				63183DA31AAA9D8D00F63194 /* LoansViewController.m */,
 				63183DA41AAA9D8D00F63194 /* LoansViewController.xib */,
+				63E72F6C1AACF59E00BD1F9F /* LoginViewController.h */,
+				63E72F6D1AACF59E00BD1F9F /* LoginViewController.m */,
+				63E72F6E1AACF59E00BD1F9F /* LoginViewController.xib */,
+				638B75A01AB7A19D0054FE6D /* MapViewController.h */,
+				638B75A11AB7A19D0054FE6D /* MapViewController.m */,
+				638B75A21AB7A19D0054FE6D /* MapViewController.xib */,
+				63FE25EE1AAFE99D00CC5FE5 /* MyDetailsViewController.h */,
+				63FE25EF1AAFE99D00CC5FE5 /* MyDetailsViewController.m */,
+				63FE25F01AAFE99D00CC5FE5 /* MyDetailsViewController.xib */,
+				639850661AAE450A008269CE /* MySummaryViewController.h */,
+				639850671AAE450A008269CE /* MySummaryViewController.m */,
+				639850681AAE450A008269CE /* MySummaryViewController.xib */,
+				6344616F1AB584A200AF3B50 /* ProfileViewController.h */,
+				634461701AB584A200AF3B50 /* ProfileViewController.m */,
+				634461711AB584A200AF3B50 /* ProfileViewController.xib */,
+				22E06DB11AB513D20013E1D0 /* PullToRefresh.h */,
+				5D1E893D1AACD96200DDEE3D /* TeamDetailViewController.h */,
+				5D1E893E1AACD96200DDEE3D /* TeamDetailViewController.m */,
+				5D1E893F1AACD96200DDEE3D /* TeamDetailViewController.xib */,
 				5D1E892D1AAB92BE00DDEE3D /* TeamSearchViewController.h */,
 				5D1E892E1AAB92BE00DDEE3D /* TeamSearchViewController.m */,
 				5D1E89301AAB92E500DDEE3D /* TeamsListViewController.h */,
@@ -278,33 +322,9 @@
 				5D1E89321AAB92E500DDEE3D /* TeamsListViewController.xib */,
 				5D1E893A1AABB31200DDEE3D /* TeamsSearchFilterForm.h */,
 				5D1E893B1AABB31200DDEE3D /* TeamsSearchFilterForm.m */,
-				22C83CA51AACC703009E155E /* LoanDetailViewController.h */,
-				22C83CA61AACC703009E155E /* LoanDetailViewController.m */,
-				22C83CA71AACC703009E155E /* LoanDetailViewController.xib */,
-				5D1E893D1AACD96200DDEE3D /* TeamDetailViewController.h */,
-				5D1E893E1AACD96200DDEE3D /* TeamDetailViewController.m */,
-				5D1E893F1AACD96200DDEE3D /* TeamDetailViewController.xib */,
-				63E72F6C1AACF59E00BD1F9F /* LoginViewController.h */,
-				63E72F6D1AACF59E00BD1F9F /* LoginViewController.m */,
-				63E72F6E1AACF59E00BD1F9F /* LoginViewController.xib */,
-				224E0E3A1AAD6EFC0077A85C /* LoansSearchViewController.h */,
-				224E0E3B1AAD6EFC0077A85C /* LoansSearchViewController.m */,
-				224E0E3D1AAD72A20077A85C /* LoansSearchFilterForm.m */,
-				224E0E3F1AAD72B50077A85C /* LoansSearchFilterForm.h */,
-				639850661AAE450A008269CE /* MySummaryViewController.h */,
-				639850671AAE450A008269CE /* MySummaryViewController.m */,
-				639850681AAE450A008269CE /* MySummaryViewController.xib */,
 				5D1E89451AAFDF0B00DDEE3D /* UpdatesViewController.h */,
 				5D1E89461AAFDF0B00DDEE3D /* UpdatesViewController.m */,
 				5D1E89471AAFDF0B00DDEE3D /* UpdatesViewController.xib */,
-				6344616F1AB584A200AF3B50 /* ProfileViewController.h */,
-				634461701AB584A200AF3B50 /* ProfileViewController.m */,
-				634461711AB584A200AF3B50 /* ProfileViewController.xib */,
-				227A19371AB104E5003B0726 /* BasketViewController.h */,
-				227A19381AB104E5003B0726 /* BasketViewController.m */,
-				227A19391AB104E5003B0726 /* BasketViewController.xib */,
-				5D1E89561AB4D2B200DDEE3D /* InfiniteScroll.h */,
-				22E06DB11AB513D20013E1D0 /* PullToRefresh.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -365,6 +385,8 @@
 				5D1E89431AAFD7AD00DDEE3D /* JournalEntry.m */,
 				638B759D1AB764080054FE6D /* Lender.h */,
 				638B759E1AB764080054FE6D /* Lender.m */,
+				638B75AB1AB921C90054FE6D /* LoanAnnotation.h */,
+				638B75AC1AB921C90054FE6D /* LoanAnnotation.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -390,6 +412,7 @@
 		AFD954228C5F9470D802EB3B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				638B75A51AB7A1DD0054FE6D /* MapKit.framework */,
 				2EA917B2940A1400F9037894 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -481,6 +504,7 @@
 				5D1E89341AAB92E500DDEE3D /* TeamsListViewController.xib in Resources */,
 				6398506A1AAE450A008269CE /* MySummaryViewController.xib in Resources */,
 				227A193B1AB104E5003B0726 /* BasketViewController.xib in Resources */,
+				638B75A41AB7A19D0054FE6D /* MapViewController.xib in Resources */,
 				5D680A981AA5846E000F365D /* LaunchScreen.xib in Resources */,
 				5D680A951AA5846E000F365D /* Images.xcassets in Resources */,
 				639850721AAE6B85008269CE /* StatCell.xib in Resources */,
@@ -492,9 +516,11 @@
 				63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */,
 				63FE25F21AAFE99D00CC5FE5 /* MyDetailsViewController.xib in Resources */,
 				63FE25F71AB0134A00CC5FE5 /* StatHeader.xib in Resources */,
+				638B75A91AB7B2C60054FE6D /* countries2.kml in Resources */,
 				5D1E894E1AAFE07900DDEE3D /* JournalEntryCell.xib in Resources */,
 				22C83CA91AACC703009E155E /* LoanDetailViewController.xib in Resources */,
 				5D1E89411AACD96200DDEE3D /* TeamDetailViewController.xib in Resources */,
+				638B75AA1AB7B2C60054FE6D /* countries1.kml in Resources */,
 				634461731AB584A200AF3B50 /* ProfileViewController.xib in Resources */,
 				5D1E89491AAFDF0B00DDEE3D /* UpdatesViewController.xib in Resources */,
 			);
@@ -549,6 +575,7 @@
 			files = (
 				224E0E3C1AAD6EFC0077A85C /* LoansSearchViewController.m in Sources */,
 				5D1E89401AACD96200DDEE3D /* TeamDetailViewController.m in Sources */,
+				638B75A31AB7A19D0054FE6D /* MapViewController.m in Sources */,
 				5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */,
 				22C83CA81AACC703009E155E /* LoanDetailViewController.m in Sources */,
 				634461721AB584A200AF3B50 /* ProfileViewController.m in Sources */,
@@ -574,6 +601,7 @@
 				63FE25F11AAFE99D00CC5FE5 /* MyDetailsViewController.m in Sources */,
 				638B759F1AB764080054FE6D /* Lender.m in Sources */,
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,
+				638B75AD1AB921C90054FE6D /* LoanAnnotation.m in Sources */,
 				227A193F1AB1053A003B0726 /* BasketCell.m in Sources */,
 				6344616B1AB5848B00AF3B50 /* ProfileHeaderView.m in Sources */,
 				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,
