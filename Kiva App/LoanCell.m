@@ -64,7 +64,16 @@
     
     
     NSTimeInterval secondsLeft = [loan.plannedExpirationDate timeIntervalSinceNow];
-    self.daysLeftLabel.text = [NSString stringWithFormat:@"%.0f days left", secondsLeft/86400];
+    
+    double daysLeft = secondsLeft/86400;
+    
+    if (daysLeft > 1) {
+        self.daysLeftLabel.text = [NSString stringWithFormat:@"%.0f days left", daysLeft];
+    } else {
+        self.daysLeftLabel.text = @"0 days left";
+    }
+    
+    
 
     
     

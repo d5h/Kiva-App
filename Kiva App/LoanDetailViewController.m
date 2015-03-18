@@ -121,11 +121,11 @@
             self.repaymentTermLabel.text = [NSString stringWithFormat:@"%d months", [loandetail.repaymentTerm intValue]];
             self.repaymentScheduleLabel.text = loandetail.repaymentSchedule;
             
-            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-            formatter.dateFormat = @"d MMM y";
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+            dateFormatter.dateFormat = @"MMM d, y";
             
-            self.listedDateLabel.text = [formatter stringFromDate:loandetail.postedDate];
-            self.disbursalDateLabel.text = [formatter stringFromDate:loandetail.disbursalDate];
+            self.listedDateLabel.text = [dateFormatter stringFromDate:loandetail.postedDate];
+            self.disbursalDateLabel.text = [dateFormatter stringFromDate:loandetail.disbursalDate];
             
             if ([loandetail.currencyLossPossibility isEqualToString:@"none"]) {
                 self.currencyLossPossibilityLabel.text = @"None";
@@ -135,7 +135,13 @@
             }
             
             NSTimeInterval secondsLeft = [loandetail.plannedExpirationDate timeIntervalSinceNow];
-            self.daysLeftLabel.text = [NSString stringWithFormat:@"%.0f days left", secondsLeft/86400];
+            double daysLeft = secondsLeft/86400;
+            
+            if (daysLeft > 1) {
+                self.daysLeftLabel.text = [NSString stringWithFormat:@"%.0f days left", daysLeft];
+            } else {
+                self.daysLeftLabel.text = @"0 days left";
+            }
  
         }
         
