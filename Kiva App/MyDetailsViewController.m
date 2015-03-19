@@ -62,7 +62,7 @@ static UIColor *bgColor;
     
     switch (indexPath.section) {
         case 0:
-            size = CGSizeMake(100.0, 100.0);
+            size = CGSizeMake(80.0, 80.0);
             break;
         case 3:
             size = CGSizeMake(30.0, 25.0);
@@ -81,21 +81,25 @@ static UIColor *bgColor;
     cell.descriptionLabel.textColor = [UIColor whiteColor];
     switch (indexPath.section) {
         case 0:
-            cell.descriptionLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
+            cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
             cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
-            cell.descriptionLabel.textColor = [UIColor blackColor];
+            cell.descriptionLabel.textColor = [UIColor whiteColor];
             cell.valueLabel.text = @"";
-            cell.backgroundColor = [UIColor yellowColor];
-            cell.layer.cornerRadius = 50.0;
-//            for (Partner *partner in self.partners) {
-//                if ([partnersocialfocus isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
-//                    cell.backgroundColor = bgColor;
-//                    continue;
-//                }
-//            }
+            cell.backgroundColor = [UIColor blueColor];
+            cell.layer.cornerRadius = 40.0;
+            for (Partner *partner in self.partners) {
+                for (NSNumber *num in partner.socialPerformanceStrengths) {
+                    NSString *str = [self.socialPerformances objectAtIndex:[num integerValue]];
+                    NSLog(@"str: %@", str);
+                    if ([str isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
+                        cell.backgroundColor = bgColor;
+                        continue;
+                    }
+                }
+            }
             break;
         case 1:
-            cell.descriptionLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
+            cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
             cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
             cell.valueLabel.text = @"";
             cell.backgroundColor = [UIColor orangeColor];
@@ -110,7 +114,7 @@ static UIColor *bgColor;
             }
             break;
         case 2:
-            cell.descriptionLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
+            cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
             cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
             cell.valueLabel.text = @"";
             cell.backgroundColor = [UIColor magentaColor];
@@ -123,7 +127,7 @@ static UIColor *bgColor;
             }
             break;
         case 3:
-            cell.valueLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:8.0];
+            cell.valueLabel.font = [UIFont fontWithName:@"Avenir Next" size:13.0];
             cell.valueLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
             cell.descriptionLabel.text = @"";
             cell.backgroundColor = [UIColor redColor];

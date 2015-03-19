@@ -27,6 +27,7 @@
       @"currencyExchangeLossRate" :@"currency_exchange_loss_rate",
       @"averageLoanSizePercentPerCapitaIncome" :@"average_loan_size_percent_per_capita_income",
       @"loansAtRiskRate" : @"loans_at_risk_rate",
+      @"socialPerformanceStrengths" : @"social_performance_strengths"
       
       };
 }
@@ -48,6 +49,18 @@
         return [self.dateFormatter dateFromString:str];
     } reverseBlock:^(NSDate *date) {
         return [self.dateFormatter stringFromDate:date];
+    }];
+}
+
++ (NSValueTransformer *)socialPerformanceStrengthsJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSArray *array) {
+        NSMutableArray *idArray = [NSMutableArray array];
+        for (NSDictionary *dict in array) {
+            [idArray addObject:dict[@"id"]];
+        }
+        return idArray;
+    } reverseBlock:^(NSArray *array) {
+        return array;
     }];
 }
 
