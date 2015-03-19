@@ -11,11 +11,14 @@
 
 
 
+
 @interface LoansSearchFilterForm : NSObject <FXForm>
 
-@property (nonatomic, copy) NSString *status;
+
+@property (nonatomic, copy) NSArray *status;
 @property (nonatomic, copy) NSString *gender;
-@property (nonatomic, copy) NSString *region;
+@property (nonatomic, copy) NSArray *region;
+@property (nonatomic, copy) NSArray *country;
 @property (nonatomic, copy) NSString *sortBy;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

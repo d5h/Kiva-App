@@ -111,13 +111,15 @@ static NSString *kMyLoans = @"My Loans";
 }
 
 - (void)onFilterCancel {
+    self.filters = @{};
+    [self loadLoansPage1];
     [self.filterNavigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)onFilterDone {
     [self.filterNavigationController dismissViewControllerAnimated:YES completion:nil];
     self.filters = [self.filterForm dictionary];
-    [self loadLoansWithFilters:self.filters];
+    [self loadLoansPage1];
 
 }
 
@@ -152,10 +154,23 @@ static NSString *kMyLoans = @"My Loans";
 
 #pragma mark - Seach Bar
 
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+    return YES;
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     self.searchText = searchBar.text;
     [self loadLoansPage1];
     [searchBar resignFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:NO animated:YES];
+    searchBar.text = @"";
+    [searchBar resignFirstResponder];
+    
+    
 }
 
 @end

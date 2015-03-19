@@ -15,14 +15,14 @@
 #import "PartnerInfo.h"
 #import "Partner.h"
 #import "SVProgressHUD.h"
+#import "WebViewController.h"
 
 
 @interface LoanDetailViewController ()
 
-//@property(nonatomic, strong)LoanDetail *loanDetail;
 @property (nonatomic, strong) NSArray *loansDetails;
 @property (nonatomic, strong) NSArray *partnerInfo;
-//@property(nonatomic, strong) NSNumber *partnerId;
+@property (nonatomic, strong) NSNumber *loanIdentifier;
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *loanImage;
@@ -98,6 +98,7 @@
             LoanDetail *loandetail = loansDetails[0];
             
             self.title = loandetail.name;
+            self.loanIdentifier = loandetail.identifier;
 
             [self.loanImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", loandetail.imageId]]];
             self.borrowersStoryLabel.text = loandetail.texts;
@@ -189,6 +190,17 @@
     [SVProgressHUD dismiss];
 
 }
+- (IBAction)onLendNowButton:(id)sender {
+    WebViewController *wvc = [[WebViewController alloc]init];
+    wvc.basketLoanId = self.loanIdentifier;
+    
+    [self.navigationController pushViewController:wvc animated:YES];
+
+    
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

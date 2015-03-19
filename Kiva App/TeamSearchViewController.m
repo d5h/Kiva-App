@@ -109,6 +109,8 @@ static NSString *kMyTeams = @"My Teams";
 }
 
 - (void)onFilterCancel {
+    self.filters = @{};
+    [self loadTeamsPage1];
     [self.filterNavigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -149,6 +151,20 @@ static NSString *kMyTeams = @"My Teams";
     self.searchText = searchBar.text;
     [self loadTeamsPage1];
     [searchBar resignFirstResponder];
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+    return YES;
+}
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:NO animated:YES];
+    searchBar.text = @"";
+    [searchBar resignFirstResponder];
+    
+    
 }
 
 @end

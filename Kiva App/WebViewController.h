@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Loan.h"
+#import "LoanDetail.h"
 
 @interface WebViewController : UIViewController
+
+@property (nonatomic, strong) NSNumber *basketLoanId;
+
 
 @end
