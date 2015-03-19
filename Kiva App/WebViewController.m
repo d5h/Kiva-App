@@ -16,12 +16,13 @@
 @property (nonatomic, strong) NSURLRequest *urlRequest;
 
 
+
+
 @end
 
 @implementation WebViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     
     NSDictionary *loan1 = @{ @"id" : @"854446",
@@ -31,6 +32,7 @@
                              @"amount" : @"25"
                              };
     NSDictionary *loanDict = @{@"loans" : @[loan1, loan2],
+
                                //@"donation" : @"30.00"
                                };
     
@@ -93,15 +95,6 @@
 //    self.webView.scalesPageToFit = YES;
 //    self.webView.autoresizesSubviews = YES;
 //    
-//    
-//    NSError *error;
-//    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:postData options:0 error:&error];
-//    NSLog(@"%@", jsonDict);
-//    
-//    NSString* jsonString = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
-//    NSLog(@"jsonString: %@", jsonString);
-//    
-//    [self.webView loadRequest:request];
 }
 
 
@@ -131,5 +124,6 @@
     }
     
 }
+
 
 @end
