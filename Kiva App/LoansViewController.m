@@ -17,7 +17,7 @@
 #import "SVPullToRefresh.h"
 #import "UIImageView+AFNetworking.h"
 #import "WebViewController.h"
-
+#import "KML.h"
 
 @interface LoansViewController () <UITableViewDataSource, UITableViewDelegate, LoanCellDelegate, MKMapViewDelegate>
 
@@ -25,6 +25,9 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) UIColor *arrowColor;
 @property (nonatomic, assign) BOOL isMapView;
+@property (nonatomic, strong) NSDictionary *countryPolygons;
+// Used so we don't add country polygon overlays multiple times
+@property (nonatomic, strong) NSMutableSet *countriesWithOverlays;
 
 //@property (nonatomic, strong) NSArray *loans;
 
@@ -56,6 +59,9 @@
     self.isMapView = NO;
     
     [self.tableView reloadData];
+    
+    self.countriesWithOverlays = [NSMutableSet set];
+    [self loadKML];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -120,6 +126,18 @@
     return annotationView;
 }
 
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    if (![overlay isKindOfClass:[MKPolygon class]]) {
+        return nil;
+    }
+
+    MKPolygon *polygon = (MKPolygon *)overlay;
+    MKPolygonRenderer *renderer = [[MKPolygonRenderer alloc] initWithPolygon:polygon];
+    renderer.fillColor = [[UIColor redColor] colorWithAlphaComponent:0.4];
+
+    return renderer;
+}
+
 - (void)mapView:(MKMapView *)mapView
  annotationView:(MKAnnotationView *)view
 calloutAccessoryControlTapped:(UIControl *)control {
@@ -150,6 +168,14 @@ calloutAccessoryControlTapped:(UIControl *)control {
     for (Loan *loan in self.loans) {
         LoanAnnotation *annotation = [[LoanAnnotation alloc] initWithLoan:loan];
         [self.mapView addAnnotation:annotation];
+        if (! [self.countriesWithOverlays containsObject:loan.countryCode]
+            && [self.countryPolygons objectForKey:loan.countryCode])
+        {
+            MKPolygon *countryPolygon = [self.countryPolygons valueForKey:loan.countryCode];
+            [self.mapView addOverlay:countryPolygon];
+            [self.countriesWithOverlays addObject:loan.countryCode];
+            NSLog(@"Added overlay with %ld points for %@", countryPolygon.pointCount, loan.countryCode);
+        }
     }
     [self.mapView showAnnotations:self.mapView.annotations animated:YES];
 }
@@ -185,6 +211,33 @@ calloutAccessoryControlTapped:(UIControl *)control {
     }];
     
     self.isMapView = !self.isMapView;
+}
+
+#pragma mark - Map / KML
+
+- (void)loadKML {
+    NSString *kmlPath = [[NSBundle mainBundle] pathForResource:@"countries2" ofType:@"kml"];
+    KMLRoot *root = [KMLParser parseKMLAtPath:kmlPath];
+    NSArray *countries = root.placemarks;
+    NSMutableDictionary *countryPolygons = [NSMutableDictionary dictionary];
+    for (KMLPlacemark *placemark in countries) {
+        KMLMultiGeometry *geometry = (KMLMultiGeometry *)placemark.geometry;
+        KMLPolygon *kmlPolygon = geometry.geometries[1];
+        NSArray *coordinates = kmlPolygon.outerBoundaryIs.coordinates;
+        CLLocationCoordinate2D *mapPoints = malloc([coordinates count] * sizeof(CLLocationCoordinate2D));
+        int i = 0;
+        for (KMLCoordinate *c in coordinates) {
+            mapPoints[i].latitude = c.latitude;
+            mapPoints[i++].longitude = c.longitude;
+        }
+        MKPolygon *polygon = [MKPolygon polygonWithCoordinates:mapPoints count:[coordinates count]];
+        
+        NSString *countryCode = [placemark.descriptionValue substringWithRange:NSMakeRange(9, 2)];
+        NSLog(@"Loaded polygon with %ld points for %@", polygon.pointCount, countryCode);
+        [countryPolygons setValue:polygon forKey:countryCode];
+        free(mapPoints);
+    }
+    self.countryPolygons = countryPolygons;
 }
 
 @end
