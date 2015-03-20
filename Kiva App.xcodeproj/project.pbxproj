@@ -53,6 +53,7 @@
 		6344616E1AB5848B00AF3B50 /* ProfileLoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6344616A1AB5848B00AF3B50 /* ProfileLoanCell.xib */; };
 		634461721AB584A200AF3B50 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461701AB584A200AF3B50 /* ProfileViewController.m */; };
 		634461731AB584A200AF3B50 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634461711AB584A200AF3B50 /* ProfileViewController.xib */; };
+		636FE47D1ABCE47F002E50CA /* AnnotationCoordinateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 636FE47C1ABCE47F002E50CA /* AnnotationCoordinateUtility.m */; };
 		638B759F1AB764080054FE6D /* Lender.m in Sources */ = {isa = PBXBuildFile; fileRef = 638B759E1AB764080054FE6D /* Lender.m */; };
 		638B75A31AB7A19D0054FE6D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638B75A11AB7A19D0054FE6D /* MapViewController.m */; };
 		638B75A41AB7A19D0054FE6D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638B75A21AB7A19D0054FE6D /* MapViewController.xib */; };
@@ -168,6 +169,8 @@
 		6344616F1AB584A200AF3B50 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		634461701AB584A200AF3B50 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		634461711AB584A200AF3B50 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		636FE47B1ABCE47F002E50CA /* AnnotationCoordinateUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationCoordinateUtility.h; path = ../AnnotationCoordinateUtility.h; sourceTree = "<group>"; };
+		636FE47C1ABCE47F002E50CA /* AnnotationCoordinateUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationCoordinateUtility.m; path = ../AnnotationCoordinateUtility.m; sourceTree = "<group>"; };
 		638B759D1AB764080054FE6D /* Lender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lender.h; sourceTree = "<group>"; };
 		638B759E1AB764080054FE6D /* Lender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lender.m; sourceTree = "<group>"; };
 		638B75A01AB7A19D0054FE6D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 				63B199C81AA8431100ED685D /* Models */,
 				5D680A8B1AA5846E000F365D /* AppDelegate.h */,
 				5D680A8C1AA5846E000F365D /* AppDelegate.m */,
+				636FE47B1ABCE47F002E50CA /* AnnotationCoordinateUtility.h */,
+				636FE47C1ABCE47F002E50CA /* AnnotationCoordinateUtility.m */,
 				638B75A71AB7B2C60054FE6D /* countries2.kml */,
 				638B75A81AB7B2C60054FE6D /* countries1.kml */,
 				5D680A941AA5846E000F365D /* Images.xcassets */,
@@ -611,6 +616,7 @@
 				63B199CB1AA8433000ED685D /* Loan.m in Sources */,
 				63E72F6B1AACDE5300BD1F9F /* User.m in Sources */,
 				63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */,
+				636FE47D1ABCE47F002E50CA /* AnnotationCoordinateUtility.m in Sources */,
 				2281B3271AAEC41000834666 /* PartnerInfo.m in Sources */,
 				6344616D1AB5848B00AF3B50 /* ProfileLoanCell.m in Sources */,
 				63183DA51AAA9D8D00F63194 /* LoansViewController.m in Sources */,

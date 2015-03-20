@@ -12,6 +12,7 @@
 #import "LoansSearchFilterForm.h"
 #import "SVProgressHUD.h"
 #import "User.h"
+#import "CRGradientNavigationBar.h"
 
 static NSString *kMyLoans = @"My Loans";
 
@@ -105,7 +106,8 @@ static NSString *kMyLoans = @"My Loans";
     FXFormViewController *formViewController = [[FXFormViewController alloc] init];
     formViewController.formController.form = self.filterForm;
     formViewController.title = @"Filter Loans";
-    self.filterNavigationController = [[UINavigationController alloc] initWithRootViewController:formViewController];
+    self.filterNavigationController = [[UINavigationController alloc] initWithNavigationBarClass:[CRGradientNavigationBar class] toolbarClass:nil];
+    self.filterNavigationController.viewControllers = @[formViewController];
     formViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onFilterCancel)];
     formViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(onFilterDone)];
     [self presentViewController:self.filterNavigationController animated:YES completion:nil];

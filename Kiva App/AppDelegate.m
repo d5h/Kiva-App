@@ -68,7 +68,6 @@
     UIColor *kivaColor2 = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:1];
     UIColor *white = [UIColor whiteColor];
     [[UINavigationBar appearance] setTranslucent:NO];
-    [[UINavigationBar appearance] setBarTintColor:kivaColor];
     [[UINavigationBar appearance] setTintColor:white];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:white}];
     

@@ -17,6 +17,7 @@
 #import "SVPullToRefresh.h"
 #import "UIImageView+AFNetworking.h"
 #import "WebViewController.h"
+#import "AnnotationCoordinateUtility.h"
 #import "KML.h"
 
 @interface LoansViewController () <UITableViewDataSource, UITableViewDelegate, LoanCellDelegate, MKMapViewDelegate>
@@ -176,6 +177,9 @@ calloutAccessoryControlTapped:(UIControl *)control {
             }
         }
     }
+    
+    [AnnotationCoordinateUtility mutateCoordinatesOfClashingAnnotations:self.mapView.annotations];
+    
     [self.mapView showAnnotations:self.mapView.annotations animated:YES];
 }
 
