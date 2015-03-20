@@ -133,7 +133,7 @@
 
     MKPolygon *polygon = (MKPolygon *)overlay;
     MKPolygonRenderer *renderer = [[MKPolygonRenderer alloc] initWithPolygon:polygon];
-    renderer.fillColor = [[UIColor redColor] colorWithAlphaComponent:0.4];
+    renderer.fillColor = [[UIColor alloc] initWithRed:127/255. green:173/255. blue:76/255. alpha:0.4];
 
     return renderer;
 }
