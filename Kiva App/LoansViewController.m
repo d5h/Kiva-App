@@ -157,8 +157,6 @@ calloutAccessoryControlTapped:(UIControl *)control {
     wvc.basketLoanId = loanCell.loan.identifier;
     
     [self.navigationController pushViewController:wvc animated:YES];
-    
-    
 }
 
 #pragma mark - Private
@@ -171,31 +169,29 @@ calloutAccessoryControlTapped:(UIControl *)control {
         if (! [self.countriesWithOverlays containsObject:loan.countryCode]
             && [self.countryPolygons objectForKey:loan.countryCode])
         {
-            MKPolygon *countryPolygon = [self.countryPolygons valueForKey:loan.countryCode];
-            [self.mapView addOverlay:countryPolygon];
-            [self.countriesWithOverlays addObject:loan.countryCode];
-            NSLog(@"Added overlay with %ld points for %@", countryPolygon.pointCount, loan.countryCode);
+            NSArray *polygons = [self.countryPolygons valueForKey:loan.countryCode];
+            for (MKPolygon *countryPolygon in polygons) {
+                [self.mapView addOverlay:countryPolygon];
+                [self.countriesWithOverlays addObject:loan.countryCode];
+            }
         }
     }
     [self.mapView showAnnotations:self.mapView.annotations animated:YES];
 }
 
 - (void)onMapButton {
-    NSLog(@"map clicked");
     UIView *fromView, *toView;
     
     if (self.isMapView)
     {
         fromView = self.mapView;
         toView = self.tableView;
-        NSLog(@"switching to table");
         self.navigationItem.rightBarButtonItem.title = @"Map";
     }
     else
     {
         fromView = self.tableView;
         toView = self.mapView;
-        NSLog(@"switching to map");
         self.navigationItem.rightBarButtonItem.title = @"List";
     }
     
@@ -221,21 +217,27 @@ calloutAccessoryControlTapped:(UIControl *)control {
     NSArray *countries = root.placemarks;
     NSMutableDictionary *countryPolygons = [NSMutableDictionary dictionary];
     for (KMLPlacemark *placemark in countries) {
-        KMLMultiGeometry *geometry = (KMLMultiGeometry *)placemark.geometry;
-        KMLPolygon *kmlPolygon = geometry.geometries[1];
-        NSArray *coordinates = kmlPolygon.outerBoundaryIs.coordinates;
-        CLLocationCoordinate2D *mapPoints = malloc([coordinates count] * sizeof(CLLocationCoordinate2D));
-        int i = 0;
-        for (KMLCoordinate *c in coordinates) {
-            mapPoints[i].latitude = c.latitude;
-            mapPoints[i++].longitude = c.longitude;
-        }
-        MKPolygon *polygon = [MKPolygon polygonWithCoordinates:mapPoints count:[coordinates count]];
-        
         NSString *countryCode = [placemark.descriptionValue substringWithRange:NSMakeRange(9, 2)];
-        NSLog(@"Loaded polygon with %ld points for %@", polygon.pointCount, countryCode);
-        [countryPolygons setValue:polygon forKey:countryCode];
-        free(mapPoints);
+        NSMutableArray *polygons = [NSMutableArray array];
+
+        KMLMultiGeometry *geometry = (KMLMultiGeometry *)placemark.geometry;
+        for (KMLAbstractGeometry *g in geometry.geometries) {
+            if ([g isKindOfClass:[KMLPolygon class]]) {
+                KMLPolygon *kmlPolygon = (KMLPolygon *)g;
+                NSArray *coordinates = kmlPolygon.outerBoundaryIs.coordinates;
+                CLLocationCoordinate2D *mapPoints = malloc([coordinates count] * sizeof(CLLocationCoordinate2D));
+                int i = 0;
+                for (KMLCoordinate *c in coordinates) {
+                    mapPoints[i].latitude = c.latitude;
+                    mapPoints[i++].longitude = c.longitude;
+                }
+                MKPolygon *polygon = [MKPolygon polygonWithCoordinates:mapPoints count:[coordinates count]];
+                free(mapPoints);
+                [polygons addObject:polygon];
+            }
+        }
+        
+        [countryPolygons setValue:polygons forKey:countryCode];
     }
     self.countryPolygons = countryPolygons;
 }
