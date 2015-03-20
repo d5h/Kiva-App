@@ -16,6 +16,7 @@
 #import "UpdatesViewController.h"
 #import "ProfileViewController.h"
 #import "MapViewController.h"
+#import "CRGradientNavigationBar.h"
 
 @interface AppDelegate ()
 
@@ -28,22 +29,32 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    [self setAppearance];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    TeamSearchViewController *teamSearchViewController = [[TeamSearchViewController alloc] init];
-    LoansSearchViewController *loansSearchViewController = [[LoansSearchViewController alloc] init];
-    UINavigationController *myVC = [[UINavigationController alloc] initWithRootViewController:[MySummaryViewController new]];
-    UINavigationController *updatesViewController = [[UINavigationController alloc] initWithRootViewController:[[UpdatesViewController alloc] init]];
-    UINavigationController *profileNVC = [[UINavigationController alloc]initWithRootViewController:[ProfileViewController new]];
-    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myVC, updatesViewController, profileNVC];
+    
+    TeamSearchViewController *teamSearchViewController = [[TeamSearchViewController alloc] initWithNavigationBarClass:[CRGradientNavigationBar class] toolbarClass:nil];
+    
+    LoansSearchViewController *loansSearchViewController = [[LoansSearchViewController alloc] initWithNavigationBarClass:[CRGradientNavigationBar class] toolbarClass:nil];
+    
+    UINavigationController *myNVC = [[UINavigationController alloc] initWithNavigationBarClass:[CRGradientNavigationBar class] toolbarClass:nil];
+    myNVC.viewControllers = @[[MySummaryViewController new]];
+    
+    UINavigationController *updatesViewController = [[UINavigationController alloc] initWithNavigationBarClass:[CRGradientNavigationBar class] toolbarClass:nil];
+    updatesViewController.viewControllers = @[[UpdatesViewController new]];
+    
+    UINavigationController *profileNVC = [[UINavigationController alloc] initWithNavigationBarClass:[CRGradientNavigationBar class] toolbarClass:nil];
+    profileNVC.viewControllers = @[[ProfileViewController new]];
+    
+    tabBarController.viewControllers = @[loansSearchViewController, teamSearchViewController, myNVC, updatesViewController, profileNVC];
+    
     loansSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Loans" image:[UIImage imageNamed:@"loan"] tag:0];
     teamSearchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teams" image:[UIImage imageNamed:@"team"] tag:0];
-    myVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Impact" image:[UIImage imageNamed:@"stats"] tag:0];
+    myNVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Impact" image:[UIImage imageNamed:@"impact"] tag:0];
     profileNVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"me"] tag:0];
     updatesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:[UIImage imageNamed:@"updates"] tag:0];
  
+    [self setAppearance];
+    
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
@@ -54,14 +65,16 @@
 
 - (void)setAppearance {
     UIColor *kivaColor = [[UIColor alloc] initWithRed:169/255. green:207/255. blue:141/255. alpha:1];
+    UIColor *kivaColor2 = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:1];
     UIColor *white = [UIColor whiteColor];
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setBarTintColor:kivaColor];
     [[UINavigationBar appearance] setTintColor:white];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:white}];
-    [[UITabBar appearance] setTranslucent:NO];
-    [[UITabBar appearance] setBarTintColor:kivaColor];
-    [[UITabBar appearance] setTintColor:white];
+    
+    [[CRGradientNavigationBar appearance] setBarTintGradientColors:@[kivaColor, kivaColor2]];
+
+    [[UITabBar appearance] setTintColor:kivaColor2];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

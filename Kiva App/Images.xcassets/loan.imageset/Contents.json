@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "loan.png"
+      "filename" : "coin_dollar.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "loan-1.png"
+      "filename" : "coin_dollar@2x.png"
     },
     {
       "idiom" : "universal",
