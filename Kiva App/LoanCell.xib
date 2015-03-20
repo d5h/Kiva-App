@@ -71,7 +71,7 @@
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51w-Li-azF">
                         <rect key="frame" x="0.0" y="427" width="320" height="10"/>
-                        <color key="backgroundColor" red="0.66274509803921566" green="0.81176470588235294" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="b3m-jH-rj8"/>
                         </constraints>
