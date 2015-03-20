@@ -104,6 +104,7 @@ static NSString *kMyLoans = @"My Loans";
     self.filterForm = [[LoansSearchFilterForm alloc] initWithDictionary:self.filters];
     FXFormViewController *formViewController = [[FXFormViewController alloc] init];
     formViewController.formController.form = self.filterForm;
+    formViewController.title = @"Filter Loans";
     self.filterNavigationController = [[UINavigationController alloc] initWithRootViewController:formViewController];
     formViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onFilterCancel)];
     formViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(onFilterDone)];

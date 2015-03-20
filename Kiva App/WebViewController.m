@@ -25,38 +25,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSDictionary *loan1 = @{ @"id" : @"854446",
-                             @"amount" : @"100"
+    NSDictionary *loan1 = @{ @"id" : @(854446),
+                             @"amount" : @(100)
                              };
-    NSDictionary *loan2 = @{ @"id" : @"849651",
-                             @"amount" : @"25"
+    NSDictionary *loan2 = @{ @"id" : @(849651),
+                             @"amount" : @(25)
                              };
     NSDictionary *loanDict = @{@"loans" : @[loan1, loan2],
+                               @"app_id" : @"com.drrajan.cp-kiva-app",
 
-                               //@"donation" : @"30.00"
+                               @"donation" : @"30.00",
                                };
     
-    NSLog(@"loan dict is %@", loanDict);
+    //NSData *json = [NSJSONSerialization dataWithJSONObject:loanDict
+      //                                             options:NSUTF8StringEncoding
+        //                                             error:nil];
+    //NSString *jsonString = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
     
-    AFHTTPRequestSerializer *requestSerializer = [[AFHTTPRequestSerializer alloc] init];
-    self.urlRequest = [requestSerializer requestWithMethod:@"POST"
-                                                 URLString:@"http://www.kiva.org/basket/set"
-                                                parameters:loanDict error:nil];
+
     
-    [self.webView setScalesPageToFit:YES];
+    NSString *testString = @"loans=[{\"id\":845118,\"amount\":25}]&app_id=in.thoughtvine.kiva&donation=0.000000";
     
-    /* This loadRequest:progress: method, automatically sets up a
-     * UIWebView with the correct requests and delegation methods */
-    [self.webView loadRequest:self.urlRequest
-                     progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) { /* not needed in this example */ }
-                      success:^NSString *(NSHTTPURLResponse *response, NSString *HTML)
-     {
-         NSLog(@"The response URL: %@ ", response.URL);
-         return HTML;
-     } failure:^(NSError *error)
-     {
-         NSLog(@"error: %@", error);
-     } ];
+        NSLog(@"loans array is %@", testString);
+
+    
+        NSMutableURLRequest * request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.kiva.org/basket/set"]];
+        //NSData *postData = [NSJSONSerialization dataWithJSONObject:loanDict options:NSJSONWritingPrettyPrinted error: nil];
+        [request setHTTPMethod:@"POST"];
+    NSData* data = [testString dataUsingEncoding:NSUTF8StringEncoding];
+
+        [request setHTTPBody:data];
+        [self.webView setScalesPageToFit:YES];
+    [self.webView loadRequest:request];
+
+    //
+    //    AFHTTPRequestSerializer *requestSerializer = [[AFHTTPRequestSerializer alloc] init];
+    //    self.urlRequest = [requestSerializer requestWithMethod:@"POST"
+    //                                                 URLString:@"http://www.kiva.org/basket/set"
+    //                                                parameters:testString error:nil];
+    //
+    
+    //
+    //
+    //    /* This loadRequest:progress: method, automatically sets up a
+    //     * UIWebView with the correct requests and delegation methods */
+    //    [self.webView loadRequest:self.urlRequest
+    //                     progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) { /* not needed in this example */ }
+    //                      success:^NSString *(NSHTTPURLResponse *response, NSString *HTML)
+    //     {
+    //         NSLog(@"The response URL: %@ ", response.URL);
+    //         return HTML;
+    //     } failure:^(NSError *error)
+    //     {
+    //         NSLog(@"error: %@", error);
+    //     } ];
     
 //
 //    self.loadIdsSet = [NSMutableSet set];
