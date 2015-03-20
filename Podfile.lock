@@ -40,72 +40,25 @@ PODS:
   - Mantle (1.5.4):
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
-  - OMGHTTPURLRQ (2.1):
-    - OMGHTTPURLRQ/RQ (= 2.1)
-  - OMGHTTPURLRQ/FormURLEncode (2.1)
-  - OMGHTTPURLRQ/RQ (2.1):
-    - OMGHTTPURLRQ/FormURLEncode
-    - OMGHTTPURLRQ/UserAgent
-  - OMGHTTPURLRQ/UserAgent (2.1)
-  - Overcoat/Core (2.1.1):
-    - AFNetworking (~> 2.5)
-    - Mantle (~> 1.5)
-  - Overcoat/NSURLSession (2.1.1):
-    - Overcoat/Core
-  - Overcoat/PromiseKit (2.1.1):
-    - Overcoat/Core
-    - Overcoat/NSURLSession
-    - PromiseKit (~> 1.2)
-  - PromiseKit (1.4.0):
-    - PromiseKit/CALayer (= 1.4.0)
-    - PromiseKit/NSNotificationCenter (= 1.4.0)
-    - PromiseKit/NSURLConnection (= 1.4.0)
-    - PromiseKit/Pause (= 1.4.0)
-    - PromiseKit/UIActionSheet (= 1.4.0)
-    - PromiseKit/UIAlertView (= 1.4.0)
-    - PromiseKit/UIView (= 1.4.0)
-    - PromiseKit/UIViewController (= 1.4.0)
-    - PromiseKit/Until (= 1.4.0)
-    - PromiseKit/When (= 1.4.0)
-  - PromiseKit/CALayer (1.4.0):
-    - PromiseKit/Promise
-  - PromiseKit/NSNotificationCenter (1.4.0):
-    - PromiseKit/Promise
-  - PromiseKit/NSURLConnection (1.4.0):
-    - OMGHTTPURLRQ
-    - PromiseKit/Promise
-  - PromiseKit/Pause (1.4.0):
-    - PromiseKit/Promise
-  - PromiseKit/Promise (1.4.0)
-  - PromiseKit/UIActionSheet (1.4.0):
-    - PromiseKit/Promise
-  - PromiseKit/UIAlertView (1.4.0):
-    - PromiseKit/Promise
-  - PromiseKit/UIView (1.4.0):
-    - PromiseKit/Promise
-  - PromiseKit/UIViewController (1.4.0):
-    - PromiseKit/Promise
-  - PromiseKit/Until (1.4.0):
-    - PromiseKit/Promise
-    - PromiseKit/When
-  - PromiseKit/When (1.4.0):
-    - PromiseKit/Promise
   - PureLayout (2.0.5)
   - SVProgressHUD (1.1.2)
   - SVPullToRefresh (0.4.1)
   - TBXML (1.5)
   - VGParallaxHeader (0.0.6):
     - PureLayout
+  - YLProgressBar (3.5.2)
 
 DEPENDENCIES:
+  - AFNetworking
   - BDBOAuth1Manager
   - DTCoreText
   - FXForms
   - iOS-KML-Framework
-  - Overcoat/PromiseKit
+  - Mantle
   - SVProgressHUD
   - SVPullToRefresh
   - VGParallaxHeader
+  - YLProgressBar
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
@@ -115,13 +68,11 @@ SPEC CHECKSUMS:
   FXForms: ae90610432a0a9cbb71e0180f202d0fff375881f
   iOS-KML-Framework: 5a498b018d3988e2fb49413902c4e4e34ea30b5c
   Mantle: d5fbaf30fbc58031223af13812c060e15934a1fe
-  OMGHTTPURLRQ: f8c515dfd2f57a5d74c710978f600231f52afec5
-  Overcoat: a4105827c4b4a358e769482b63328ab8be5f41c9
-  PromiseKit: bd7f075f18cb751894546958b2eeb23995d7da3a
   PureLayout: 63a3257320223e8edddcd3afb407445f85a6bf74
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
   TBXML: a279440030ba55c40e1455cafba3b0a44e1963d4
   VGParallaxHeader: 769a25b8392c4d5565c43103ea98c5c84f133bd6
+  YLProgressBar: 75f1d6c2cc37a9e0c5806e63b5e374f3483c9ee0
 
 COCOAPODS: 0.35.0

@@ -10,7 +10,6 @@
 #import "KivaClientO.h"
 #import "LoanDetailInfo.h"
 #import "LoanDetail.h"
-#import <PromiseKit/PromiseKit.h>
 #import "UIImageView+AFNetworking.h"
 #import "PartnerInfo.h"
 #import "Partner.h"
