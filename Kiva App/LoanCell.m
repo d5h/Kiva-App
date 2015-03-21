@@ -57,16 +57,9 @@
     self.countryLabel.text = loan.country;
     self.sectorLabel.text = loan.sector;
     self.activityLabel.text = loan.activity;
-    
 
     self.lendButton.tintColor = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:1];
     [self.countryImageView setImage:[UIImage imageNamed:loan.countryCode]];
-
-
-    [self.countryImageView setImage:[UIImage imageNamed:loan.countryCode]];
-    
-    [self.countryImageView setImage:[UIImage imageNamed:loan.countryCode]];
-    
 
     [self.loanImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", loan.imageId]]];
 

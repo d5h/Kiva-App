@@ -21,6 +21,7 @@
 		22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C83CAB1AACF44D009E155E /* LoanDetail.m */; };
 		5074C0F91AB94B09000D2F70 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5074C0F71AB94B09000D2F70 /* WebViewController.m */; };
 		5074C0FA1AB94B09000D2F70 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5074C0F81AB94B09000D2F70 /* WebViewController.xib */; };
+		50A0F06B1ABE080800B775A0 /* LoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A0F06A1ABE080800B775A0 /* LoanCell.xib */; };
 		50B5F05C1ABA3D0D00E7ADB6 /* ISO3166CountryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F05B1ABA3D0D00E7ADB6 /* ISO3166CountryValueTransformer.m */; };
 		5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E89281AAB8D1400DDEE3D /* Team.m */; };
 		5D1E892F1AAB92BE00DDEE3D /* TeamSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E892E1AAB92BE00DDEE3D /* TeamSearchViewController.m */; };
@@ -44,7 +45,6 @@
 		63183DA51AAA9D8D00F63194 /* LoansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DA31AAA9D8D00F63194 /* LoansViewController.m */; };
 		63183DA61AAA9D8D00F63194 /* LoansViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63183DA41AAA9D8D00F63194 /* LoansViewController.xib */; };
 		63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DAC1AAAF26400F63194 /* LoanCell.m */; };
-		63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63183DAD1AAAF26400F63194 /* LoanCell.xib */; };
 		63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DB11AABE8CA00F63194 /* KivaClientO.m */; };
 		634461641AB5846500AF3B50 /* Balance.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461631AB5846500AF3B50 /* Balance.m */; };
 		6344616B1AB5848B00AF3B50 /* ProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461661AB5848B00AF3B50 /* ProfileHeaderView.m */; };
@@ -114,6 +114,7 @@
 		5074C0F61AB94B09000D2F70 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		5074C0F71AB94B09000D2F70 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		5074C0F81AB94B09000D2F70 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		50A0F06A1ABE080800B775A0 /* LoanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanCell.xib; sourceTree = "<group>"; };
 		50B5F05A1ABA3D0D00E7ADB6 /* ISO3166CountryValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO3166CountryValueTransformer.h; sourceTree = "<group>"; };
 		50B5F05B1ABA3D0D00E7ADB6 /* ISO3166CountryValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO3166CountryValueTransformer.m; sourceTree = "<group>"; };
 		5D1E89271AAB8D1400DDEE3D /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
@@ -155,7 +156,6 @@
 		63183DA41AAA9D8D00F63194 /* LoansViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoansViewController.xib; sourceTree = "<group>"; };
 		63183DAB1AAAF26400F63194 /* LoanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanCell.h; sourceTree = "<group>"; };
 		63183DAC1AAAF26400F63194 /* LoanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanCell.m; sourceTree = "<group>"; };
-		63183DAD1AAAF26400F63194 /* LoanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanCell.xib; sourceTree = "<group>"; };
 		63183DB01AABE8CA00F63194 /* KivaClientO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KivaClientO.h; sourceTree = "<group>"; };
 		63183DB11AABE8CA00F63194 /* KivaClientO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KivaClientO.m; sourceTree = "<group>"; };
 		634461621AB5846500AF3B50 /* Balance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balance.h; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 				6344616A1AB5848B00AF3B50 /* ProfileLoanCell.xib */,
 				63183DAB1AAAF26400F63194 /* LoanCell.h */,
 				63183DAC1AAAF26400F63194 /* LoanCell.m */,
-				63183DAD1AAAF26400F63194 /* LoanCell.xib */,
+				50A0F06A1ABE080800B775A0 /* LoanCell.xib */,
 				5D1E89351AAB932500DDEE3D /* TeamCell.h */,
 				5D1E89361AAB932500DDEE3D /* TeamCell.m */,
 				5D1E89371AAB932500DDEE3D /* TeamCell.xib */,
@@ -540,7 +540,6 @@
 				5D1E89391AAB932500DDEE3D /* TeamCell.xib in Resources */,
 				63E72F701AACF59E00BD1F9F /* LoginViewController.xib in Resources */,
 				6344616E1AB5848B00AF3B50 /* ProfileLoanCell.xib in Resources */,
-				63183DAF1AAAF26400F63194 /* LoanCell.xib in Resources */,
 				63FE25F21AAFE99D00CC5FE5 /* MyDetailsViewController.xib in Resources */,
 				63FE25F71AB0134A00CC5FE5 /* StatHeader.xib in Resources */,
 				638B75A91AB7B2C60054FE6D /* countries2.kml in Resources */,
@@ -550,6 +549,7 @@
 				638B75AA1AB7B2C60054FE6D /* countries1.kml in Resources */,
 				634461731AB584A200AF3B50 /* ProfileViewController.xib in Resources */,
 				5D1E89491AAFDF0B00DDEE3D /* UpdatesViewController.xib in Resources */,
+				50A0F06B1ABE080800B775A0 /* LoanCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
