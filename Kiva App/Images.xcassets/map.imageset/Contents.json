@@ -3,17 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "notebook.png"
+      "filename" : "Map_Path.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "notebook@2x.png"
+      "filename" : "Map_Path@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "notebook@3x.png"
+      "scale" : "3x"
     }
   ],
   "info" : {

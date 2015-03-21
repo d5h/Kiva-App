@@ -44,10 +44,8 @@ static NSString *kMyLoans = @"My Loans";
     searchBar.delegate = self;
     self.loansViewController.navigationItem.titleView = searchBar;
     
-    self.loansViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
-    self.loansViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(onMapButton)];
-
-    
+    self.loansViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"] style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
+    self.loansViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map"] style:UIBarButtonItemStylePlain target:self action:@selector(onMapButton)];
 }
 
 - (void)loadLoansWithFilters:(NSDictionary *)filters {

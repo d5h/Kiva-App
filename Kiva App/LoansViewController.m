@@ -190,13 +190,13 @@ calloutAccessoryControlTapped:(UIControl *)control {
     {
         fromView = self.mapView;
         toView = self.tableView;
-        self.navigationItem.rightBarButtonItem.title = @"Map";
+        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"map"];
     }
     else
     {
         fromView = self.tableView;
         toView = self.mapView;
-        self.navigationItem.rightBarButtonItem.title = @"List";
+        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"list"];
     }
     
     [toView setHidden: YES];
