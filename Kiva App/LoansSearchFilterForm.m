@@ -32,7 +32,7 @@
 
 
 - (NSDictionary *)statusField {
-    return @{FXFormFieldOptions: @[
+    return @{FXFormFieldInline: @YES, FXFormFieldOptions: @[
                      @"fundraising",
                      @"funded",
                      @"in_repayment",
@@ -58,7 +58,7 @@
 
 
 - (NSDictionary *)genderField {
-    return @{FXFormFieldOptions: @[
+    return @{FXFormFieldInline: @YES, FXFormFieldOptions: @[
                      @"male",
                      @"female",
                      ],
@@ -73,7 +73,7 @@
 }
 
 - (NSDictionary *)regionField {
-    return @{FXFormFieldOptions: @[
+    return @{FXFormFieldInline: @YES, FXFormFieldOptions: @[
                      @"na",
                      @"ca",
                      @"sa",
@@ -103,7 +103,7 @@
 }
 
 - (NSDictionary *)sortByField {
-    return @{FXFormFieldOptions: @[
+    return @{FXFormFieldInline: @YES, FXFormFieldOptions: @[
                      @"popularity",
                      @"loan_amount",
                      @"expiration",
