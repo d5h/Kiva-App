@@ -44,14 +44,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="1129"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="855"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzQ-ac-eKb">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="1129"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="855"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L3d-AS-An0" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="1129"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="853"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="blz-p0-XAk" userLabel="Loan Image View">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
@@ -362,7 +362,6 @@
                                 <constraint firstItem="k0W-tc-i6Q" firstAttribute="top" secondItem="X9w-Dc-kqa" secondAttribute="bottom" constant="8" id="Fx5-jS-xhy"/>
                                 <constraint firstItem="WTB-7j-jHF" firstAttribute="centerY" secondItem="olT-lT-TU4" secondAttribute="centerY" id="G0o-0j-wLW"/>
                                 <constraint firstItem="Eu1-7F-wQG" firstAttribute="baseline" secondItem="2Or-8t-ZvV" secondAttribute="baseline" id="GOh-PP-43U"/>
-                                <constraint firstAttribute="height" constant="1129" id="HeL-cY-y5K"/>
                                 <constraint firstItem="Aux-Gz-6jO" firstAttribute="top" secondItem="oXD-Sn-v9W" secondAttribute="bottom" constant="8" id="Hj9-W0-Em2"/>
                                 <constraint firstAttribute="trailing" secondItem="X9w-Dc-kqa" secondAttribute="trailing" constant="8" id="JXK-HP-Icc"/>
                                 <constraint firstItem="FUQ-iH-KOm" firstAttribute="baseline" secondItem="6ga-1o-9lc" secondAttribute="baseline" id="Jh3-jb-o3X"/>
@@ -398,7 +397,7 @@
                                 <constraint firstItem="NuE-wP-pQU" firstAttribute="baseline" secondItem="8tO-yZ-LBc" secondAttribute="baseline" id="fbR-0e-TGg"/>
                                 <constraint firstItem="Aux-Gz-6jO" firstAttribute="baseline" secondItem="NH1-Fs-5Dk" secondAttribute="baseline" id="fnW-Ul-bws"/>
                                 <constraint firstAttribute="trailing" secondItem="lSk-8n-7XT" secondAttribute="trailing" constant="8" id="fqj-HS-F2D"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Eu1-7F-wQG" secondAttribute="bottom" constant="8" id="gQy-ic-8eb"/>
+                                <constraint firstAttribute="bottom" secondItem="Eu1-7F-wQG" secondAttribute="bottom" constant="8" id="gQy-ic-8eb"/>
                                 <constraint firstItem="Nfs-Ll-nzc" firstAttribute="top" secondItem="blz-p0-XAk" secondAttribute="bottom" constant="8" id="ggN-ug-l1I"/>
                                 <constraint firstItem="NZG-WP-zMj" firstAttribute="top" secondItem="mab-rz-GBS" secondAttribute="bottom" constant="8" id="giw-2d-kSL"/>
                                 <constraint firstAttribute="trailing" secondItem="eFF-p7-vIs" secondAttribute="trailing" constant="8" id="hJG-Sd-2QL"/>
@@ -452,7 +451,7 @@
                 <constraint firstAttribute="trailing" secondItem="bzQ-ac-eKb" secondAttribute="trailing" id="uyD-l3-uVW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="885" y="688.5"/>
+            <point key="canvasLocation" x="885" y="551.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
