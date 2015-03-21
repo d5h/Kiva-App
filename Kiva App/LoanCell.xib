@@ -225,6 +225,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="activityImageView" destination="5zw-CW-gbI" id="0NH-Cs-5d4"/>
                 <outlet property="activityLabel" destination="Nm8-FC-wge" id="Aza-WJ-H11"/>
                 <outlet property="countryImageView" destination="1vL-yH-FXc" id="TO9-Sq-8D5"/>
                 <outlet property="countryLabel" destination="6YU-p8-rfH" id="ChP-yN-4iW"/>

@@ -116,6 +116,7 @@
             
             [self.countryImage setImage:[UIImage imageNamed:loandetail.countryCode]];
             [self.sectorImage setImage:[UIImage imageNamed:loandetail.sector]];
+            [self.activityImage setImage:[UIImage imageNamed:@"leaf"]];
 
 
             self.loanAmountLabel.text = [NSString stringWithFormat:@"$%d/%d", [loandetail.fundedAmount intValue], [loandetail.loanAmount intValue]];
