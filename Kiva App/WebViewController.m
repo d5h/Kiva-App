@@ -15,9 +15,6 @@
 @property (nonatomic, strong) NSMutableSet *loadIdsSet;
 @property (nonatomic, strong) NSURLRequest *urlRequest;
 
-
-
-
 @end
 
 @implementation WebViewController
@@ -25,100 +22,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSDictionary *loan1 = @{ @"id" : @(854446),
-                             @"amount" : @(100)
-                             };
-    NSDictionary *loan2 = @{ @"id" : @(849651),
-                             @"amount" : @(25)
-                             };
-    NSDictionary *loanDict = @{@"loans" : @[loan1, loan2],
-                               @"app_id" : @"com.drrajan.cp-kiva-app",
+    self.loadIdsSet = [NSMutableSet set];
+    
+    // Remember basket for 5 minutes
+    // Make the default loan amount to be $25
+    NSDate *lastUpdateTime = [self getFromDefaults:@"lastUpdateTime"];
+    if (lastUpdateTime && -[lastUpdateTime timeIntervalSinceNow] < 300) {
+        if ([self getFromDefaults:@"loadIdsSet"] != nil) {
+                self.loadIdsSet = [self getFromDefaults:@"loadIdsSet"];
+            }
+        
+    }
+    
+    [self.loadIdsSet addObject:self.basketLoanId];
+    
+    [self saveToDefault:self.loadIdsSet forKey:@"loadIdsSet"];
+    [self saveToDefault:[NSDate date] forKey:@"lastUpdateTime"];
+    
 
-                               @"donation" : @"30.00",
-                               };
-    
-    //NSData *json = [NSJSONSerialization dataWithJSONObject:loanDict
-      //                                             options:NSUTF8StringEncoding
-        //                                             error:nil];
-    //NSString *jsonString = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
-    
+    NSMutableString *loanString = [NSMutableString stringWithString:@"loans=["];
+    float donationAmount = 3.75 * self.loadIdsSet.count;
 
+    for (NSNumber *loadId in self.loadIdsSet) {
+        NSString *stringToappend = [NSString stringWithFormat:@"{\"id\":%ld,\"amount\":25},", [loadId integerValue]];
+        [loanString appendString:stringToappend];
+        
+    }
+    [loanString deleteCharactersInRange:NSMakeRange([loanString length]-1, 1)];
+    [loanString appendString:[NSString stringWithFormat:@"]&app_id=com.drrajan.cp-kiva-app&donation=%0.2f", donationAmount]];
     
-    NSString *testString = @"loans=[{\"id\":845118,\"amount\":25}]&app_id=in.thoughtvine.kiva&donation=0.000000";
+    NSData* data = [loanString dataUsingEncoding:NSUTF8StringEncoding];
     
-        NSLog(@"loans array is %@", testString);
-
-    
-        NSMutableURLRequest * request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.kiva.org/basket/set"]];
-        //NSData *postData = [NSJSONSerialization dataWithJSONObject:loanDict options:NSJSONWritingPrettyPrinted error: nil];
-        [request setHTTPMethod:@"POST"];
-    NSData* data = [testString dataUsingEncoding:NSUTF8StringEncoding];
-
-        [request setHTTPBody:data];
-        [self.webView setScalesPageToFit:YES];
+    NSMutableURLRequest * request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.kiva.org/basket/set"]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:data];
+    [self.webView setScalesPageToFit:YES];
     [self.webView loadRequest:request];
-
-    //
-    //    AFHTTPRequestSerializer *requestSerializer = [[AFHTTPRequestSerializer alloc] init];
-    //    self.urlRequest = [requestSerializer requestWithMethod:@"POST"
-    //                                                 URLString:@"http://www.kiva.org/basket/set"
-    //                                                parameters:testString error:nil];
-    //
-    
-    //
-    //
-    //    /* This loadRequest:progress: method, automatically sets up a
-    //     * UIWebView with the correct requests and delegation methods */
-    //    [self.webView loadRequest:self.urlRequest
-    //                     progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) { /* not needed in this example */ }
-    //                      success:^NSString *(NSHTTPURLResponse *response, NSString *HTML)
-    //     {
-    //         NSLog(@"The response URL: %@ ", response.URL);
-    //         return HTML;
-    //     } failure:^(NSError *error)
-    //     {
-    //         NSLog(@"error: %@", error);
-    //     } ];
-    
-//
-//    self.loadIdsSet = [NSMutableSet set];
-//    
-//    if ([self getFromDefaults:@"loadIdsSet"] != nil) {
-//        self.loadIdsSet = [self getFromDefaults:@"loadIdsSet"];
-//    }
-//    
-//    // Do any additional setup after loading the view from its nib.
-//    NSMutableURLRequest * request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.kiva.org/basket/set"]];
-//    
-//    NSDictionary *basketData = [[NSDictionary alloc]initWithObjectsAndKeys:
-//                                self.basketLoanId , @"id",
-//                                @"25", @"amount",
-//                                nil];
-//    NSDictionary *loansData = [[NSDictionary alloc]initWithObjectsAndKeys:basketData, @"loans", nil];
-//    
-//    NSArray *basketArray = [[NSArray alloc]initWithObjects:loansData, nil];
-//    
-//    NSData *postData = [NSJSONSerialization dataWithJSONObject:basketArray options:NSJSONWritingPrettyPrinted error: nil];
-//    
-//    [request setHTTPMethod:@"POST"];
-//    [request setHTTPBody:postData];
-//    
-//    
-//    [self.loadIdsSet addObject:self.basketLoanId];
-//    [self saveToDefault:self.loadIdsSet forKey:@"loadIdsSet"];
-//    
-//    NSLog(@" loadids are %@" , self.loadIdsSet);
-//    
-//    
-//    
-//    
-//    
-//    
-//    self.webView.scalesPageToFit = YES;
-//    self.webView.autoresizesSubviews = YES;
-//    
+ 
 }
-
 
 
 - (void)didReceiveMemoryWarning {

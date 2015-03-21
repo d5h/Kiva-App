@@ -14,12 +14,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *useLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *loanImageView;
 @property (weak, nonatomic) IBOutlet UILabel *countryLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *countryImageView;
 @property (weak, nonatomic) IBOutlet UILabel *sectorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *daysLeftLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *loanProgressView;
 @property (weak, nonatomic) IBOutlet UILabel *percentFundedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *loanAmountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *lendButton;
 
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
@@ -56,6 +58,16 @@
     self.sectorLabel.text = loan.sector;
     self.activityLabel.text = loan.activity;
     
+
+    self.lendButton.tintColor = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:1];
+    [self.countryImageView setImage:[UIImage imageNamed:loan.countryCode]];
+
+
+    [self.countryImageView setImage:[UIImage imageNamed:loan.countryCode]];
+    
+    [self.countryImageView setImage:[UIImage imageNamed:loan.countryCode]];
+    
+
     [self.loanImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", loan.imageId]]];
 
     self.loanAmountLabel.text = [NSString stringWithFormat:@"$%d/%d", [loan.fundedAmount intValue], [loan.loanAmount intValue]];

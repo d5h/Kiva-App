@@ -25,6 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *loanImage;
+@property (weak, nonatomic) IBOutlet UIImageView *countryImageView;
 @property (weak, nonatomic) IBOutlet UILabel *loanAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *percentFundedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *daysLeftLabel;
@@ -53,6 +54,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *partnerAverageLoanSizePercentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *partnerCurrencyExchangeLossRateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *partnerLoansAtRiskRateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *lendButton;
 
 
 
@@ -86,7 +88,8 @@
     [self.view addConstraint:rightConstraint];
     
 
-    
+    self.lendButton.tintColor =[[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:1];
+
     
     
     [[KivaClientO sharedInstance] fetchLoanDetailsWithParams:nil withLoanId:self.loanId completion:^(NSArray *loansDetails, NSError *error){
@@ -111,6 +114,8 @@
             self.countryLabel.text = loandetail.country;
             self.sectorLabel.text = loandetail.sector;
             self.activityLabel.text = loandetail.activity;
+            
+            [self.countryImageView setImage:[UIImage imageNamed:loandetail.countryCode]];
 
 
             self.loanAmountLabel.text = [NSString stringWithFormat:@"$%d/%d", [loandetail.fundedAmount intValue], [loandetail.loanAmount intValue]];

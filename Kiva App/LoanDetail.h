@@ -19,6 +19,7 @@
 @property (nonatomic, readonly) int imageId;
 @property (nonatomic, readonly) NSNumber *partnerId;
 @property (copy, nonatomic, readonly) NSString *country;
+@property (copy, nonatomic, readonly) NSString *countryCode;
 @property (copy, nonatomic, readonly) NSString *sector;
 @property (copy, nonatomic, readonly) NSString *activity;
 @property (copy, nonatomic, readonly) NSDate *postedDate;
