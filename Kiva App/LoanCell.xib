@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -53,8 +53,8 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRn-dQ-DPx">
-                        <rect key="frame" x="264" y="8" width="48" height="24.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <rect key="frame" x="264" y="8" width="48" height="26"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="10"/>
                         <state key="normal" title="Lend Now">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -63,7 +63,7 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zw-CW-gbI">
-                        <rect key="frame" x="245.5" y="403" width="16" height="16"/>
+                        <rect key="frame" x="245" y="403" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="5Ao-1I-9f4"/>
                             <constraint firstAttribute="width" constant="16" id="Exm-XR-SRh"/>
@@ -232,6 +232,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="activityLabel" destination="Nm8-FC-wge" id="Aza-WJ-H11"/>
+                <outlet property="countryImageView" destination="1vL-yH-FXc" id="TO9-Sq-8D5"/>
                 <outlet property="countryLabel" destination="6YU-p8-rfH" id="ChP-yN-4iW"/>
                 <outlet property="daysLeftLabel" destination="wfm-z0-pT3" id="om3-Nj-J99"/>
                 <outlet property="loanAmountLabel" destination="sS9-Cm-Ffk" id="nFx-qH-Vh2"/>

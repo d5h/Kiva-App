@@ -206,7 +206,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
         [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:|[toView]|" options: 0 metrics: nil views: NSDictionaryOfVariableBindings(self.view, toView)]];
     }
     
-    [UIView transitionFromView: fromView toView: toView duration: 1.0 options: UIViewAnimationOptionTransitionFlipFromRight | UIViewAnimationOptionShowHideTransitionViews completion:^(BOOL finished) {
+    [UIView transitionFromView: fromView toView: toView duration: 0.5 options: UIViewAnimationOptionTransitionFlipFromRight | UIViewAnimationOptionShowHideTransitionViews completion:^(BOOL finished) {
         [fromView removeFromSuperview];
     }];
     

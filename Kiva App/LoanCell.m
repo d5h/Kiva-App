@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *useLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *loanImageView;
 @property (weak, nonatomic) IBOutlet UILabel *countryLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *countryImageView;
 @property (weak, nonatomic) IBOutlet UILabel *sectorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *daysLeftLabel;
@@ -55,6 +56,8 @@
     self.countryLabel.text = loan.country;
     self.sectorLabel.text = loan.sector;
     self.activityLabel.text = loan.activity;
+    
+    [self.countryImageView setImage:[UIImage imageNamed:loan.countryCode]];
     
     [self.loanImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", loan.imageId]]];
 

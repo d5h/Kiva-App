@@ -20,6 +20,7 @@
       @"fundedAmount" :@"funded_amount",
       @"imageId" : @"image.id",
       @"country" : @"location.country",
+      @"countryCode" : @"location.country_code",
       @"sector" : @"sector",
       @"activity": @"activity",
       @"postedDate": @"posted_date",
