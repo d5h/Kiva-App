@@ -19,6 +19,12 @@
 @property (nonatomic, copy) NSString *gender;
 @property (nonatomic, copy) NSArray *region;
 @property (nonatomic, copy) NSArray *country;
+@property (nonatomic, copy) NSArray *sector;
+@property (nonatomic, copy) NSArray *theme;
+@property (nonatomic, copy) NSString *borrowerType;
+
+
+
 @property (nonatomic, copy) NSString *sortBy;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

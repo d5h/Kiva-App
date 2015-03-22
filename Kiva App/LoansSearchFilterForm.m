@@ -24,6 +24,10 @@
         self.region = [[dictionary objectForKey:@"region"] componentsSeparatedByString:@","];
         self.sortBy = [dictionary objectForKey:@"sort_by"];
         self.country = [[dictionary objectForKey:@"country_code"] componentsSeparatedByString:@","];
+        self.sector = [[dictionary objectForKey:@"sector"] componentsSeparatedByString:@","];
+        self.theme = [[dictionary objectForKey:@"themes"] componentsSeparatedByString:@","];
+        self.borrowerType = [dictionary objectForKey:@"borrower_type"];
+        
     }
     
     return self;
@@ -98,12 +102,12 @@
 }
 
 - (NSDictionary *)countryField {
-    return @{FXFormFieldOptions: @[@"AF", @"AL", @"AM", @"AZ", @"BA", @"BF", @"BG", @"BI", @"BJ", @"BO", @"BR", @"BW", @"BZ", @"CD", @"CG", @"CI", @"CL", @"CM", @"CN", @"CO", @"CR", @"DO", @"EC", @"EG", @"GE", @"GH", @"GT", @"HN", @"HT", @"ID", @"IL", @"IN", @"IQ", @"JO", @"KE", @"KG", @"KH", @"LA", @"LB", @"LK", @"LR", @"MD", @"MG", @"ML", @"MM", @"MN", @"MR", @"MW", @"MX", @"MZ", @"NA", @"NG", @"NI", @"NP", @"PA", @"PE", @"PG", @"PH", @"PK", @"PS", @"PY", @"RW", @"SB", @"SG", @"SL", @"SN", @"SO", @"SR", @"SV", @"TD", @"TG", @"TH", @"TJ", @"TL", @"TN", @"TR", @"TZ", @"UA", @"UG", @"US", @"VC", @"VN", @"VU", @"WS", @"XK", @"YE", @"ZA", @"ZM", @"ZW"],
+    return @{FXFormFieldHeader: @"Country, Sector and Theme", FXFormFieldOptions: @[@"AF", @"AL", @"AM", @"AZ", @"BA", @"BF", @"BG", @"BI", @"BJ", @"BO", @"BR", @"BW", @"BZ", @"CD", @"CG", @"CI", @"CL", @"CM", @"CN", @"CO", @"CR", @"DO", @"EC", @"EG", @"GE", @"GH", @"GT", @"HN", @"HT", @"ID", @"IL", @"IN", @"IQ", @"JO", @"KE", @"KG", @"KH", @"LA", @"LB", @"LK", @"LR", @"MD", @"MG", @"ML", @"MM", @"MN", @"MR", @"MW", @"MX", @"MZ", @"NA", @"NG", @"NI", @"NP", @"PA", @"PE", @"PG", @"PH", @"PK", @"PS", @"PY", @"RW", @"SB", @"SG", @"SL", @"SN", @"SO", @"SR", @"SV", @"TD", @"TG", @"TH", @"TJ", @"TL", @"TN", @"TR", @"TZ", @"UA", @"UG", @"US", @"VC", @"VN", @"VU", @"WS", @"XK", @"YE", @"ZA", @"ZM", @"ZW"],
              FXFormFieldValueTransformer: [[ISO3166CountryValueTransformer alloc] init]};
 }
 
 - (NSDictionary *)sortByField {
-    return @{FXFormFieldInline: @YES, FXFormFieldOptions: @[
+    return @{FXFormFieldDefaultValue: @"newest", FXFormFieldInline: @YES, FXFormFieldOptions: @[
                      @"popularity",
                      @"loan_amount",
                      @"expiration",
@@ -127,19 +131,88 @@
              }};
 }
 
+- (NSDictionary *)sectorField {
+    return @{FXFormFieldOptions: @[
+                     @"Agriculture",
+                     @"Arts",
+                     @"Clothing",
+                     @"Construction",
+                     @"Education",
+                     @"Entertainment",
+                     @"Food",
+                     @"Health",
+                     @"Housing",
+                     @"Manufacturing",
+                     @"Personal Use",
+                     @"Retail",
+                     @"Services",
+                     @"Transportation",
+                     @"Wholesale",
+                     ]};
+}
+
+- (NSDictionary *)themeField {
+    return @{FXFormFieldOptions: @[
+                     @"Green",
+                     @"Higher Education",
+                     @"Arab Youth",
+                     @"Kiva City LA",
+                     @"Islamic Finance",
+                     @"Youth",
+                     @"Start-Up",
+                     @"Water and Sanitation",
+                     @"Vulnerable Groups",
+                     @"Fair Trade",
+                     @"Rural Exclusion",
+                     @"Mobile Technology",
+                     @"Underfunded Areas",
+                     @"Conflict Zones",
+                     @"Job Creation",
+                     @"SME",
+                     @"Growing Businesses",
+                     @"Kiva City Detroit",
+                     @"Health",
+                     @"Disaster recovery",
+                     @"Flexible Credit Study",
+                     @"Innovative Loans",
+                     ]};
+}
+
+
+
+- (NSDictionary *)borrowerTypeField {
+    return @{FXFormFieldDefaultValue: @"both", FXFormFieldInline: @YES, FXFormFieldOptions: @[
+                     @"individuals",
+                     @"groups",
+                     @"both",
+                     ],
+             FXFormFieldValueTransformer: ^(id input) {
+                 return @{@"individuals": @"Individuals",
+                          @"groups": @"Groups",
+                          @"both": @"Both",
+                          }[input];
+                 
+             }};
+}
+
 
 
 - (NSDictionary *)dictionary {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    
     if (self.status.count > 0) {
         NSString *statusFilter = [self.status componentsJoinedByString:@","];
-        [result setObject:statusFilter forKey:@"status"];    }
+        [result setObject:statusFilter forKey:@"status"];
+    }
+    
     if (self.gender) {
         [result setObject:self.gender forKey:@"gender"];
     }
+    
     if (self.sortBy) {
         [result setObject:self.sortBy forKey:@"sort_by"];
     }
+    
     if (self.region.count >0) {
         NSString *regionFilter = [self.region componentsJoinedByString:@","];
         [result setObject:regionFilter forKey:@"region"];    }
@@ -149,6 +222,19 @@
         [result setObject:countryFilter forKey:@"country_code"];
     }
     
+    if (self.sector.count > 0) {
+        NSString *countryFilter = [self.sector componentsJoinedByString:@","];
+        [result setObject:countryFilter forKey:@"sector"];
+    }
+    
+    if (self.theme.count > 0) {
+        NSString *countryFilter = [self.theme componentsJoinedByString:@","];
+        [result setObject:countryFilter forKey:@"themes"];
+    }
+    
+    if (self.borrowerType) {
+        [result setObject:self.borrowerType forKey:@"borrower_type"];
+    }
     
     return result;
 }
