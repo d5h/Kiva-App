@@ -2,7 +2,7 @@
 //  StatDetailCell.m
 //  Kiva App
 //
-//  Created by David Rajan on 3/10/15.
+//  Created by David Rajan on 3/22/15.
 //  Copyright (c) 2015 Codepath. All rights reserved.
 //
 
@@ -11,18 +11,15 @@
 @implementation StatDetailCell
 
 - (void)awakeFromNib {
-//    self.containerView.layer.borderWidth = 2.0f;
-//    self.containerView.layer.borderColor = [UIColor blackColor].CGColor;
-    self.containerView.layer.cornerRadius = 100.0f;
-
+    self.descriptionLabel.preferredMaxLayoutWidth = self.descriptionLabel.frame.size.width;
 }
 
 - (void)_drawRect:(CGRect)rect
 {
     
-    [self drawCircle:0.0 end:1.0 color:[UIColor colorWithRed:127/255.0 green:173/255.0 blue:76/255.0 alpha:1.0f] bgColor:[UIColor colorWithRed:127/255.0 green:173/255.0 blue:76/255.0 alpha:1.0f]];
-//    [self drawCircl:0.5 end:1.0 color:[UIColor redColor] bgColor:[UIColor blueColor]];
-   
+    [self drawCircle:0.0 end:1.0 color:[UIColor colorWithRed:127/255.0 green:173/255.0 blue:76/255.0 alpha:1.0f] bgColor:[UIColor colorWithRed:127/255.0 green:173/255.0 blue:76/255.0 alpha:0.4f]];
+    //    [self drawCircl:0.5 end:1.0 color:[UIColor redColor] bgColor:[UIColor blueColor]];
+    
 }
 
 - (void) drawCircle:(float)start end:(float)end color:(UIColor*)color bgColor:(UIColor*)bgColor{

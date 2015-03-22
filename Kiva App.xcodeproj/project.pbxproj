@@ -46,6 +46,8 @@
 		63183DA61AAA9D8D00F63194 /* LoansViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63183DA41AAA9D8D00F63194 /* LoansViewController.xib */; };
 		63183DAE1AAAF26400F63194 /* LoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DAC1AAAF26400F63194 /* LoanCell.m */; };
 		63183DB21AABE8CA00F63194 /* KivaClientO.m in Sources */ = {isa = PBXBuildFile; fileRef = 63183DB11AABE8CA00F63194 /* KivaClientO.m */; };
+		633A96901ABF6F68005F727B /* StatDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A968E1ABF6F68005F727B /* StatDetailCell.m */; };
+		633A96911ABF6F68005F727B /* StatDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633A968F1ABF6F68005F727B /* StatDetailCell.xib */; };
 		634461641AB5846500AF3B50 /* Balance.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461631AB5846500AF3B50 /* Balance.m */; };
 		6344616B1AB5848B00AF3B50 /* ProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 634461661AB5848B00AF3B50 /* ProfileHeaderView.m */; };
 		6344616C1AB5848B00AF3B50 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634461671AB5848B00AF3B50 /* ProfileHeaderView.xib */; };
@@ -158,6 +160,9 @@
 		63183DAC1AAAF26400F63194 /* LoanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanCell.m; sourceTree = "<group>"; };
 		63183DB01AABE8CA00F63194 /* KivaClientO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KivaClientO.h; sourceTree = "<group>"; };
 		63183DB11AABE8CA00F63194 /* KivaClientO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KivaClientO.m; sourceTree = "<group>"; };
+		633A968D1ABF6F68005F727B /* StatDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatDetailCell.h; sourceTree = "<group>"; };
+		633A968E1ABF6F68005F727B /* StatDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatDetailCell.m; sourceTree = "<group>"; };
+		633A968F1ABF6F68005F727B /* StatDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatDetailCell.xib; sourceTree = "<group>"; };
 		634461621AB5846500AF3B50 /* Balance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balance.h; sourceTree = "<group>"; };
 		634461631AB5846500AF3B50 /* Balance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Balance.m; sourceTree = "<group>"; };
 		634461651AB5848B00AF3B50 /* ProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderView.h; sourceTree = "<group>"; };
@@ -382,6 +387,9 @@
 				227A193C1AB1053A003B0726 /* BasketCell.h */,
 				227A193D1AB1053A003B0726 /* BasketCell.m */,
 				227A193E1AB1053A003B0726 /* BasketCell.xib */,
+				633A968D1ABF6F68005F727B /* StatDetailCell.h */,
+				633A968E1ABF6F68005F727B /* StatDetailCell.m */,
+				633A968F1ABF6F68005F727B /* StatDetailCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -549,6 +557,7 @@
 				638B75AA1AB7B2C60054FE6D /* countries1.kml in Resources */,
 				634461731AB584A200AF3B50 /* ProfileViewController.xib in Resources */,
 				5D1E89491AAFDF0B00DDEE3D /* UpdatesViewController.xib in Resources */,
+				633A96911ABF6F68005F727B /* StatDetailCell.xib in Resources */,
 				50A0F06B1ABE080800B775A0 /* LoanCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +613,7 @@
 				5D1E89401AACD96200DDEE3D /* TeamDetailViewController.m in Sources */,
 				638B75A31AB7A19D0054FE6D /* MapViewController.m in Sources */,
 				5D1E89291AAB8D1400DDEE3D /* Team.m in Sources */,
+				633A96901ABF6F68005F727B /* StatDetailCell.m in Sources */,
 				22C83CA81AACC703009E155E /* LoanDetailViewController.m in Sources */,
 				634461721AB584A200AF3B50 /* ProfileViewController.m in Sources */,
 				5D1E89331AAB92E500DDEE3D /* TeamsListViewController.m in Sources */,

@@ -10,7 +10,7 @@
 #import "Loan.h"
 #import "Partner.h"
 #import "StatHeader.h"
-#import "StatCell.h"
+#import "StatDetailCell.h"
 
 @interface MyDetailsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -30,12 +30,13 @@
 
 static UIColor *bgColor;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     bgColor = [UIColor colorWithRed:127/255.0 green:173/255.0 blue:76/255.0 alpha:1.0];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    [self.collectionView registerNib:[UINib nibWithNibName:@"StatCell" bundle:nil] forCellWithReuseIdentifier:@"StatCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"StatDetailCell" bundle:nil] forCellWithReuseIdentifier:@"StatDetailCell"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"StatHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"StatHeader"];
     [self initData];
 }
@@ -65,7 +66,7 @@ static UIColor *bgColor;
             size = CGSizeMake(80.0, 80.0);
             break;
         case 3:
-            size = CGSizeMake(30.0, 25.0);
+            size = CGSizeMake(32.0, 32.0);
             break;
         default:
             size = CGSizeMake(60.0, 60.0);
@@ -77,68 +78,82 @@ static UIColor *bgColor;
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    StatCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StatCell" forIndexPath:indexPath];
-    cell.descriptionLabel.textColor = [UIColor whiteColor];
+    UIColor *kivaColor = [[UIColor alloc] initWithRed:169/255. green:207/255. blue:141/255. alpha:0.65];
+    UIColor *kivaColor2 = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:0.95];
+    
+    StatDetailCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StatDetailCell" forIndexPath:indexPath];
+    cell.descriptionLabel.textColor = [UIColor blackColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.cellImageView.hidden = YES;
+    cell.cellImageView.alpha = 0.4;
+    cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
     switch (indexPath.section) {
         case 0:
             cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
-            cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
             cell.descriptionLabel.textColor = [UIColor whiteColor];
-            cell.valueLabel.text = @"";
             cell.backgroundColor = [UIColor blueColor];
-            cell.layer.cornerRadius = 40.0;
             for (Partner *partner in self.partners) {
                 for (NSNumber *num in partner.socialPerformanceStrengths) {
                     NSString *str = [self.socialPerformances objectAtIndex:[num integerValue]];
                     NSLog(@"str: %@", str);
                     if ([str isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
-                        cell.backgroundColor = bgColor;
+//                        cell.backgroundColor = bgColor;
                         continue;
                     }
                 }
             }
             break;
         case 1:
+        {
             cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
-            cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
-            cell.valueLabel.text = @"";
-            cell.backgroundColor = [UIColor orangeColor];
-            cell.layer.cornerRadius = 30.0;
+//            cell.backgroundColor = [UIColor orangeColor];
+            cell.cellImageView.hidden = NO;
+            UIImage *img = [UIImage imageNamed:@"leaf"];
+            [cell.cellImageView setImage:[img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+            cell.cellImageView.tintColor = kivaColor2;
+//            [cell.cellImageView setImage:[UIImage imageNamed:@"leaf"]];
             for (Loan *loan in self.loans) {
                 for (NSString *theme in loan.themes) {
                     if ([theme isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
-                        cell.backgroundColor = bgColor;
+                        cell.cellImageView.alpha = 1.0;
+//                        cell.backgroundColor = bgColor;
                         continue;
                     }
                 }
             }
             break;
+        }
         case 2:
-            cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
-            cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
-            cell.valueLabel.text = @"";
-            cell.backgroundColor = [UIColor magentaColor];
-            cell.layer.cornerRadius = 30.0;
+        {
+            cell.descriptionLabel.font = [UIFont fontWithName:@"AvenirNext-Medium" size:9.5];
+            cell.cellImageView.hidden = NO;
+            UIImage *img = [UIImage imageNamed:cell.descriptionLabel.text];
+            [cell.cellImageView setImage:[img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+            cell.cellImageView.tintColor = kivaColor2;
             for (Loan *loan in self.loans) {
                 if ([loan.sector isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
-                    cell.backgroundColor = bgColor;
+                    cell.cellImageView.alpha = 1.0;
+//                    cell.backgroundColor = kivaColor2;
                     continue;
                 }
             }
             break;
+        }
         case 3:
-            cell.valueLabel.font = [UIFont fontWithName:@"Avenir Next" size:13.0];
-            cell.valueLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
-            cell.descriptionLabel.text = @"";
-            cell.backgroundColor = [UIColor redColor];
-            cell.layer.cornerRadius = 0.0;
+        {
+            cell.descriptionLabel.font = [UIFont fontWithName:@"AvenirNext-Medium" size:12.0];
+//            cell.descriptionLabel.textColor = [UIColor whiteColor];
+            cell.cellImageView.hidden = NO;
+            [cell.cellImageView setImage:[UIImage imageNamed:cell.descriptionLabel.text]];
             for (Loan *loan in self.loans) {
                 if ([loan.countryCode isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
-                    cell.backgroundColor = bgColor;
+                    cell.cellImageView.alpha = 1.0;
+                    cell.backgroundColor = kivaColor;
                     continue;
                 }
             }
             break;
+        }
         default:
             break;
     }
