@@ -71,7 +71,7 @@
     [scrollView shouldPositionParallaxHeader];
     
     // scrollView.parallaxHeader.progress - is progress of current scroll
-    NSLog(@"Progress: %f", scrollView.parallaxHeader.progress);
+//    NSLog(@"Progress: %f", scrollView.parallaxHeader.progress);
     
     // This is how you can implement appearing or disappearing of sticky view
 //    [scrollView.parallaxHeader.stickyView setAlpha:scrollView.parallaxHeader.progress];
