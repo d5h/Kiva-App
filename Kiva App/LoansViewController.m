@@ -65,17 +65,11 @@
     [self loadKML];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-}
-
 - (void)setLoans:(NSArray *)loans{
     _loans = loans;
     [self addAnnotations];
     [self.tableView reloadData];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -69,7 +69,7 @@
     UIColor *white = [UIColor whiteColor];
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTintColor:white];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:white}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:white, NSFontAttributeName: [UIFont fontWithName:@"Avenir Next" size:23],}];
     
     [[CRGradientNavigationBar appearance] setBarTintGradientColors:@[kivaColor, kivaColor2]];
 
