@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountLentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *loanImageView;
+@property (weak, nonatomic) IBOutlet UILabel *lendDateLabel;
 
 
 @end
@@ -40,7 +41,14 @@
 }
 
 - (void)setBalance:(Balance *)balance {
-    self.statusLabel.text = balance.status;
+    
+    
+    if ([self.balance.status isEqualToString:@"in_repayment"]) {
+        self.statusLabel.text = @"In Repayment";
+    }
+    
+    self.amountLentLabel.text = [NSString stringWithFormat:@"$ %d",[balance.amountPurchasedLender intValue]];
+    
 }
 
 @end

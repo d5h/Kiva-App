@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -14,15 +14,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qie-yz-GFZ">
-                        <rect key="frame" x="8" y="8" width="304" height="33"/>
+                        <rect key="frame" x="8" y="8" width="70" height="33"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHP-ax-TlC">
-                        <rect key="frame" x="8" y="49" width="304" height="19.5"/>
+                        <rect key="frame" x="8" y="49" width="304" height="20"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="feQ-4e-lzm">
@@ -40,48 +40,48 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4e-WJ-sao">
-                        <rect key="frame" x="281" y="85" width="30.5" height="23.5"/>
+                        <rect key="frame" x="281" y="85" width="31" height="24"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lent March 14, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI5-mm-bCv">
-                        <rect key="frame" x="191" y="116" width="120.5" height="18"/>
+                        <rect key="frame" x="191" y="117" width="121" height="18"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Repayment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-LY-CZK">
-                        <rect key="frame" x="230" y="142" width="82" height="18"/>
+                        <rect key="frame" x="230" y="143" width="82" height="18"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="pHP-ax-TlC" firstAttribute="top" secondItem="qie-yz-GFZ" secondAttribute="bottom" constant="8" id="1c0-cV-tzh"/>
+                    <constraint firstAttribute="bottom" secondItem="feQ-4e-lzm" secondAttribute="bottom" constant="14" id="3uD-Th-PhI"/>
                     <constraint firstAttribute="trailing" secondItem="vI5-mm-bCv" secondAttribute="trailing" constant="8" id="4af-jN-4Sz"/>
                     <constraint firstItem="feQ-4e-lzm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="8iD-6f-fwg"/>
-                    <constraint firstItem="D4q-LY-CZK" firstAttribute="top" secondItem="vI5-mm-bCv" secondAttribute="bottom" constant="8" id="AyF-bO-pqB"/>
-                    <constraint firstAttribute="bottom" secondItem="D4q-LY-CZK" secondAttribute="bottom" constant="39.5" id="B9q-OE-TZs"/>
+                    <constraint firstItem="vI5-mm-bCv" firstAttribute="top" secondItem="O4e-WJ-sao" secondAttribute="bottom" constant="8" id="EA9-q3-7Bn"/>
                     <constraint firstAttribute="trailing" secondItem="9wV-4R-cUj" secondAttribute="trailing" constant="8" id="FXf-5v-ocE"/>
+                    <constraint firstItem="O4e-WJ-sao" firstAttribute="top" secondItem="9wV-4R-cUj" secondAttribute="bottom" constant="8" id="L60-WU-9aA"/>
                     <constraint firstAttribute="trailing" secondItem="O4e-WJ-sao" secondAttribute="trailing" constant="8" id="O2B-rf-CdZ"/>
                     <constraint firstItem="qie-yz-GFZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="PTz-KP-aSY"/>
-                    <constraint firstAttribute="trailing" secondItem="qie-yz-GFZ" secondAttribute="trailing" constant="8" id="QZr-nE-upJ"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qie-yz-GFZ" secondAttribute="trailing" constant="8" id="QZr-nE-upJ"/>
                     <constraint firstItem="qie-yz-GFZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="UIw-dE-LNQ"/>
-                    <constraint firstItem="feQ-4e-lzm" firstAttribute="top" secondItem="9wV-4R-cUj" secondAttribute="bottom" constant="8" id="b1O-hz-WNr"/>
+                    <constraint firstItem="9wV-4R-cUj" firstAttribute="top" secondItem="pHP-ax-TlC" secondAttribute="bottom" constant="7" id="bxC-lh-R52"/>
                     <constraint firstAttribute="trailing" secondItem="pHP-ax-TlC" secondAttribute="trailing" constant="8" id="byn-fi-Lwx"/>
-                    <constraint firstItem="9wV-4R-cUj" firstAttribute="top" secondItem="pHP-ax-TlC" secondAttribute="bottom" constant="8" id="exh-5f-5YJ"/>
-                    <constraint firstItem="pHP-ax-TlC" firstAttribute="top" secondItem="qie-yz-GFZ" secondAttribute="bottom" constant="8" id="fVS-3g-zuj"/>
-                    <constraint firstItem="O4e-WJ-sao" firstAttribute="top" secondItem="9wV-4R-cUj" secondAttribute="bottom" constant="8" id="feD-P7-35v"/>
                     <constraint firstItem="pHP-ax-TlC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ggD-ya-7S9"/>
-                    <constraint firstItem="vI5-mm-bCv" firstAttribute="top" secondItem="O4e-WJ-sao" secondAttribute="bottom" constant="8" id="hrI-Ge-NPi"/>
-                    <constraint firstAttribute="bottom" secondItem="feQ-4e-lzm" secondAttribute="bottom" constant="14.5" id="m2b-OR-faw"/>
+                    <constraint firstItem="D4q-LY-CZK" firstAttribute="top" secondItem="vI5-mm-bCv" secondAttribute="bottom" constant="8" id="kiN-JF-Hiw"/>
                     <constraint firstAttribute="trailing" secondItem="D4q-LY-CZK" secondAttribute="trailing" constant="8" id="m3c-kg-YuF"/>
+                    <constraint firstItem="feQ-4e-lzm" firstAttribute="top" secondItem="9wV-4R-cUj" secondAttribute="bottom" constant="8" id="uqd-11-iMH"/>
                     <constraint firstItem="9wV-4R-cUj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="wpA-nq-2gu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="amountLentLabel" destination="O4e-WJ-sao" id="nbr-8H-Poy"/>
+                <outlet property="lendDateLabel" destination="vI5-mm-bCv" id="f87-Ub-zpC"/>
                 <outlet property="loanImageView" destination="feQ-4e-lzm" id="GRp-ct-BzH"/>
                 <outlet property="nameLabel" destination="qie-yz-GFZ" id="Boz-zt-ob0"/>
                 <outlet property="statusLabel" destination="D4q-LY-CZK" id="cyx-1H-BvJ"/>
