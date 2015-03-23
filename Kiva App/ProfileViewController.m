@@ -148,15 +148,7 @@
         self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"list"];
     }
     
-    [toView setHidden: YES];
-    [self.view addSubview: toView];
-    if (self.isMapView ) {
-        [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"|[toView]|" options: 0 metrics: nil views: NSDictionaryOfVariableBindings(self.view, toView)]];
-        [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:|[toView]|" options: 0 metrics: nil views: NSDictionaryOfVariableBindings(self.view, toView)]];
-    }
-    
     [UIView transitionFromView: fromView toView: toView duration: 0.5 options: UIViewAnimationOptionTransitionFlipFromRight | UIViewAnimationOptionShowHideTransitionViews completion:^(BOOL finished) {
-        [fromView removeFromSuperview];
     }];
     
     self.isMapView = !self.isMapView;
