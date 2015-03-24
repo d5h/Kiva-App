@@ -11,6 +11,9 @@
 #import "KivaClientO.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UIView *buttonView;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
 
@@ -18,13 +21,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.buttonView.layer.cornerRadius = 45;
+    self.buttonView.layer.borderWidth = 2;
+    self.buttonView.layer.borderColor = [[UIColor darkGrayColor] CGColor];
+    
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    UIColor *kivaColor = [[UIColor alloc] initWithRed:169/255. green:207/255. blue:141/255. alpha:1];
+    UIColor *kivaColor2 = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:1];
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[kivaColor CGColor], (id)[kivaColor2 CGColor], nil];
+    [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
 - (IBAction)onLogin:(id)sender {
     [[KivaClientO sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
             NSLog(@"Welcome to %@", user.name);
+            [[NSNotificationCenter defaultCenter] postNotificationName:UserDidLoginNotification object:nil];
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             NSLog(@"login error: %@", error);
@@ -32,6 +53,10 @@
         }
     }];
     
+}
+
+- (IBAction)onCancel:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

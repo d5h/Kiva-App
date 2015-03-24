@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="buttonView" destination="aCX-lG-uKs" id="zXH-Yl-HEk"/>
+                <outlet property="cancelButton" destination="zBD-Cd-Ut8" id="3bk-Wj-Xxh"/>
+                <outlet property="loginButton" destination="neU-48-fhJ" id="8zv-Xk-yNW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,25 +17,67 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCX-lG-uKs">
+                    <rect key="frame" x="8" y="239" width="304" height="90"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="wro-32-aZA"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neU-48-fhJ">
-                    <rect key="frame" x="107" y="267" width="106" height="34"/>
-                    <color key="backgroundColor" red="0.46666666670000001" green="0.69803921570000005" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Login to Kiva">
+                    <rect key="frame" x="99" y="252" width="121" height="64"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                    <state key="normal" image="kiva">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="aXF-lQ-aqb"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-Cd-Ut8">
+                    <rect key="frame" x="136" y="374" width="48" height="33"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onCancel:" destination="-1" eventType="touchUpInside" id="8dn-YH-cjg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cx3-Yp-Yh5">
+                    <rect key="frame" x="129" y="186" width="62" height="45"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="dWb-4b-DFL"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.49803921569999998" green="0.67843137249999996" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="zBD-Cd-Ut8" firstAttribute="top" secondItem="aCX-lG-uKs" secondAttribute="bottom" constant="45" id="0QE-te-Vk7"/>
+                <constraint firstItem="aCX-lG-uKs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2R7-Ab-tc0"/>
+                <constraint firstAttribute="centerX" secondItem="aCX-lG-uKs" secondAttribute="centerX" id="MVL-f5-7em"/>
+                <constraint firstAttribute="centerX" secondItem="Cx3-Yp-Yh5" secondAttribute="centerX" id="UCE-gp-0rl"/>
+                <constraint firstAttribute="centerY" secondItem="aCX-lG-uKs" secondAttribute="centerY" id="V3i-CF-HRX"/>
+                <constraint firstAttribute="trailing" secondItem="aCX-lG-uKs" secondAttribute="trailing" constant="8" id="VRF-3C-sba"/>
                 <constraint firstAttribute="centerY" secondItem="neU-48-fhJ" secondAttribute="centerY" id="W0S-15-0aK"/>
+                <constraint firstAttribute="centerX" secondItem="zBD-Cd-Ut8" secondAttribute="centerX" id="aUT-37-IdS"/>
+                <constraint firstItem="aCX-lG-uKs" firstAttribute="top" secondItem="Cx3-Yp-Yh5" secondAttribute="bottom" constant="8" id="j6e-Xp-c2l"/>
                 <constraint firstAttribute="centerX" secondItem="neU-48-fhJ" secondAttribute="centerX" id="m6T-k8-rFF"/>
             </constraints>
             <point key="canvasLocation" x="486" y="419"/>
         </view>
     </objects>
+    <resources>
+        <image name="kiva" width="121" height="64"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

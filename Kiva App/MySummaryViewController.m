@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSArray *statNames;
 @property (nonatomic, strong) NSArray *loans;
 @property (nonatomic, strong) NSArray *partners;
+@property (nonatomic, assign) BOOL needsLogin;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end
@@ -42,6 +43,7 @@ static NSString * const kInvites = @"Invites";
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:UserDidLogoutNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin) name:UserDidLoginNotification object:nil];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutButton)];
     
     self.loans = nil;
@@ -54,7 +56,14 @@ static NSString * const kInvites = @"Invites";
     
     bgColor = [UIColor colorWithRed:127/255.0 green:173/255.0 blue:76/255.0 alpha:1.0];
     
+    self.needsLogin = NO;
     [self loadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self doLogin];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,11 +114,16 @@ static NSString * const kInvites = @"Invites";
 #pragma mark - Private
 
 - (void)loadData {
+    if (![User currentUser]) {
+        self.needsLogin = YES;
+        return;
+    }
+    
     [SVProgressHUD show];
     [[KivaClientO sharedInstance] fetchUserStatsWithParams:nil completion:^(UserStats *stats, NSError *error) {
         if (error) {
             NSLog(@"My Summary error loading stats: %@", error);
-            [self doLogin];
+            self.needsLogin = YES;
             return;
         } else {
             self.data = @{
@@ -124,7 +138,7 @@ static NSString * const kInvites = @"Invites";
             [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
                 if (error) {
                     NSLog(@"My Summary error loading my loans: %@", error);
-                    [self doLogin];
+                    self.needsLogin = YES;
                     return;
                 } else {
                     self.loans = loans;
@@ -148,9 +162,11 @@ static NSString * const kInvites = @"Invites";
 }
 
 - (void)doLogin {
-    [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:^{
-        [self loadData];
-    }];
+    if (self.needsLogin) {
+        [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:^{
+            self.needsLogin = NO;
+        }];
+    }
 }
 
 - (void)onLogoutButton {
@@ -160,4 +176,10 @@ static NSString * const kInvites = @"Invites";
 - (void)userDidLogout {
     [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:nil];
 }
+
+- (void)userDidLogin {
+    self.needsLogin = NO;
+    [self loadData];
+}
+
 @end

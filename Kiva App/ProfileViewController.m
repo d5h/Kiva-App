@@ -28,6 +28,7 @@
 @property (strong, nonatomic) ProfileHeaderView *headerView;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, assign) BOOL isMapView;
+@property (nonatomic, assign) BOOL needsLogin;
 @property (nonatomic, strong) NSDictionary *countryPolygons;
 // Used so we don't add country polygon overlays multiple times
 @property (nonatomic, strong) NSMutableSet *countriesWithOverlays;
@@ -40,6 +41,7 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:UserDidLogoutNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin) name:UserDidLoginNotification object:nil];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutButton)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map"] style:UIBarButtonItemStylePlain target:self action:@selector(onMapButton)];
     
@@ -50,16 +52,21 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 200;
     
+    self.needsLogin = NO;
     [self loadProfile];
     
     self.mapView.delegate = self;
     self.isMapView = NO;
-
-    [self refresh];
     
     self.countriesWithOverlays = [NSMutableSet set];
     [self loadKML];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [self doLogin];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -256,22 +263,29 @@ calloutAccessoryControlTapped:(UIControl *)control {
 }
 
 - (void)loadProfile {
+    if (![User currentUser]) {
+        self.needsLogin = YES;
+        return;
+    }
     [[KivaClientO sharedInstance] fetchMyLenderWithParams:nil completion:^(Lender *lender, NSError *error) {
         if (error) {
             NSLog(@"My Summary error getting lender: %@", error);
-            [self doLogin];
+            self.needsLogin = YES;
             return;
         } else {
             self.headerView = [ProfileHeaderView instantiateFromNibWithLender:lender];
             [self.tableView setParallaxHeaderView:self.headerView mode:VGParallaxHeaderModeFill height:150];
+            [self refresh];
         }
     }];
 }
 
 - (void)doLogin {
-    [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:^{
-        [self loadProfile];
-    }];
+    if (self.needsLogin) {
+        [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:^{
+            self.needsLogin = NO;
+        }];
+    }
 }
 
 - (void)onLogoutButton {
@@ -279,7 +293,13 @@ calloutAccessoryControlTapped:(UIControl *)control {
 }
 
 - (void)userDidLogout {
-    [self.navigationController presentViewController:[LoginViewController new] animated:NO completion:nil];
+    self.needsLogin = YES;
+    [self.navigationController presentViewController:[LoginViewController new] animated:YES completion:nil];
+}
+
+- (void)userDidLogin {
+    self.needsLogin = NO;
+    [self loadProfile];
 }
 
 @end
