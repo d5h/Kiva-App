@@ -30,8 +30,12 @@
 
     NSData *data = [journalEntry.body dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *options = @{DTUseiOS6Attributes: @(1)};
+    NSDictionary *attrs = @{NSFontAttributeName: [UIFont fontWithName:@"AvenirNext-Regular" size:14]};
     NSAttributedString *attrString = [[NSAttributedString alloc] initWithHTMLData:data options:options documentAttributes:NULL];
-    self.bodyLabel.attributedText = attrString;
+    NSMutableAttributedString *mutableString = [attrString mutableCopy];
+    [mutableString addAttributes:attrs range:NSMakeRange(0, attrString.length)];
+    
+    self.bodyLabel.attributedText = mutableString;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

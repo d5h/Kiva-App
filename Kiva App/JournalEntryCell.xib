@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,26 +14,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Kiva Field Update - Message from Kiva Fellow in Nicaragua" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bi-8X-XoS">
-                        <rect key="frame" x="8" y="8" width="254.5" height="26.5"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                        <rect key="frame" x="8" y="8" width="290.5" height="44"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8b-fo-U3F">
-                        <rect key="frame" x="8" y="42" width="304" height="1048.5"/>
+                        <rect key="frame" x="8" y="60" width="304" height="1030"/>
                         <attributedString key="attributedText">
                             <fragment>
-                                <string key="content">Thank you for supporting a micro-entrepreneur in Nicaragua. I’m excited to be writing you as the Kiva Fellow in Leon, Nicaragua. For the past few months, I have been working with Fundación Leon 2000, a Kiva field partner. All entrepreneur profiles on Kiva’s Web site are posted by local field partners, which are microfinance institutions that lend to the working poor to help the poor lift themselves out of poverty. The field partners screen each entrepreneur, upload his/her loan request to the Kiva website, disburse the loan, and collect repayments.
+                                <mutableString key="content">Thank you for supporting a micro-entrepreneur in Nicaragua. I’m excited to be writing you as the Kiva Fellow in Leon, Nicaragua. For the past few months, I have been working with Fundación Leon 2000, a Kiva field partner. All entrepreneur profiles on Kiva’s Web site are posted by local field partners, which are microfinance institutions that lend to the working poor to help the poor lift themselves out of poverty. The field partners screen each entrepreneur, upload his/her loan request to the Kiva website, disburse the loan, and collect repayments.
 Let’s get to know Fundación León 2000 a little better. The organization is based in Leon, Nicaragua, which is about 60 miles northwest of Managua, the capital city. In a country where 50% of its citizens live below the poverty line with an average GDP of $3,600 per person, Fundación Leon’s loans represent a life-changing opportunity to embrace financial self-sufficiency and escape the oppressive grips of poverty. For most, there is no other opportunity in the community for business growth such as that provided by Fundación León 2000.
 During my three months of service at Fundación León 2000, I visited over forty small business entrepreneurs. In brief loan updates to Kiva lenders, I tried to capture and portray candidly their attitudes towards microfinance. These micro-loans would not be possible without the diligence and dedication of Fundación León’s Kiva Coordinator, Sandra, and the group of hard-working loan officers.
 I spent the majority of my time at Fundación León working alongside Sandra as she screened clients for loans, posted loans on the Kiva Web site, tracked monthly repayments, and arranged loan update visits. Although Sandra and I have been able to provide many of you with updates about entrepreneurs who received a loan contribution from you, reaching every entrepreneur for an update is not logistically possible.
 Even if you did not contribute to this particular entrepreneur, I hope that you will enjoy the following story of a Kiva borrower in León whose story exemplifies the challenges and fortunes experienced by many in the León community.
 Maria Guadalupe Blanco is quite the small business entrepreneur, and she’s become pretty good at requesting loans and repaying them in stride—seventeen loans to be precise. Her primary business is a general store on the edge of town, which is filled with everything from candy, cookies, and canned vegetables to soups, soaps, and shampoos. Once the general store was operating at a sustainable level, Maria decided to expand her financial approach and purchase two taxis for local operation. Through the course of her partnership with Fundación León, and now Kiva, Maria Guadalupe has created a closed-loop business cycle by successfully forging two independent businesses, where one can sustain her livelihood if another falls victim to hardship. The success of the micro finance model for Maria Guadalupe is a complete testament to her respectful yet determined attitude towards its process and lenders. Towards the end of our visit, she frankly stated, “I seek loans to work; there is no other way.”
 From Kiva, Fundación León 2000, and its family of borrowers, we thank you for your continued support of our work.
-To see all current fundraising loans from the Fundación León 2000, click here:</string>
+To see all current fundraising loans from the Fundación León 2000, click here:</mutableString>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                         <tabStops/>
@@ -45,7 +45,7 @@ To see all current fundraising loans from the Fundación León 2000, click here:
                             <fragment content="http://www.kiva.org/app.php?page=businesses&amp;partner_id=96&amp;status=fundRaising&amp;sortBy=New+to+Old&amp;_te=mj">
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.kiva.org/app.php?page=businesses&amp;partner_id=96&amp;status=fundRaising&amp;sortBy=New+to+Old&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
@@ -62,7 +62,7 @@ Cg
 </string>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                         <tabStops/>
@@ -75,7 +75,7 @@ Cg
                                 <string key="content">And finally, I compiled this short video to provide you with a nice glance into the world of Fundación León 2000 and its variety of Kiva borrowers. Please enjoy.</string>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.kiva.org/app.php?page=businesses&amp;partner_id=96&amp;status=fundRaising&amp;sortBy=New+to+Old&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
@@ -92,7 +92,7 @@ Cg
 </string>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.kiva.org/app.php?page=businesses&amp;partner_id=96&amp;status=fundRaising&amp;sortBy=New+to+Old&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
@@ -105,7 +105,7 @@ Cg
                             <fragment content="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj">
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
@@ -122,7 +122,7 @@ Cg
 </string>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                         <tabStops/>
@@ -134,7 +134,7 @@ Cg
                             <fragment content="Sincerely,">
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
@@ -151,7 +151,7 @@ Cg
 </string>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
@@ -164,7 +164,7 @@ Cg
                             <fragment content="Sean P. Calhoun">
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
@@ -181,7 +181,7 @@ Cg
 </string>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
@@ -194,7 +194,7 @@ Cg
                             <fragment content="Kiva Fellow, Fundación León 2000">
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
@@ -211,7 +211,7 @@ Cg
 </string>
                                 <attributes>
                                     <color key="NSColor" red="0.0" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="12" name="Times-Roman"/>
+                                    <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                     <real key="NSKern" value="0.0"/>
                                     <url key="NSLink" string="http://www.youtube.com/watch?v=yjVNPTxB2Os&amp;_te=mj"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
