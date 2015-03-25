@@ -216,16 +216,19 @@
 
 
 - (IBAction)onSimilarButton:(UIButton *)sender {
+    [SVProgressHUD show];
     NSDictionary *params = @{@"loanID" : self.loanIdentifier, @"count" : @3};
     [[KivaClientO sharedInstance] fetchMySimilarLoansWithParams:params completion:^(NSArray *similarLoans, NSError *error){
         if (error) {
             NSLog(@"loanID: %ld", [self.loanIdentifier integerValue]);
             NSLog(@"LoansDetailViewController error loading Similar loans: %@", error);
+            [SVProgressHUD dismiss];
         } else {
             LoansViewController *vc = [LoansViewController new];
             vc.title = @"Similar Loans";
             vc.loans = similarLoans;
             [self.navigationController pushViewController:vc animated:YES];
+            [SVProgressHUD dismiss];
         }
     }];
 }
