@@ -136,6 +136,24 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     
 }
 
+- (void)fetchMySimilarLoansWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion {
+    NSInteger loanID = [params[@"loanID"] integerValue];
+    NSString *path = [NSString stringWithFormat:@"loans/%ld/similar.json", loanID];
+    [self GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        NSArray *loans = [MTLJSONAdapter modelsOfClass:[Loan class] fromJSONArray:responseObject[@"loans"] error:&error];
+        if (error) {
+            NSLog(@"Error deserializing loans: %@", error);
+            completion(nil, error);
+        } else {
+            completion(loans, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+
 - (void)fetchMyBalancesWithParams:(NSDictionary *)params withLoanIDs:(NSArray*)loanIDs completion:(void (^)(NSArray *, NSError *))completion {
     NSString *path = [NSString stringWithFormat:@"my/loans/%@/balances.json", [loanIDs componentsJoinedByString:@","]];
     [self GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

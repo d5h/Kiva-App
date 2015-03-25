@@ -7,6 +7,7 @@
 //
 
 #import "LoanDetailViewController.h"
+#import "LoansViewController.h"
 #import "KivaClientO.h"
 #import "LoanDetailInfo.h"
 #import "LoanDetail.h"
@@ -54,6 +55,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *partnerCurrencyExchangeLossRateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *partnerLoansAtRiskRateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *lendButton;
+@property (weak, nonatomic) IBOutlet UIButton *similarButton;
+@property (weak, nonatomic) IBOutlet UIButton *topLendButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *similarWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *lendWidthConstraint;
 
 
 
@@ -88,10 +93,12 @@
                                   constant:0];
     [self.view addConstraint:rightConstraint];
     
-
     self.lendButton.tintColor =[[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:1];
-
     
+//    self.similarButton.layer.borderWidth = 1.0;
+//    self.similarButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+//    self.topLendButton.layer.borderWidth = 1.0;
+//    self.topLendButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     
     [[KivaClientO sharedInstance] fetchLoanDetailsWithParams:nil withLoanId:self.loanId completion:^(NSArray *loansDetails, NSError *error){
         
@@ -151,18 +158,11 @@
                 self.daysLeftLabel.text = @"0 days left";
             }
             
-            
             [UIView animateWithDuration:0.5 animations:^{
                 self.contentView.alpha = 1.0;
             }];
-
- 
         }
-        
  }];
- 
-    
-    
     [[KivaClientO sharedInstance] fetchPartnerDetailsWithParams:nil withPartnerId:[NSArray arrayWithObject:[self.partnerId stringValue]] completion:^(NSArray *PartnerInfo, NSError *error){
         
         if (error) {
@@ -193,9 +193,6 @@
             
             NSTimeInterval secondsLeft = -[partner.startDate timeIntervalSinceNow];
             self.partnerTimeOnKivaLabel.text = [NSString stringWithFormat:@"%.0f months", secondsLeft/2592000];
-
-
- 
         }
         
     }];
@@ -203,17 +200,35 @@
     [SVProgressHUD dismiss];
 
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.lendWidthConstraint.constant = self.view.frame.size.width/2. - 1.0;
+    self.similarWidthConstraint.constant = self.view.frame.size.width/2. -1.0;
+    
+}
 - (IBAction)onLendNowButton:(id)sender {
     WebViewController *wvc = [[WebViewController alloc]init];
     wvc.basketLoanId = self.loanIdentifier;
     
     [self.navigationController pushViewController:wvc animated:YES];
-
-    
-    
 }
 
 
+- (IBAction)onSimilarButton:(UIButton *)sender {
+    NSDictionary *params = @{@"loanID" : self.loanIdentifier, @"count" : @3};
+    [[KivaClientO sharedInstance] fetchMySimilarLoansWithParams:params completion:^(NSArray *similarLoans, NSError *error){
+        if (error) {
+            NSLog(@"loanID: %ld", [self.loanIdentifier integerValue]);
+            NSLog(@"LoansDetailViewController error loading Similar loans: %@", error);
+        } else {
+            LoansViewController *vc = [LoansViewController new];
+            vc.title = @"Similar Loans";
+            vc.loans = similarLoans;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

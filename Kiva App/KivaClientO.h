@@ -22,6 +22,7 @@
 - (void)fetchUserStatsWithParams:(NSDictionary *)params completion:(void (^)(UserStats *, NSError *))completion;
 - (void)fetchLoansWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
 - (void)fetchMyLoansWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
+- (void)fetchMySimilarLoansWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
 - (void)fetchMyLenderWithParams:(NSDictionary *)params completion:(void (^)(Lender *, NSError *))completion;
 - (void)fetchMyBalancesWithParams:(NSDictionary *)params withLoanIDs:(NSArray*)loanIDs completion:(void (^)(NSArray *, NSError *))completion;
 - (void)fetchTeamsWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion;
