@@ -13,7 +13,7 @@
 @interface LoanAnnotation : NSObject <MKAnnotation>
 
 @property (nonatomic) CLLocationCoordinate2D coordinate;
-@property (nonatomic, copy) NSString *title, *subtitle;
+@property (nonatomic, copy) NSString *title, *subtitle, *countryCode;
 @property (nonatomic, strong) NSNumber *loanID;
 @property (nonatomic, strong) NSNumber *partnerID;
 @property (nonatomic, strong) NSURL *imageURL;

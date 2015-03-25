@@ -18,6 +18,7 @@
         self.coordinate = loan.locationCoordinate;
         self.loanID = loan.identifier;
         self.partnerID = loan.partnerId;
+        self.countryCode = loan.countryCode;
         self.imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/50/%d.jpg", loan.imageId]];
     }
     

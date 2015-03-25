@@ -27,10 +27,17 @@
 @property (nonatomic, strong) UIColor *arrowColor;
 @property (nonatomic, assign) BOOL isMapView;
 @property (nonatomic, strong) NSDictionary *countryPolygons;
+@property (nonatomic, strong) NSMutableArray *countryOverlays;
 // Used so we don't add country polygon overlays multiple times
 @property (nonatomic, strong) NSMutableSet *countriesWithOverlays;
+@property (nonatomic, strong) NSMutableSet *myCountries;
 
-//@property (nonatomic, strong) NSArray *loans;
+@property (nonatomic, strong) NSDictionary *allCountryLoans;
+@property (nonatomic, assign) NSInteger minCountryLoans;
+@property (nonatomic, assign) NSInteger maxCountryLoans;
+
+@property (nonatomic, strong) NSArray *myLoans;
+@property (nonatomic, strong) NSMutableArray *myCountryAnnotations;
 
 @end
 
@@ -61,6 +68,8 @@
     
     [self.tableView reloadData];
     
+    self.countryOverlays = [NSMutableArray array];
+    self.myCountries = [NSMutableSet set];
     self.countriesWithOverlays = [NSMutableSet set];
     [self loadKML];
 }
@@ -114,6 +123,13 @@
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     
+    //TODO: set this based on loans in portfolio
+    if ([((LoanAnnotation *)annotation).countryCode isEqualToString:@"TG"]) {
+        annotationView.pinColor = MKPinAnnotationColorGreen;
+    } else {
+        annotationView.pinColor = MKPinAnnotationColorRed;
+    }
+    
     UIImageView *imageView = (UIImageView *)annotationView.leftCalloutAccessoryView;
     NSURL *imageURL = ((LoanAnnotation *)annotation).imageURL;
     [imageView setImageWithURL:imageURL];
@@ -128,7 +144,23 @@
 
     MKPolygon *polygon = (MKPolygon *)overlay;
     MKPolygonRenderer *renderer = [[MKPolygonRenderer alloc] initWithPolygon:polygon];
-    renderer.fillColor = [[UIColor alloc] initWithRed:127/255. green:173/255. blue:76/255. alpha:0.4];
+    UIColor *green = [[UIColor alloc] initWithRed:127/255. green:173/255. blue:76/255. alpha:0.4];
+    UIColor *searchColor = [[UIColor alloc] initWithRed:220/255. green:76/255. blue:170/255. alpha:0.4];
+
+    float minGreenValue = 0.;
+    float maxGreenValue = 200.;
+    float a = (maxGreenValue - minGreenValue)/(self.maxCountryLoans - self.minCountryLoans);
+    float b = minGreenValue - (a * self.minCountryLoans);
+    
+    if ([self.countriesWithOverlays containsObject:polygon.title]) {
+        renderer.fillColor = searchColor;
+    } else if ([self.myCountries containsObject:polygon.title]) {
+        renderer.fillColor = green;
+    } else {
+        float val = [self.allCountryLoans[polygon.title] floatValue];
+        float greenVal = maxGreenValue - (a * val + b);
+        renderer.fillColor = [UIColor colorWithRed:255/255. green:greenVal/255. blue:0 alpha:0.4];
+    }
 
     return renderer;
 }
@@ -158,6 +190,8 @@ calloutAccessoryControlTapped:(UIControl *)control {
 
 - (void)addAnnotations {
     [self.mapView removeAnnotations:self.mapView.annotations];
+    [self.mapView removeOverlays:self.mapView.overlays];
+    [self.countriesWithOverlays removeAllObjects];
     for (Loan *loan in self.loans) {
         LoanAnnotation *annotation = [[LoanAnnotation alloc] initWithLoan:loan];
         [self.mapView addAnnotation:annotation];
@@ -166,15 +200,21 @@ calloutAccessoryControlTapped:(UIControl *)control {
         {
             NSArray *polygons = [self.countryPolygons valueForKey:loan.countryCode];
             for (MKPolygon *countryPolygon in polygons) {
-                [self.mapView addOverlay:countryPolygon];
+                countryPolygon.title = loan.countryCode;
                 [self.countriesWithOverlays addObject:loan.countryCode];
+                [self.mapView addOverlay:countryPolygon];
             }
         }
     }
+    [self loadCountryLoans];
     
     [AnnotationCoordinateUtility mutateCoordinatesOfClashingAnnotations:self.mapView.annotations];
     
     [self.mapView showAnnotations:self.mapView.annotations animated:YES];
+    
+    for (LoanAnnotation *annotation in self.myCountryAnnotations) {
+        [self.mapView addAnnotation:annotation];
+    }
 }
 
 - (void)onMapButton {
@@ -200,6 +240,116 @@ calloutAccessoryControlTapped:(UIControl *)control {
 }
 
 #pragma mark - Map / KML
+
+- (void)loadCountryLoans {
+//    Hardcoding total outstanding loans per country to show highlight functionality since this is not easily available via Kiva API.
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        self.allCountryLoans = @{
+                                 @"DO" : @4,
+                                 @"MX" : @9,
+                                 @"US" : @14,
+                                 @"CR" : @16,
+                                 @"SV" : @475,
+                                 @"GT" : @58,
+                                 @"HN" : @14,
+                                 @"NI" : @86,
+                                 @"BO" : @91,
+                                 @"CO" : @175,
+                                 @"EC" : @18,
+                                 @"PY" : @26,
+                                 @"PE" : @40,
+                                 @"SR" : @4,
+                                 @"BI" : @4,
+                                 @"GH" : @14,
+                                 @"KE" : @661,
+                                 @"ML" : @7,
+                                 @"MZ" : @25,
+                                 @"RW" : @49,
+                                 @"SN" : @31,
+                                 @"SL" : @23,
+                                 @"TZ" : @13,
+                                 @"TG" : @3,
+                                 @"UG" : @92,
+                                 @"AL" : @21,
+                                 @"AM" : @207,
+                                 @"GE" : @41,
+                                 @"JO" : @16,
+                                 @"LB" : @48,
+                                 @"PS" : @14,
+                                 @"YE" : @12,
+                                 @"AZ" : @60,
+                                 @"KH" : @102,
+                                 @"ID" : @47,
+                                 @"KG" : @81,
+                                 @"MM" : @1,
+                                 @"PK" : @159,
+                                 @"PH" : @288,
+                                 @"TJ" : @307,
+                                 @"VN" : @69,
+                                 @"WS" : @41,
+                                 @"TL" : @6
+                                 };
+        
+        self.minCountryLoans = [[[self.allCountryLoans allValues] valueForKeyPath:@"@min.intValue"] integerValue];
+        self.maxCountryLoans = [[[self.allCountryLoans allValues] valueForKeyPath:@"@max.intValue"] integerValue];
+//        NSLog(@"min: %ld, max: %ld", self.minCountryLoans, self.maxCountryLoans);
+        
+        [[KivaClientO sharedInstance] fetchMyLoansWithParams:nil completion:^(NSArray *loans, NSError *error) {
+            if (error) {
+                NSLog(@"LoansViewController error loading my loans: %@", error);
+                return;
+            } else {
+                self.myLoans = loans;
+                self.myCountryAnnotations = [NSMutableArray array];
+                for (Loan *loan in self.myLoans) {
+                    [self.myCountries addObject:loan.countryCode];
+                
+                    LoanAnnotation *annotation = [[LoanAnnotation alloc] initWithLoan:loan];
+                    [self.myCountryAnnotations addObject:annotation];
+                    [self.mapView addAnnotation:annotation];
+                    if (! [self.countriesWithOverlays containsObject:loan.countryCode]
+                        && [self.countryPolygons objectForKey:loan.countryCode])
+                    {
+                        NSArray *polygons = [self.countryPolygons valueForKey:loan.countryCode];
+                        for (MKPolygon *countryPolygon in polygons) {
+                            countryPolygon.title = loan.countryCode;
+//                            [self.countriesWithOverlays addObject:loan.countryCode];
+                            [self.mapView addOverlay:countryPolygon];
+                        }
+                    }
+                }
+                
+//                NSMutableArray *partners = [NSMutableArray array];
+//                for (Loan *loan in loans) {
+//                    [partners addObject:loan.partnerId];
+//                }
+//                [[KivaClientO sharedInstance] fetchPartnerDetailsWithParams:nil withPartnerId:partners completion:^(NSArray *partnerInfo, NSError *error){
+//                    [SVProgressHUD dismiss];
+//                    if (error) {
+//                        NSLog(@"My Summary error loading partners: %@", error);
+//                    } else {
+//                        self.partners = partnerInfo;
+//                        [self.collectionView reloadData];
+//                    }
+//                }];
+            }
+        }];
+        
+    });
+    
+    for (NSString *countryCode in self.allCountryLoans) {
+        if ([self.countriesWithOverlays containsObject:countryCode]) {
+            continue;
+        }
+        NSArray *polygons = [self.countryPolygons valueForKey:countryCode];
+        for (MKPolygon *countryPolygon in polygons) {
+            countryPolygon.title = countryCode;
+            [self.mapView addOverlay:countryPolygon];
+        }
+    }
+    
+}
 
 - (void)loadKML {
     NSString *kmlPath = [[NSBundle mainBundle] pathForResource:@"countries2" ofType:@"kml"];
