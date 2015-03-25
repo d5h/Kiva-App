@@ -110,7 +110,7 @@
             self.title = loandetail.name;
             self.loanIdentifier = loandetail.identifier;
 
-            [self.loanImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", loandetail.imageId]]];
+            [self.loanImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/s320/%d.jpg", loandetail.imageId]]];
             self.borrowersStoryLabel.text = loandetail.texts;
             
             [self.borrowersStoryLabel sizeToFit];

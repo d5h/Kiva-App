@@ -92,7 +92,7 @@ static NSString * const kInvites = @"Invites";
     } else {
         NSString *statName = self.statNames[indexPath.row];
         cell.descriptionLabel.text = statName;
-        cell.valueLabel.text = [[self.data valueForKey:statName] stringValue];
+        cell.valueLabel.text = [self.data valueForKey:statName];
         cell.backgroundColor = bgColor;
     }
     cell.layer.cornerRadius = 75.0f;
@@ -134,11 +134,11 @@ static NSString * const kInvites = @"Invites";
             return;
         } else {
             self.data = @{
-                          kOutstandingLoans : stats.amountOutstanding,
-                          kAmountLent : stats.amountLoans,
-                          kTotalLoans : stats.numLoans,
-                          kDonations : stats.amountDonated,
-                          kInvites : stats.numInvites
+                          kOutstandingLoans : [NSString stringWithFormat:@"$%@", [stats.amountOutstanding stringValue]],
+                          kAmountLent : [NSString stringWithFormat:@"$%@", [stats.amountLoans stringValue]],
+                          kTotalLoans : [stats.numLoans stringValue],
+                          kDonations : [NSString stringWithFormat:@"$%@", [stats.amountDonated stringValue]],
+                          kInvites : [stats.numInvites stringValue]
                           };
             self.statNames = @[kOutstandingLoans, kTotalLoans, kDonations, kAmountLent, kInvites];
 

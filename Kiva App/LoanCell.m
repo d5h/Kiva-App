@@ -64,7 +64,7 @@
     [self.sectorImageView setImage:[UIImage imageNamed:loan.sector]];
     [self.activityImageView setImage:[UIImage imageNamed:@"leaf"]];
 
-    [self.loanImageView setImageWithURLFade:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/320/%d.jpg", loan.imageId]]];
+    [self.loanImageView setImageWithURLFade:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/s320/%d.jpg", loan.imageId]]];
 
     self.loanAmountLabel.text = [NSString stringWithFormat:@"$%d/%d", [loan.fundedAmount intValue], [loan.loanAmount intValue]];
     self.percentFundedLabel.text = [NSString stringWithFormat:@"%0.0f%% funded", [loan.fundedAmount floatValue]/[loan.loanAmount floatValue] * 100];
