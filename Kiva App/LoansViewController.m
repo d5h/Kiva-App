@@ -93,9 +93,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LoanCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoanCell"];
+    cell.loanImageView.image = nil;
     cell.delegate = self;
     cell.loan = self.loans[indexPath.row];
-    
+
     return cell;
 }
 

@@ -64,6 +64,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.contentView.alpha = 0.;
+    
     [SVProgressHUD show];
     
     NSLayoutConstraint *leftConstraint =
@@ -148,6 +150,12 @@
             } else {
                 self.daysLeftLabel.text = @"0 days left";
             }
+            
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                self.contentView.alpha = 1.0;
+            }];
+
  
         }
         

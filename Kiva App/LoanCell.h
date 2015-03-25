@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) Loan *loan;
 @property (nonatomic, weak) id <LoanCellDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIImageView *loanImageView;
 
 - (void)setLoan:(Loan *)loan;
 
