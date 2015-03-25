@@ -13,6 +13,7 @@
 #import "SVProgressHUD.h"
 #import "User.h"
 #import "CRGradientNavigationBar.h"
+#import "CBZSplashView.h"
 
 static NSString *kMyLoans = @"My Loans";
 
@@ -30,6 +31,18 @@ static NSString *kMyLoans = @"My Loans";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIImage *icon = [UIImage imageNamed:@"kiva"];
+    UIColor *color = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:1];
+    CBZSplashView *splashView = [CBZSplashView splashViewWithIcon:icon backgroundColor:color];
+    
+    splashView.animationDuration = 1.4;
+    
+    [self.view addSubview:splashView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [splashView startAnimation];
+    });
+    
     // Do any additional setup after loading the view.
     self.loansViewController = [[LoansViewController alloc]init];
     self.loansViewController.scrollDelegate = self;
@@ -46,6 +59,12 @@ static NSString *kMyLoans = @"My Loans";
     
     self.loansViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"] style:UIBarButtonItemStylePlain target:self action:@selector(onFilter)];
     self.loansViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map"] style:UIBarButtonItemStylePlain target:self action:@selector(onMapButton)];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    
 }
 
 - (void)loadLoansWithFilters:(NSDictionary *)filters {

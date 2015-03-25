@@ -72,6 +72,9 @@
 		63E72F6B1AACDE5300BD1F9F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E72F6A1AACDE5300BD1F9F /* User.m */; };
 		63E72F6F1AACF59E00BD1F9F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E72F6D1AACF59E00BD1F9F /* LoginViewController.m */; };
 		63E72F701AACF59E00BD1F9F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E72F6E1AACF59E00BD1F9F /* LoginViewController.xib */; };
+		63ED265B1AC29ED800F2D5A3 /* CBZSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63ED26561AC29ED800F2D5A3 /* CBZSplashView.m */; };
+		63ED265C1AC29ED800F2D5A3 /* CBZRasterSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63ED26581AC29ED800F2D5A3 /* CBZRasterSplashView.m */; };
+		63ED265D1AC29ED800F2D5A3 /* CBZVectorSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63ED265A1AC29ED800F2D5A3 /* CBZVectorSplashView.m */; };
 		63FE25F11AAFE99D00CC5FE5 /* MyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FE25EF1AAFE99D00CC5FE5 /* MyDetailsViewController.m */; };
 		63FE25F21AAFE99D00CC5FE5 /* MyDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FE25F01AAFE99D00CC5FE5 /* MyDetailsViewController.xib */; };
 		63FE25F61AB0134A00CC5FE5 /* StatHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FE25F41AB0134A00CC5FE5 /* StatHeader.m */; };
@@ -201,6 +204,12 @@
 		63E72F6C1AACF59E00BD1F9F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		63E72F6D1AACF59E00BD1F9F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		63E72F6E1AACF59E00BD1F9F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		63ED26551AC29ED800F2D5A3 /* CBZSplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBZSplashView.h; sourceTree = "<group>"; };
+		63ED26561AC29ED800F2D5A3 /* CBZSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBZSplashView.m; sourceTree = "<group>"; };
+		63ED26571AC29ED800F2D5A3 /* CBZRasterSplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBZRasterSplashView.h; sourceTree = "<group>"; };
+		63ED26581AC29ED800F2D5A3 /* CBZRasterSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBZRasterSplashView.m; sourceTree = "<group>"; };
+		63ED26591AC29ED800F2D5A3 /* CBZVectorSplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBZVectorSplashView.h; sourceTree = "<group>"; };
+		63ED265A1AC29ED800F2D5A3 /* CBZVectorSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBZVectorSplashView.m; sourceTree = "<group>"; };
 		63FE25EE1AAFE99D00CC5FE5 /* MyDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDetailsViewController.h; sourceTree = "<group>"; };
 		63FE25EF1AAFE99D00CC5FE5 /* MyDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDetailsViewController.m; sourceTree = "<group>"; };
 		63FE25F01AAFE99D00CC5FE5 /* MyDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDetailsViewController.xib; sourceTree = "<group>"; };
@@ -263,6 +272,7 @@
 		5D680A861AA5846E000F365D /* Kiva App */ = {
 			isa = PBXGroup;
 			children = (
+				63ED26541AC29EC700F2D5A3 /* CBZSplashView */,
 				50B5F0591ABA3CEA00E7ADB6 /* Transformers */,
 				63183DAA1AAAF24900F63194 /* Views */,
 				63183DA11AAA9BDB00F63194 /* View Controllers */,
@@ -432,6 +442,19 @@
 				63183DB11AABE8CA00F63194 /* KivaClientO.m */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		63ED26541AC29EC700F2D5A3 /* CBZSplashView */ = {
+			isa = PBXGroup;
+			children = (
+				63ED26551AC29ED800F2D5A3 /* CBZSplashView.h */,
+				63ED26561AC29ED800F2D5A3 /* CBZSplashView.m */,
+				63ED26571AC29ED800F2D5A3 /* CBZRasterSplashView.h */,
+				63ED26581AC29ED800F2D5A3 /* CBZRasterSplashView.m */,
+				63ED26591AC29ED800F2D5A3 /* CBZVectorSplashView.h */,
+				63ED265A1AC29ED800F2D5A3 /* CBZVectorSplashView.m */,
+			);
+			name = CBZSplashView;
 			sourceTree = "<group>";
 		};
 		70378E55FC1AD77D505BAB4C /* Pods */ = {
@@ -621,6 +644,7 @@
 				224E0E391AAD25510077A85C /* LoanDetailInfo.m in Sources */,
 				5D1E89481AAFDF0B00DDEE3D /* UpdatesViewController.m in Sources */,
 				5D1E894D1AAFE07900DDEE3D /* JournalEntryCell.m in Sources */,
+				63ED265B1AC29ED800F2D5A3 /* CBZSplashView.m in Sources */,
 				63FE25F61AB0134A00CC5FE5 /* StatHeader.m in Sources */,
 				634461641AB5846500AF3B50 /* Balance.m in Sources */,
 				63B199CB1AA8433000ED685D /* Loan.m in Sources */,
@@ -642,12 +666,14 @@
 				22C83CAC1AACF44D009E155E /* LoanDetail.m in Sources */,
 				638B75AD1AB921C90054FE6D /* LoanAnnotation.m in Sources */,
 				227A193F1AB1053A003B0726 /* BasketCell.m in Sources */,
+				63ED265C1AC29ED800F2D5A3 /* CBZRasterSplashView.m in Sources */,
 				6344616B1AB5848B00AF3B50 /* ProfileHeaderView.m in Sources */,
 				5D1E89381AAB932500DDEE3D /* TeamCell.m in Sources */,
 				5D1E89441AAFD7AD00DDEE3D /* JournalEntry.m in Sources */,
 				6398506D1AAE53B1008269CE /* UserStats.m in Sources */,
 				5D1E893C1AABB31200DDEE3D /* TeamsSearchFilterForm.m in Sources */,
 				50B5F05C1ABA3D0D00E7ADB6 /* ISO3166CountryValueTransformer.m in Sources */,
+				63ED265D1AC29ED800F2D5A3 /* CBZVectorSplashView.m in Sources */,
 				5D680A8D1AA5846E000F365D /* AppDelegate.m in Sources */,
 				639850711AAE6B85008269CE /* StatCell.m in Sources */,
 				5D680A8A1AA5846E000F365D /* main.m in Sources */,
