@@ -79,7 +79,7 @@ static UIColor *bgColor;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UIColor *kivaColor = [[UIColor alloc] initWithRed:169/255. green:207/255. blue:141/255. alpha:0.65];
-    UIColor *kivaColor2 = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:0.95];
+//    UIColor *kivaColor2 = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:0.95];
     
     StatDetailCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StatDetailCell" forIndexPath:indexPath];
     cell.descriptionLabel.textColor = [UIColor blackColor];
@@ -89,9 +89,13 @@ static UIColor *bgColor;
     cell.descriptionLabel.text = [self.stats[indexPath.section] objectAtIndex:indexPath.row];
     switch (indexPath.section) {
         case 0:
+        {
             cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
-            cell.descriptionLabel.textColor = [UIColor whiteColor];
-            cell.backgroundColor = [UIColor blueColor];
+//            cell.descriptionLabel.textColor = [UIColor whiteColor];
+//            cell.backgroundColor = [UIColor blueColor];
+            cell.cellImageView.hidden = NO;
+            UIImage *img = [UIImage imageNamed:cell.descriptionLabel.text];
+            [cell.cellImageView setImage:img];
             for (Partner *partner in self.partners) {
                 for (NSNumber *num in partner.socialPerformanceStrengths) {
                     NSString *str = [self.socialPerformances objectAtIndex:[num integerValue]];
@@ -103,6 +107,7 @@ static UIColor *bgColor;
                 }
             }
             break;
+        }
         case 1:
         {
             cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
@@ -110,12 +115,13 @@ static UIColor *bgColor;
             cell.cellImageView.hidden = NO;
             UIImage *img = [UIImage imageNamed:@"leaf"];
             [cell.cellImageView setImage:[img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-            cell.cellImageView.tintColor = kivaColor2;
+            cell.cellImageView.tintColor = [UIColor lightGrayColor];
 //            [cell.cellImageView setImage:[UIImage imageNamed:@"leaf"]];
             for (Loan *loan in self.loans) {
                 for (NSString *theme in loan.themes) {
                     if ([theme isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
-                        cell.cellImageView.alpha = 1.0;
+                        cell.cellImageView.alpha = 0.9;
+                        cell.cellImageView.tintColor = kivaColor;
 //                        cell.backgroundColor = bgColor;
                         continue;
                     }
@@ -129,10 +135,11 @@ static UIColor *bgColor;
             cell.cellImageView.hidden = NO;
             UIImage *img = [UIImage imageNamed:cell.descriptionLabel.text];
             [cell.cellImageView setImage:[img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-            cell.cellImageView.tintColor = kivaColor2;
+            cell.cellImageView.tintColor = [UIColor lightGrayColor];
             for (Loan *loan in self.loans) {
                 if ([loan.sector isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
-                    cell.cellImageView.alpha = 1.0;
+                    cell.cellImageView.alpha = 0.9;
+                    cell.cellImageView.tintColor = kivaColor;
 //                    cell.backgroundColor = kivaColor2;
                     continue;
                 }
@@ -144,10 +151,11 @@ static UIColor *bgColor;
             cell.descriptionLabel.font = [UIFont fontWithName:@"AvenirNext-Medium" size:12.0];
 //            cell.descriptionLabel.textColor = [UIColor whiteColor];
             cell.cellImageView.hidden = NO;
+            cell.cellImageView.alpha = 0.25;
             [cell.cellImageView setImage:[UIImage imageNamed:cell.descriptionLabel.text]];
             for (Loan *loan in self.loans) {
                 if ([loan.countryCode isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
-                    cell.cellImageView.alpha = 1.0;
+                    cell.cellImageView.alpha = 0.9;
                     cell.backgroundColor = kivaColor;
                     continue;
                 }

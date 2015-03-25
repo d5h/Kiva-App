@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -13,14 +13,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51a-nT-9JZ">
-                        <rect key="frame" x="73" y="85" width="53.5" height="29"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                        <rect key="frame" x="56" y="75" width="88" height="49.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="36"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Loans" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jT9-jd-N3j">
-                        <rect key="frame" x="8" y="177" width="184" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <rect key="frame" x="8" y="148.5" width="184" height="19.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -29,12 +29,12 @@
             </view>
             <color key="backgroundColor" red="0.49803921568627452" green="0.67843137254901964" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="jT9-jd-N3j" secondAttribute="bottom" constant="8" id="Fub-0e-qAA"/>
+                <constraint firstAttribute="bottom" secondItem="jT9-jd-N3j" secondAttribute="bottom" constant="32" id="Fub-0e-qAA"/>
                 <constraint firstAttribute="trailing" secondItem="jT9-jd-N3j" secondAttribute="trailing" constant="8" id="Gsg-XK-2IZ"/>
                 <constraint firstAttribute="centerX" secondItem="jT9-jd-N3j" secondAttribute="centerX" id="bJU-fi-xYd"/>
                 <constraint firstItem="jT9-jd-N3j" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="hyt-tt-J0q"/>
                 <constraint firstAttribute="centerX" secondItem="51a-nT-9JZ" secondAttribute="centerX" id="l9i-jC-Tce"/>
-                <constraint firstItem="jT9-jd-N3j" firstAttribute="top" relation="lessThanOrEqual" secondItem="51a-nT-9JZ" secondAttribute="bottom" constant="63.5" id="lU9-sl-xKM"/>
+                <constraint firstItem="jT9-jd-N3j" firstAttribute="top" relation="lessThanOrEqual" secondItem="51a-nT-9JZ" secondAttribute="bottom" constant="64" id="lU9-sl-xKM"/>
                 <constraint firstAttribute="centerY" secondItem="51a-nT-9JZ" secondAttribute="centerY" id="ntt-Ls-SNe"/>
             </constraints>
             <connections>

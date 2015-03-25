@@ -42,6 +42,8 @@ static NSString * const kInvites = @"Invites";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"My Summary";
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:UserDidLogoutNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin) name:UserDidLoginNotification object:nil];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutButton)];
@@ -49,12 +51,13 @@ static NSString * const kInvites = @"Invites";
     self.loans = nil;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.collectionView.hidden = YES;
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"StatCell" bundle:nil] forCellWithReuseIdentifier:@"StatCell"];
     
     self.user = [User currentUser];
     
-    bgColor = [UIColor colorWithRed:127/255.0 green:173/255.0 blue:76/255.0 alpha:1.0];
+    bgColor = [UIColor colorWithRed:75/255.0 green:145/255.0 blue:35/255.0 alpha:1.0];
     
     self.needsLogin = NO;
     [self loadData];
@@ -92,7 +95,7 @@ static NSString * const kInvites = @"Invites";
         cell.valueLabel.text = [[self.data valueForKey:statName] stringValue];
         cell.backgroundColor = bgColor;
     }
-    cell.layer.cornerRadius = 50.0f;
+    cell.layer.cornerRadius = 75.0f;
     return cell;
 }
 
@@ -109,6 +112,10 @@ static NSString * const kInvites = @"Invites";
         vc.loans = self.loans;
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(150., 150.);
 }
 
 #pragma mark - Private
@@ -152,6 +159,7 @@ static NSString * const kInvites = @"Invites";
                             NSLog(@"My Summary error loading partners: %@", error);
                         } else {
                             self.partners = partnerInfo;
+                            self.collectionView.hidden = NO;
                             [self.collectionView reloadData];
                         }
                     }];
