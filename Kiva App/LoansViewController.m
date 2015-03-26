@@ -65,6 +65,10 @@
 
     self.mapView.delegate = self;
     self.isMapView = NO;
+
+    self.mapView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+    [self.mapView addGestureRecognizer:gesture];
     
     [self.tableView reloadData];
     
@@ -127,13 +131,19 @@
     //TODO: set this based on loans in portfolio
     if ([((LoanAnnotation *)annotation).countryCode isEqualToString:@"TG"]) {
         annotationView.pinColor = MKPinAnnotationColorGreen;
+    } else if (((LoanAnnotation *)annotation).loanID == nil) {
+        annotationView.pinColor = MKPinAnnotationColorPurple;
     } else {
         annotationView.pinColor = MKPinAnnotationColorRed;
     }
     
     UIImageView *imageView = (UIImageView *)annotationView.leftCalloutAccessoryView;
     NSURL *imageURL = ((LoanAnnotation *)annotation).imageURL;
-    [imageView setImageWithURL:imageURL];
+    if (imageURL != nil) {
+        [imageView setImageWithURL:imageURL];
+    } else {
+        [imageView setImage:[UIImage imageNamed:[(LoanAnnotation *)annotation countryCode]]];
+    }
     
     return annotationView;
 }
@@ -171,6 +181,10 @@
 calloutAccessoryControlTapped:(UIControl *)control {
     LoanAnnotation *annotation = view.annotation;
     
+    if (annotation.loanID == nil) {
+        return;
+    }
+    
     LoanDetailViewController *vc = [LoanDetailViewController new];
     vc.loanId = annotation.loanID;
     vc.partnerId = annotation.partnerID;
@@ -188,6 +202,35 @@ calloutAccessoryControlTapped:(UIControl *)control {
 }
 
 #pragma mark - Private
+
+- (void)onTap:(UITapGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        CGPoint tappedPoint = [gestureRecognizer locationInView:self.mapView];
+        UIView *view = [self.mapView hitTest:tappedPoint withEvent:nil];
+        
+        if ([view isKindOfClass:[MKAnnotationView class]]) {
+            return;
+        }
+        
+        CLLocationCoordinate2D coordinate = [self.mapView convertPoint:[gestureRecognizer locationInView:self.mapView] toCoordinateFromView:self.mapView];
+        
+        CLLocation *pinLocation = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        
+        [geocoder reverseGeocodeLocation:pinLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+            if (placemarks && placemarks.count > 0) {
+                CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                LoanAnnotation *anAddress = [[LoanAnnotation alloc] initWithPlacemark:topResult];
+                NSString *numLoans = (self.allCountryLoans[topResult.ISOcountryCode] == nil) ? @"0" : [self.allCountryLoans[topResult.ISOcountryCode] stringValue];
+                anAddress.subtitle = [NSString stringWithFormat:@"%@ loans", numLoans];
+                anAddress.countryCode = topResult.ISOcountryCode;
+                
+                [self.mapView addAnnotation:anAddress];
+                [self.mapView selectAnnotation:anAddress animated:YES];
+            }
+        }];
+    }
+}
 
 - (void)addAnnotations {
     [self.mapView removeAnnotations:self.mapView.annotations];

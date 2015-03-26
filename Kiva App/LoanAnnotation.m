@@ -19,9 +19,21 @@
         self.loanID = loan.identifier;
         self.partnerID = loan.partnerId;
         self.countryCode = loan.countryCode;
-        self.imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/50/%d.jpg", loan.imageId]];
+        self.imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.kiva.org/img/s50/%d.jpg", loan.imageId]];
     }
     
+    return self;
+}
+
+- (instancetype)initWithPlacemark:(CLPlacemark *)placemark {
+    self = [super init];
+    if (self) {
+        self.title = placemark.country;
+        self.coordinate = placemark.location.coordinate;
+        self.loanID = nil;
+        self.imageURL = nil;
+        
+    }
     return self;
 }
 

@@ -19,5 +19,6 @@
 @property (nonatomic, strong) NSURL *imageURL;
 
 - (instancetype)initWithLoan:(Loan *)loan;
+- (instancetype)initWithPlacemark:(CLPlacemark *)placemark;
 
 @end
