@@ -74,6 +74,7 @@
     [[CRGradientNavigationBar appearance] setBarTintGradientColors:@[kivaColor, kivaColor2]];
 
     [[UITabBar appearance] setTintColor:kivaColor2];
+    [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

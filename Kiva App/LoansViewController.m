@@ -211,6 +211,9 @@ calloutAccessoryControlTapped:(UIControl *)control {
         if ([view isKindOfClass:[MKAnnotationView class]]) {
             return;
         }
+        if (self.mapView.selectedAnnotations.count != 0) {
+            return;
+        }
         
         CLLocationCoordinate2D coordinate = [self.mapView convertPoint:[gestureRecognizer locationInView:self.mapView] toCoordinateFromView:self.mapView];
         

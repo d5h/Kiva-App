@@ -42,7 +42,7 @@ static NSString * const kInvites = @"Invites";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"My Summary";
+    self.title = @"Impact";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:UserDidLogoutNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin) name:UserDidLoginNotification object:nil];
