@@ -32,11 +32,11 @@ static NSString *kMyLoans = @"My Loans";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *icon = [UIImage imageNamed:@"kiva"];
+    UIImage *icon = [UIImage imageNamed:@"kiva_white"];
     UIColor *color = [[UIColor alloc] initWithRed:75/255. green:145/255. blue:35/255. alpha:1];
     CBZSplashView *splashView = [CBZSplashView splashViewWithIcon:icon backgroundColor:color];
     
-    splashView.animationDuration = 1.4;
+    splashView.animationDuration = 1.6;
     
     [self.view addSubview:splashView];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

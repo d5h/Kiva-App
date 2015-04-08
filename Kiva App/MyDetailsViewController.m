@@ -94,14 +94,15 @@ static UIColor *bgColor;
 //            cell.descriptionLabel.textColor = [UIColor whiteColor];
 //            cell.backgroundColor = [UIColor blueColor];
             cell.cellImageView.hidden = NO;
+            cell.cellImageView.alpha = 0.25;
             UIImage *img = [UIImage imageNamed:cell.descriptionLabel.text];
             [cell.cellImageView setImage:img];
             for (Partner *partner in self.partners) {
                 for (NSNumber *num in partner.socialPerformanceStrengths) {
-                    NSString *str = [self.socialPerformances objectAtIndex:[num integerValue]];
+                    NSString *str = [self.socialPerformances objectAtIndex:[num integerValue]-1];
                     NSLog(@"str: %@", str);
                     if ([str isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
-//                        cell.backgroundColor = bgColor;
+                        cell.cellImageView.alpha = 0.65;
                         continue;
                     }
                 }
@@ -156,7 +157,7 @@ static UIColor *bgColor;
             for (Loan *loan in self.loans) {
                 if ([loan.countryCode isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
                     cell.cellImageView.alpha = 0.9;
-                    cell.backgroundColor = kivaColor;
+//                    cell.backgroundColor = kivaColor;
                     continue;
                 }
             }
