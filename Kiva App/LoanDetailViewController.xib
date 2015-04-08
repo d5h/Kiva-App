@@ -218,7 +218,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q57-ih-jbS">
-                                    <rect key="frame" x="246" y="466.5" width="66" height="33"/>
+                                    <rect key="frame" x="246" y="466" width="66" height="33"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                     <state key="normal" title="Lend $25">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -384,10 +384,10 @@
                                     <rect key="frame" x="0.0" y="352" width="320" height="44"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xav-OX-8tX">
-                                            <rect key="frame" x="0.0" y="0.0" width="159" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnE-o9-3Fd">
-                                                    <rect key="frame" x="16" y="6" width="126" height="33"/>
+                                                    <rect key="frame" x="17" y="5" width="126" height="33"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                                     <state key="normal" title="Find Similar Loans">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -400,7 +400,7 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.38823529410000002" green="0.66274509800000003" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="159" id="7Hr-kK-jrs"/>
+                                                <constraint firstAttribute="width" constant="160" id="7Hr-kK-jrs"/>
                                                 <constraint firstAttribute="centerY" secondItem="fnE-o9-3Fd" secondAttribute="centerY" id="7lR-8l-7sx"/>
                                                 <constraint firstAttribute="height" constant="44" id="Vy0-Qk-Bnd"/>
                                                 <constraint firstAttribute="centerX" secondItem="fnE-o9-3Fd" secondAttribute="centerX" id="XRg-qx-kqs"/>

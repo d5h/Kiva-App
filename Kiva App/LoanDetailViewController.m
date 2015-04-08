@@ -203,7 +203,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.lendWidthConstraint.constant = self.view.frame.size.width/2. - 1.0;
+    self.lendWidthConstraint.constant = self.view.frame.size.width/2.;
     self.similarWidthConstraint.constant = self.view.frame.size.width/2. -1.0;
     
 }
@@ -217,7 +217,7 @@
 
 - (IBAction)onSimilarButton:(UIButton *)sender {
     [SVProgressHUD show];
-    NSDictionary *params = @{@"loanID" : self.loanIdentifier, @"count" : @3};
+    NSDictionary *params = @{@"loanID" : self.loanIdentifier, @"count" : @5};
     [[KivaClientO sharedInstance] fetchMySimilarLoansWithParams:params completion:^(NSArray *similarLoans, NSError *error){
         if (error) {
             NSLog(@"loanID: %ld", [self.loanIdentifier integerValue]);
