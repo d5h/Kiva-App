@@ -131,9 +131,7 @@
 
             self.loanAmountLabel.text = [NSString stringWithFormat:@"$%d/%d", [loandetail.fundedAmount intValue], [loandetail.loanAmount intValue]];
             self.percentFundedLabel.text = [NSString stringWithFormat:@"%0.0f%% funded", [loandetail.fundedAmount floatValue]/[loandetail.loanAmount floatValue] * 100];
-            self.progressBar.progress = [loandetail.fundedAmount floatValue]/[loandetail.loanAmount floatValue];
-            
-            
+
             self.repaymentTermLabel.text = [NSString stringWithFormat:@"%d months", [loandetail.repaymentTerm intValue]];
             self.repaymentScheduleLabel.text = loandetail.repaymentSchedule;
             
@@ -161,6 +159,8 @@
             
             [UIView animateWithDuration:0.5 animations:^{
                 self.contentView.alpha = 1.0;
+            } completion:^(BOOL finished) {
+                [self.progressBar setProgress:[loandetail.fundedAmount floatValue]/[loandetail.loanAmount floatValue] animated:YES];
             }];
         }
  }];
