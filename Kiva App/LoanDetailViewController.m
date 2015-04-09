@@ -16,6 +16,7 @@
 #import "Partner.h"
 #import "SVProgressHUD.h"
 #import "WebViewController.h"
+#import <TSMessages/TSMessage.h>
 
 
 @interface LoanDetailViewController ()
@@ -223,6 +224,7 @@
             NSLog(@"loanID: %ld", [self.loanIdentifier integerValue]);
             NSLog(@"LoansDetailViewController error loading Similar loans: %@", error);
             [SVProgressHUD dismiss];
+            [TSMessage showNotificationInViewController:self title:@"Sorry, no similar loans found!" subtitle:nil type:TSMessageNotificationTypeWarning duration:TSMessageNotificationDurationAutomatic canBeDismissedByUser:YES];
         } else {
             LoansViewController *vc = [LoansViewController new];
             vc.title = @"Similar Loans";
