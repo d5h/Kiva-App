@@ -91,8 +91,6 @@ static UIColor *bgColor;
         case 0:
         {
             cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
-//            cell.descriptionLabel.textColor = [UIColor whiteColor];
-//            cell.backgroundColor = [UIColor blueColor];
             cell.cellImageView.hidden = NO;
             cell.cellImageView.alpha = 0.25;
             UIImage *img = [UIImage imageNamed:cell.descriptionLabel.text];
@@ -100,7 +98,6 @@ static UIColor *bgColor;
             for (Partner *partner in self.partners) {
                 for (NSNumber *num in partner.socialPerformanceStrengths) {
                     NSString *str = [self.socialPerformances objectAtIndex:[num integerValue]-1];
-                    NSLog(@"str: %@", str);
                     if ([str isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
                         cell.cellImageView.alpha = 0.65;
                         continue;
@@ -112,18 +109,15 @@ static UIColor *bgColor;
         case 1:
         {
             cell.descriptionLabel.font = [UIFont fontWithName:@"Avenir Next" size:10.0];
-//            cell.backgroundColor = [UIColor orangeColor];
             cell.cellImageView.hidden = NO;
             UIImage *img = [UIImage imageNamed:@"leaf"];
             [cell.cellImageView setImage:[img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
             cell.cellImageView.tintColor = [UIColor lightGrayColor];
-//            [cell.cellImageView setImage:[UIImage imageNamed:@"leaf"]];
             for (Loan *loan in self.loans) {
                 for (NSString *theme in loan.themes) {
                     if ([theme isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
                         cell.cellImageView.alpha = 0.9;
                         cell.cellImageView.tintColor = kivaColor;
-//                        cell.backgroundColor = bgColor;
                         continue;
                     }
                 }
@@ -141,7 +135,6 @@ static UIColor *bgColor;
                 if ([loan.sector isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
                     cell.cellImageView.alpha = 0.9;
                     cell.cellImageView.tintColor = kivaColor;
-//                    cell.backgroundColor = kivaColor2;
                     continue;
                 }
             }
@@ -150,14 +143,12 @@ static UIColor *bgColor;
         case 3:
         {
             cell.descriptionLabel.font = [UIFont fontWithName:@"AvenirNext-Medium" size:12.0];
-//            cell.descriptionLabel.textColor = [UIColor whiteColor];
             cell.cellImageView.hidden = NO;
             cell.cellImageView.alpha = 0.25;
             [cell.cellImageView setImage:[UIImage imageNamed:cell.descriptionLabel.text]];
             for (Loan *loan in self.loans) {
                 if ([loan.countryCode isEqualToString:[self.stats[indexPath.section] objectAtIndex:indexPath.row]]) {
                     cell.cellImageView.alpha = 0.9;
-//                    cell.backgroundColor = kivaColor;
                     continue;
                 }
             }

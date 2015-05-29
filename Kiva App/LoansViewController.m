@@ -170,7 +170,7 @@
     } else {
         float val = [self.allCountryLoans[polygon.title] floatValue];
         float greenVal = maxGreenValue - (a * val + b);
-        renderer.fillColor = [UIColor colorWithRed:255/255. green:greenVal/255. blue:0 alpha:0.4];
+//        renderer.fillColor = [UIColor colorWithRed:255/255. green:greenVal/255. blue:0 alpha:0.4];
     }
 
     return renderer;
@@ -204,6 +204,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
 #pragma mark - Private
 
 - (void)onTap:(UITapGestureRecognizer *)gestureRecognizer {
+#if 0 // remove the purple country pin for outstanding loans till we can get this from API
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
         CGPoint tappedPoint = [gestureRecognizer locationInView:self.mapView];
         UIView *view = [self.mapView hitTest:tappedPoint withEvent:nil];
@@ -233,6 +234,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
             }
         }];
     }
+#endif
 }
 
 - (void)addAnnotations {
