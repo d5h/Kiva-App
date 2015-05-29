@@ -158,7 +158,6 @@ static NSString * const kBaseURL = @"https://api.kivaws.org/v1/";
     NSString *path = [NSString stringWithFormat:@"my/loans/%@/balances.json", [loanIDs componentsJoinedByString:@","]];
     [self GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error;
-        NSLog(@"balances: %@", responseObject);
         NSArray *balances = [MTLJSONAdapter modelsOfClass:[Balance class] fromJSONArray:responseObject[@"balances"] error:&error];
         if (error) {
             NSLog(@"Error deserializing loans: %@", error);

@@ -799,6 +799,7 @@
 			baseConfigurationReference = 8525FEC0978939D1C72D4BDF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iOS Development: David Rajan (7NBS9N235X)";
 				INFOPLIST_FILE = "Kiva App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -810,6 +811,7 @@
 			baseConfigurationReference = A831D9969C6347BB330CEC30 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iOS Development: David Rajan (7NBS9N235X)";
 				INFOPLIST_FILE = "Kiva App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
